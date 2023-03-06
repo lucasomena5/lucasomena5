@@ -2,8 +2,8 @@
 
 - 👨‍💻 I’m currently working in DevOps Engineer / Cloud Architecture at Accenture 
 - 📫 How to reach me: 
-- - 📞 Mobile: +1 (672) 558-5376
-- - 📨 E-mail: lucasomena5@gmail.com
+  - 📞 Mobile: +1 (672) 558-5376
+  - 📨 E-mail: lucasomena5@gmail.com
 
 <div align="center">
   <a href="https://github.com/lucasomena5">
