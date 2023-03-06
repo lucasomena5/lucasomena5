@@ -1,6 +1,6 @@
 ### Hi I'm Lucas "Omena" 👋
 
-- 👨‍💻 I’m currently working in DevOps Engineer / Cloud Architecture at Accenture 
+- 👨‍💻 I’m currently working as Cloud Consultant / Cloud Engineer / SRE / Cloud Automation / DevOps Engineer at Accenture 
 - 📫 How to reach me: 
   - 📞 Mobile: +1 (672) 558-5376
   - 📨 E-mail: lucasomena5@gmail.com
