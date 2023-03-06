@@ -36,5 +36,6 @@
     <a target="_blank"href="https://www.linkedin.com/in/lucas-omena/"><img src="https://img.shields.io/badge/  linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a target="_blank"href="https://twitter.com/lucasomena_"><img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="mailto:lucasomena5@gmail.com?subject=Hello%20Lucas,%20From%20Github"><img src="https://img.shields.io/badge/ gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://wa.me/16725585376"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp; 
   </p>
 </div>
