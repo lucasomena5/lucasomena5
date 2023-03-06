@@ -11,7 +11,7 @@
 </div>
 
 <div style="display: inline_block"><br>
-  <img align="center" alt="Amazon" height="30" width="40" src="https://commons.wikimedia.org/wiki/File:Amazon_Web_Services_Logo.svg">
+  <img align="center" alt="Amazon" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/amazonwebservices/amazonwebservices-original-wordmark.svg">
   <img align="center" alt="GCP" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/googlecloud/googlecloud-original.svg">
   <img align="center" alt="Linux" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/linux/linux-original.svg">
   <img align="center" alt="Red Hat" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/redhat/redhat-original.svg">
@@ -28,13 +28,9 @@
   ##
  
 <div>
-  <a href="https://www.linkedin.com/in/lucas-omena/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
-
   <a href = "mailto:lucasomena5@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-
-  <a href = "https://twitter.com/lucasomena_"><img src="https://img.shields.io/twitter/follow/lucasomena_?style=social" target="_blank"></a>
-  
-
+  <a href="https://www.linkedin.com/in/lucas-omena/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+ 
   ![Snake animation](https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg)
  
 </div>
