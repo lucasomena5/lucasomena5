@@ -11,7 +11,7 @@
 </div>
 
 <div style="display: inline_block"><br>
-  <img align="center" alt="Amazon" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/amazonwebservices/amazonwebservices-original-wordmark.svg">
+  <img align="center" alt="Amazon" height="30" width="40" src="https://commons.wikimedia.org/wiki/File:Amazon_Web_Services_Logo.svg">
   <img align="center" alt="GCP" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/googlecloud/googlecloud-original.svg">
   <img align="center" alt="Linux" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/linux/linux-original.svg">
   <img align="center" alt="Red Hat" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/redhat/redhat-original.svg">
