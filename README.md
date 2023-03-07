@@ -49,7 +49,7 @@
  
 <div>
  
-  ![Snake animation](https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg)
+  <!--![Snake animation](https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg)-->
  
   <p align="center">
     <a target="_blank"href="https://www.linkedin.com/in/lucas-omena/"><img src="https://img.shields.io/badge/  linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
