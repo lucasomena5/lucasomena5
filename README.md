@@ -6,9 +6,14 @@
   - 📨 E-mail: lucasomena5@gmail.com
 
 <div align="center">
+  <br /><br>
+  <br /><br>
+  <br /><br>
   <a href="https://github.com/lucasomena5">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=lucasomena5&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lucasomena5&layout=compact&langs_count=7&theme=algolia"/>
+  <br /><br>
+  <br /><br>
 </div>
 <!--
 <div style="display: inline_block" align="center"><br>
@@ -45,13 +50,14 @@
   <img align="center" alt="microsoft-certified-azure-ai-fundamentals" width="6%" src="./badges/microsoft-certified-azure-ai-fundamentals.png">
   <img align="center" alt="microsoft-certified-security-compliance-and-identity-fundamentals" width="6%" src="./badges/microsoft-certified-security-compliance-and-identity-fundamentals.png">
   <img align="center" alt="microsoft-certified-azure-security-engineer-associate" width="6%" src="./badges/microsoft-certified-azure-security-engineer-associate.png">
-
-
-  
 </div>
  
 <div>
- 
+  <br /><br>
+  <br /><br>
+  <br /><br>
+  <br /><br>
+  <br /><br>
   <!--![Snake animation](https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg)-->
  
   <p align="center">
