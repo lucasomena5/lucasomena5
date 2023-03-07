@@ -1,11 +1,11 @@
-name: Generate Datas
+name: job-update-data
 on:
   schedule: # execute every 12 hours
     - cron: "* */12 * * *"
   workflow_dispatch:
 jobs:
   build:
-    name: Jobs to update datas
+    name: job-update-data
     permissions:
       actions: write
       checks: write
