@@ -10,7 +10,7 @@
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=lucasomena5&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lucasomena5&layout=compact&langs_count=7&theme=algolia"/>
 </div>
-
+<!--
 <div style="display: inline_block" align="center"><br>
   <img align="center" alt="Amazon" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/amazonwebservices/amazonwebservices-original-wordmark.svg">
   <img align="center" alt="GCP" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/googlecloud/googlecloud-original.svg">
@@ -25,7 +25,8 @@
   <img align="center" alt="ArgoCD" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/argocd/argocd-original.svg">  
   <img align="center" alt="Python" height="30" width="40" src="https://github.com/devicons/devicon/blob/v2.15.1/icons/python/python-original.svg">  
 </div>
-  
+-->
+
 <div style="display: inline_block">
   <img align="center" alt="aws-certified-cloud-practitioner" width="6%" src="./badges/aws-certified-cloud-practitioner.png">
   <img align="center" alt="aws-certified-solutions-architect-associate" width="6%" src="./badges/aws-certified-solutions-architect-associate.png">
