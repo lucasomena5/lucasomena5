@@ -45,6 +45,9 @@
   <img align="center" alt="microsoft-certified-azure-ai-fundamentals" width="6%" src="./badges/microsoft-certified-azure-ai-fundamentals.png">
   <img align="center" alt="microsoft-certified-security-compliance-and-identity-fundamentals" width="6%" src="./badges/microsoft-certified-security-compliance-and-identity-fundamentals.png">
   <img align="center" alt="microsoft-certified-azure-security-engineer-associate" width="6%" src="./badges/microsoft-certified-azure-security-engineer-associate.png">
+
+
+  
 </div>
  
 <div>
