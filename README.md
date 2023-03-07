@@ -56,5 +56,6 @@
     <a target="_blank"href="https://twitter.com/lucasomena_"><img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="mailto:lucasomena5@gmail.com?subject=Hello%20Lucas,%20From%20Github"><img src="https://img.shields.io/badge/ gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="https://wa.me/16725585376"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a href="https://t.me/lucasomena5"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp; 
   </p>
 </div>
