@@ -35,6 +35,7 @@
   <img align="center" alt="aws-certified-developer-associate" width="12%" src="./badges/aws-certified-developer-associate.png">
   <img align="center" alt="aws-certified-devops-engineer-professional" width="12%" src="./badges/aws-certified-devops-engineer-professional.png">
   <img align="center" alt="aws-certified-solutions-architect-professional" width="12%" src="./badges/aws-certified-solutions-architect-professional.png">
+  <img align="center" alt="aws-certified-security-specialty" width="12%" src="./badges/aws-certified-security-specialty.png">
   <br /><br>
   <img align="center" alt="microsoft-certified-azure-fundamentals" width="12%" src="./badges/microsoft-certified-azure-fundamentals.png">
   <img align="center" alt="microsoft-certified-azure-administrator-associate.2" width="12%" src="./badges/microsoft-certified-azure-administrator-associate.2.png">
