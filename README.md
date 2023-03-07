@@ -30,10 +30,10 @@
 <div style="display: inline_block">
   <img align="center" alt="aws-certified-cloud-practitioner" width="6%" src="./badges/aws-certified-cloud-practitioner.png">
   <img align="center" alt="aws-certified-solutions-architect-associate" width="6%" src="./badges/aws-certified-solutions-architect-associate.png">
-  <img align="center" alt="aws-certified-solutions-architect-professional" width="6%" src="./badges/aws-certified-solutions-architect-professional.png">
   <img align="center" alt="aws-certified-sysops-administrator-associate" width="6%" src="./badges/aws-certified-sysops-administrator-associate.png">
   <img align="center" alt="aws-certified-developer-associate" width="6%" src="./badges/aws-certified-developer-associate.png">
   <img align="center" alt="aws-certified-devops-engineer-professional" width="6%" src="./badges/aws-certified-devops-engineer-professional.png">
+  <img align="center" alt="aws-certified-solutions-architect-professional" width="6%" src="./badges/aws-certified-solutions-architect-professional.png">
   <img align="center" alt="kcna-kubernetes-and-cloud-native-associate" width="6%" src="./badges/kcna-kubernetes-and-cloud-native-associate.png">
   <img align="center" alt="cka-certified-kubernetes-administrator" width="6%" src="./badges/cka-certified-kubernetes-administrator.png">
   <img align="center" alt="ckad-certified-kubernetes-application-developer" width="6%" src="./badges/ckad-certified-kubernetes-application-developer.png">
