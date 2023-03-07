@@ -29,27 +29,27 @@
 
 <div style="display: inline_block" align="center">
   <br /><br>
-  <img align="center" alt="aws-certified-cloud-practitioner" width="6%" src="./badges/aws-certified-cloud-practitioner.png">
-  <img align="center" alt="aws-certified-solutions-architect-associate" width="6%" src="./badges/aws-certified-solutions-architect-associate.png">
-  <img align="center" alt="aws-certified-sysops-administrator-associate" width="6%" src="./badges/aws-certified-sysops-administrator-associate.png">
-  <img align="center" alt="aws-certified-developer-associate" width="6%" src="./badges/aws-certified-developer-associate.png">
-  <img align="center" alt="aws-certified-devops-engineer-professional" width="6%" src="./badges/aws-certified-devops-engineer-professional.png">
-  <img align="center" alt="aws-certified-solutions-architect-professional" width="6%" src="./badges/aws-certified-solutions-architect-professional.png">
+  <img align="center" alt="aws-certified-cloud-practitioner" width="10%" src="./badges/aws-certified-cloud-practitioner.png">
+  <img align="center" alt="aws-certified-solutions-architect-associate" width="10%" src="./badges/aws-certified-solutions-architect-associate.png">
+  <img align="center" alt="aws-certified-sysops-administrator-associate" width="10%" src="./badges/aws-certified-sysops-administrator-associate.png">
+  <img align="center" alt="aws-certified-developer-associate" width="10%" src="./badges/aws-certified-developer-associate.png">
+  <img align="center" alt="aws-certified-devops-engineer-professional" width="10%" src="./badges/aws-certified-devops-engineer-professional.png">
+  <img align="center" alt="aws-certified-solutions-architect-professional" width="10%" src="./badges/aws-certified-solutions-architect-professional.png">
   <br /><br>
-  <img align="center" alt="microsoft-certified-azure-fundamentals" width="6%" src="./badges/microsoft-certified-azure-fundamentals.png">
-  <img align="center" alt="microsoft-certified-azure-administrator-associate.2" width="6%" src="./badges/microsoft-certified-azure-administrator-associate.2.png">
-  <img align="center" alt="microsoft-certified-azure-data-fundamentals" width="6%" src="./badges/microsoft-certified-azure-data-fundamentals.png">
-  <img align="center" alt="microsoft-certified-azure-ai-fundamentals" width="6%" src="./badges/microsoft-certified-azure-ai-fundamentals.png">
-  <img align="center" alt="microsoft-certified-security-compliance-and-identity-fundamentals" width="6%" src="./badges/microsoft-certified-security-compliance-and-identity-fundamentals.png">
-  <img align="center" alt="microsoft-certified-azure-security-engineer-associate" width="6%" src="./badges/microsoft-certified-azure-security-engineer-associate.png">
+  <img align="center" alt="microsoft-certified-azure-fundamentals" width="10%" src="./badges/microsoft-certified-azure-fundamentals.png">
+  <img align="center" alt="microsoft-certified-azure-administrator-associate.2" width="10%" src="./badges/microsoft-certified-azure-administrator-associate.2.png">
+  <img align="center" alt="microsoft-certified-azure-data-fundamentals" width="10%" src="./badges/microsoft-certified-azure-data-fundamentals.png">
+  <img align="center" alt="microsoft-certified-azure-ai-fundamentals" width="10%" src="./badges/microsoft-certified-azure-ai-fundamentals.png">
+  <img align="center" alt="microsoft-certified-security-compliance-and-identity-fundamentals" width="10%" src="./badges/microsoft-certified-security-compliance-and-identity-fundamentals.png">
+  <img align="center" alt="microsoft-certified-azure-security-engineer-associate" width="10%" src="./badges/microsoft-certified-azure-security-engineer-associate.png">
   <br /><br>
-  <img align="center" alt="kcna-kubernetes-and-cloud-native-associate" width="6%" src="./badges/kcna-kubernetes-and-cloud-native-associate.png">
-  <img align="center" alt="cka-certified-kubernetes-administrator" width="6%" src="./badges/cka-certified-kubernetes-administrator.png">
-  <img align="center" alt="ckad-certified-kubernetes-application-developer" width="6%" src="./badges/ckad-certified-kubernetes-application-developer.png">
+  <img align="center" alt="kcna-kubernetes-and-cloud-native-associate" width="10%" src="./badges/kcna-kubernetes-and-cloud-native-associate.png">
+  <img align="center" alt="cka-certified-kubernetes-administrator" width="10%" src="./badges/cka-certified-kubernetes-administrator.png">
+  <img align="center" alt="ckad-certified-kubernetes-application-developer" width="10%" src="./badges/ckad-certified-kubernetes-application-developer.png">
   <br /><br>
-  <img align="center" alt="hashicorp-certified-terraform-associate-002" width="6%" src="./badges/hashicorp-certified-terraform-associate-002.png">
+  <img align="center" alt="hashicorp-certified-terraform-associate-002" width="10%" src="./badges/hashicorp-certified-terraform-associate-002.png">
   <br /><br>
-  <img align="center" alt="oracle-cloud-infrastructure-foundations-2020-certified-associate" width="6%" src="./badges/oracle-cloud-infrastructure-foundations-2020-certified-associate.png">
+  <img align="center" alt="oracle-cloud-infrastructure-foundations-2020-certified-associate" width="10%" src="./badges/oracle-cloud-infrastructure-foundations-2020-certified-associate.png">
 </div>
  
 <div>
