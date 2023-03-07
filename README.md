@@ -27,7 +27,7 @@
 </div>
 -->
 
-<div style="display: inline_block">
+<div style="display: inline_block" align="center">
   <img align="center" alt="aws-certified-cloud-practitioner" width="6%" src="./badges/aws-certified-cloud-practitioner.png">
   <img align="center" alt="aws-certified-solutions-architect-associate" width="6%" src="./badges/aws-certified-solutions-architect-associate.png">
   <img align="center" alt="aws-certified-sysops-administrator-associate" width="6%" src="./badges/aws-certified-sysops-administrator-associate.png">
