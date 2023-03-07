@@ -6,14 +6,12 @@
   - 📨 E-mail: lucasomena5@gmail.com
 
 <div align="center">
-  <br /><br>
-  <br /><br>
-  <br /><br>
+  <p></p>
   <a href="https://github.com/lucasomena5">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=lucasomena5&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lucasomena5&layout=compact&langs_count=7&theme=algolia"/>
-  <br /><br>
-  <br /><br>
+  <p></p>
+  <p></p>
 </div>
 <!--
 <div style="display: inline_block" align="center"><br>
@@ -39,11 +37,15 @@
   <img align="center" alt="aws-certified-developer-associate" width="6%" src="./badges/aws-certified-developer-associate.png">
   <img align="center" alt="aws-certified-devops-engineer-professional" width="6%" src="./badges/aws-certified-devops-engineer-professional.png">
   <img align="center" alt="aws-certified-solutions-architect-professional" width="6%" src="./badges/aws-certified-solutions-architect-professional.png">
+  <br /><br>
   <img align="center" alt="kcna-kubernetes-and-cloud-native-associate" width="6%" src="./badges/kcna-kubernetes-and-cloud-native-associate.png">
   <img align="center" alt="cka-certified-kubernetes-administrator" width="6%" src="./badges/cka-certified-kubernetes-administrator.png">
   <img align="center" alt="ckad-certified-kubernetes-application-developer" width="6%" src="./badges/ckad-certified-kubernetes-application-developer.png">
+  <br /><br>
   <img align="center" alt="hashicorp-certified-terraform-associate-002" width="6%" src="./badges/hashicorp-certified-terraform-associate-002.png">
+  <br /><br>
   <img align="center" alt="oracle-cloud-infrastructure-foundations-2020-certified-associate" width="6%" src="./badges/oracle-cloud-infrastructure-foundations-2020-certified-associate.png">
+  <br /><br>
   <img align="center" alt="microsoft-certified-azure-fundamentals" width="6%" src="./badges/microsoft-certified-azure-fundamentals.png">
   <img align="center" alt="microsoft-certified-azure-administrator-associate.2" width="6%" src="./badges/microsoft-certified-azure-administrator-associate.2.png">
   <img align="center" alt="microsoft-certified-azure-data-fundamentals" width="6%" src="./badges/microsoft-certified-azure-data-fundamentals.png">
