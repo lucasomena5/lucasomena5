@@ -1,4 +1,12 @@
 ---
+- name: Install pre-requisites
+  apt: 
+    name: '{{item}}'
+    state: present
+  with_items:
+  - curl
+  - apt-transport-https
+
 - name: Add the Kubernetes APT key
   apt_key: 
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg 
@@ -56,3 +64,24 @@
     replace: '# \1'
   when:
     - inventory_hostname in groups['kubernetes']
+
+- name: Iptables See Bridged Traffic
+  shell: |
+    sysctl net.bridge.bridge-nf-call-iptables=1 
+  when:
+    - inventory_hostname in groups['kubernetes']
+
+- name: Generate /etc/hosts file
+  template:
+    src: daemon.j2
+    dest: /etc/docker/daemon.json
+
+- name: Reload service daemon
+  systemd:
+    name: daemon-reload
+    state: reloaded
+
+- name: Restart docker service
+  service:
+    name: docker
+    state: restarted
