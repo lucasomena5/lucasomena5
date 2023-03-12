@@ -19,9 +19,9 @@ pipeline {
             steps {
                 script {
 
-                    sh "eval '$(ssh-agent -s)'"
-                    sh "ssh-add /root/.ssh/github-ssh-key"
-                    
+                    eval '$(ssh-agent -s)'
+                    ssh-add /root/.ssh/github-ssh-key
+
                     git branch: "release/ansible",
                         credentialsId: "jenkins",
                         url: "git@github.com:lucasomena5/lucasomena5.git"             
