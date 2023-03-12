@@ -15,10 +15,10 @@
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg 
     state: present
 
-- name: Add the Kubernetes source to the APT source list
-  apt_repository: 
-    repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main' 
-    state: present
+# - name: Add the Kubernetes source to the APT source list
+#   apt_repository: 
+#     repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main' 
+#     state: present
 
 - name: Install Docker
   apt: 
