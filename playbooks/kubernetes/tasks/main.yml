@@ -1,115 +1,119 @@
-# ---
-# - name: Apt Update 
-#   shell: "apt-get update -y"
+---
+- name: Apt Update 
+  shell: "apt-get update -y"
 
-# - name: Install pre-requisites
-#   apt: 
-#     name: '{{item}}'
-#     state: present
-#   with_items:
-#   - curl
-#   - apt-transport-https
+- name: Install pre-requisites
+  apt: 
+    name: '{{item}}'
+    state: present
+  with_items:
+  - curl
+  - apt-transport-https
 
-# - name: Add the Kubernetes APT key
-#   apt_key: 
-#     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg 
-#     state: present
+- name: Add the Kubernetes APT key
+  apt_key: 
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg 
+    state: present
 
-# # - name: Add the Kubernetes source to the APT source list
-# #   apt_repository: 
-# #     repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main' 
-# #     state: present
-
-# - name: Install Docker
-#   apt: 
-#     name: docker.io
+# - name: Add the Kubernetes source to the APT source list
+#   apt_repository: 
+#     repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main' 
 #     state: present
 
-# - name: Enable service docker state
-#   service:
-#     name: docker
-#     enabled: true
+- name: Add the Kubernetes source to the APT source list
+  shell: |
+    echo 'deb https://apt.kubernetes.io/ kubernetes-xenial main' >> /etc/apt/sources.list.d/kubernetes.list
 
-# - name: Start docker service
-#   service:
-#     name: docker
-#     state: started
+- name: Install Docker
+  apt: 
+    name: docker.io
+    state: present
 
-# - name: Install Kubernetes
-#   apt: 
-#     name: '{{item}}'
-#     state: present
-#   with_items:
-#   - kubelet
-#   - kubeadm
-#   - kubectl
-#   - kubernetes-cni
+- name: Enable service docker state
+  service:
+    name: docker
+    enabled: true
 
-# - name: Prevent kubectl, kubeadm, and kubelet from being upgraded
-#   dpkg_selections:
-#     name: '{{item}}'
-#     selection: hold
-#   with_items:
-#   - kubelet
-#   - kubeadm
-#   - kubectl
+- name: Start docker service
+  service:
+    name: docker
+    state: started
 
-# - name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
-#   shell: |
-#     swapoff -a 
-#   when:
-#     - inventory_hostname in groups['kubernetes']
+- name: Install Kubernetes
+  apt: 
+    name: '{{item}}'
+    state: present
+  with_items:
+  - kubelet
+  - kubeadm
+  - kubectl
+  - kubernetes-cni
 
-# - name: Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)
-#   replace:
-#     path: /etc/fstab
-#     regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
-#     replace: '# \1'
-#   when:
-#     - inventory_hostname in groups['kubernetes']
+- name: Prevent kubectl, kubeadm, and kubelet from being upgraded
+  dpkg_selections:
+    name: '{{item}}'
+    selection: hold
+  with_items:
+  - kubelet
+  - kubeadm
+  - kubectl
 
-# - name: Iptables See Bridged Traffic
-#   shell: |
-#     sysctl net.bridge.bridge-nf-call-iptables=1 
-#   when:
-#     - inventory_hostname in groups['kubernetes']
+- name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
+  shell: |
+    swapoff -a 
+  when:
+    - inventory_hostname in groups['kubernetes']
 
-# - name: Generate /etc/docker/daemon.json file
-#   template:
-#     src: daemon.j2
-#     dest: /etc/docker/daemon.json
+- name: Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)
+  replace:
+    path: /etc/fstab
+    regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+    replace: '# \1'
+  when:
+    - inventory_hostname in groups['kubernetes']
 
-# - name: Reload service daemon
-#   shell: "systemctl daemon-reload"
+- name: Iptables See Bridged Traffic
+  shell: |
+    sysctl net.bridge.bridge-nf-call-iptables=1 
+  when:
+    - inventory_hostname in groups['kubernetes']
 
-# - name: Restart docker service
-#   service:
-#     name: docker
-#     state: restarted
+- name: Generate /etc/docker/daemon.json file
+  template:
+    src: daemon.j2
+    dest: /etc/docker/daemon.json
 
-# - name: Generate /etc/modules-load.d/containerd.conf file
-#   template:
-#     src: containerd.conf.j2
-#     dest: /etc/modules-load.d/containerd.conf
+- name: Reload service daemon
+  shell: "systemctl daemon-reload"
 
-# - name: modprobe command
-#   shell: "modprobe overlay"
+- name: Restart docker service
+  service:
+    name: docker
+    state: restarted
 
-# - name: Generate /etc/sysctl.d/kubernetes.conf file
-#   template:
-#     src: kubernetes.conf.j2
-#     dest: /etc/sysctl.d/kubernetes.conf
+- name: Generate /etc/modules-load.d/containerd.conf file
+  template:
+    src: containerd.conf.j2
+    dest: /etc/modules-load.d/containerd.conf
 
-# - name: sysctl reload 
-#   shell: "sysctl --system"
+- name: modprobe command
+  shell: "modprobe overlay"
 
-# - name: Adding KUBELET_ARGS
-#   shell: "echo 'KUBELET_EXTRA_ARGS=\"--cgroup-driver=cgroupfs\"' >> /etc/default/kubelet"
+- name: Generate /etc/sysctl.d/kubernetes.conf file
+  template:
+    src: kubernetes.conf.j2
+    dest: /etc/sysctl.d/kubernetes.conf
 
-# - name: Reload service daemon
-#   shell: "systemctl daemon-reload"
+- name: sysctl reload 
+  shell: "sysctl --system"
 
-# - name: Restart kubelet service
-#   service:
-#     name: kubelet
-#     state: restarted
+- name: Adding KUBELET_ARGS
+  shell: "echo 'KUBELET_EXTRA_ARGS=\"--cgroup-driver=cgroupfs\"' >> /etc/default/kubelet"
+
+- name: Reload service daemon
+  shell: "systemctl daemon-reload"
+
+- name: Restart kubelet service
+  service:
+    name: kubelet
+    state: restarted
