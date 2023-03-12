@@ -20,7 +20,7 @@ pipeline {
                 script {
 
                     git branch: "release/ansible",
-                        credentialsId: "jenkins",
+                        credentialsId: "github-ssh-key",
                         url: "git@github.com:lucasomena5/lucasomena5.git"             
                 }
             }
