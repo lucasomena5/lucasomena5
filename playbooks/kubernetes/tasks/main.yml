@@ -94,7 +94,7 @@
 - name: modprobe command
   shell: "modprobe overlay"
 
- - name: Generate /etc/sysctl.d/kubernetes.conf file
+- name: Generate /etc/sysctl.d/kubernetes.conf file
   template:
     src: kubernetes.conf.j2
     dest: /etc/sysctl.d/kubernetes.conf
@@ -110,7 +110,7 @@
     name: daemon-reload
     state: reloaded
 
-- name: Restart docker service
+- name: Restart kubelet service
   service:
     name: kubelet
     state: restarted
