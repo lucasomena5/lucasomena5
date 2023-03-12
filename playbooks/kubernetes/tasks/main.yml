@@ -18,3 +18,12 @@
   - kubeadm
   - kubectl
   - kubernetes-cni
+
+- name: Prevent kubectl, kubeadm, and kubelet from being upgraded
+  dpkg_selections:
+    name: '{{item}}'
+    selection: hold
+  with_items:
+  - kubelet
+  - kubeadm
+  - kubectl
