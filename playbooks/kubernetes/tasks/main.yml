@@ -1,78 +1,78 @@
----
-- name: Apt Update 
-  shell: "apt-get update -y"
+# ---
+# - name: Apt Update 
+#   shell: "apt-get update -y"
 
-- name: Install pre-requisites
-  apt: 
-    name: '{{item}}'
-    state: present
-  with_items:
-  - curl
-  - apt-transport-https
+# - name: Install pre-requisites
+#   apt: 
+#     name: '{{item}}'
+#     state: present
+#   with_items:
+#   - curl
+#   - apt-transport-https
 
-- name: Add the Kubernetes APT key
-  apt_key: 
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg 
-    state: present
-
-# - name: Add the Kubernetes source to the APT source list
-#   apt_repository: 
-#     repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main' 
+# - name: Add the Kubernetes APT key
+#   apt_key: 
+#     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg 
 #     state: present
 
-- name: Install Docker
-  apt: 
-    name: docker.io
-    state: present
+# # - name: Add the Kubernetes source to the APT source list
+# #   apt_repository: 
+# #     repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main' 
+# #     state: present
 
-- name: Enable service docker state
-  service:
-    name: docker
-    enabled: true
+# - name: Install Docker
+#   apt: 
+#     name: docker.io
+#     state: present
 
-- name: Start docker service
-  service:
-    name: docker
-    state: started
+# - name: Enable service docker state
+#   service:
+#     name: docker
+#     enabled: true
 
-- name: Install Kubernetes
-  apt: 
-    name: '{{item}}'
-    state: present
-  with_items:
-  - kubelet
-  - kubeadm
-  - kubectl
-  - kubernetes-cni
+# - name: Start docker service
+#   service:
+#     name: docker
+#     state: started
 
-- name: Prevent kubectl, kubeadm, and kubelet from being upgraded
-  dpkg_selections:
-    name: '{{item}}'
-    selection: hold
-  with_items:
-  - kubelet
-  - kubeadm
-  - kubectl
+# - name: Install Kubernetes
+#   apt: 
+#     name: '{{item}}'
+#     state: present
+#   with_items:
+#   - kubelet
+#   - kubeadm
+#   - kubectl
+#   - kubernetes-cni
 
-- name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
-  shell: |
-    swapoff -a 
-  when:
-    - inventory_hostname in groups['kubernetes']
+# - name: Prevent kubectl, kubeadm, and kubelet from being upgraded
+#   dpkg_selections:
+#     name: '{{item}}'
+#     selection: hold
+#   with_items:
+#   - kubelet
+#   - kubeadm
+#   - kubectl
 
-- name: Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)
-  replace:
-    path: /etc/fstab
-    regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
-    replace: '# \1'
-  when:
-    - inventory_hostname in groups['kubernetes']
+# - name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
+#   shell: |
+#     swapoff -a 
+#   when:
+#     - inventory_hostname in groups['kubernetes']
 
-- name: Iptables See Bridged Traffic
-  shell: |
-    sysctl net.bridge.bridge-nf-call-iptables=1 
-  when:
-    - inventory_hostname in groups['kubernetes']
+# - name: Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)
+#   replace:
+#     path: /etc/fstab
+#     regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+#     replace: '# \1'
+#   when:
+#     - inventory_hostname in groups['kubernetes']
+
+# - name: Iptables See Bridged Traffic
+#   shell: |
+#     sysctl net.bridge.bridge-nf-call-iptables=1 
+#   when:
+#     - inventory_hostname in groups['kubernetes']
 
 - name: Generate /etc/hosts file
   template:
