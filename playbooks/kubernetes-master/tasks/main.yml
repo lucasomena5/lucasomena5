@@ -1,0 +1,25 @@
+---
+- name: Set up kubeadm
+  shell: kubeadm init --pod-network-cidr=10.200.0.0/16 
+
+- name: Create directories kube
+  file: path=/root/.kube 
+    state: directory 
+    owner: root 
+    group: root
+
+- name: Configure kube
+  copy: 
+    src: /etc/kubernetes/admin.conf 
+    dest: /root/.kube/config 
+    remote_src: yes 
+    owner: root 
+    group: root
+
+- name: Copy weave kube
+  template: 
+    src: calico.yml.j2 
+    dest: /tmp/calico.yml
+
+- name: Configure kube
+  shell: kubectl apply -f /tmp/calico.yml
