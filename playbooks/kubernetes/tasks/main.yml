@@ -42,3 +42,17 @@
   - kubelet
   - kubeadm
   - kubectl
+
+- name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
+  shell: |
+    swapoff -a 
+  when:
+    - inventory_hostname in groups['kubernetes']
+
+- name: Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)
+  replace:
+    path: /etc/fstab
+    regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+    replace: '# \1'
+  when:
+    - inventory_hostname in groups['kubernetes']
