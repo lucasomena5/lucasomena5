@@ -40,9 +40,7 @@ pipeline {
     stages {
 
         // PIPELINE ACTION
-        stage('Kubernetes Installation') {
-            when {}
-            
+        stage('Kubernetes Installation') {            
             steps{
                 script {
 
@@ -58,33 +56,4 @@ pipeline {
             }
         }
 
-        // PIPELINE ACTION - NONE
-        stage('NONE') {
-            when {
-                expression {
-                    params.ACTION == 'NONE' || params.SITE == 'NONE'
-                }
-            }
-
-            steps {
-                sh "echo 'SITE SELECTED: ${params.SITE}'"
-                sh "echo 'ACTION SELECTED: ${params.ACTION}'"
-                sh "echo 'Do nothing when selecting ${params.SITE} or ${params.ACTION}'"
-            }
-        }
-    } // STAGES ENDS
-    
-
-    post {
-        success {
-            echo "STAGE ${params.ACTION} SUCCESSFULLY"
-        }
-        failure {
-            echo "STAGE ${params.ACTION} FAIL"
-        }
-        changed {
-            echo "PIPELINE HAS CHANGED"
-        }
-    } // POST END
-
-} // THE END
+}
