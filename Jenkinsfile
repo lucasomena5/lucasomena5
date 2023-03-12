@@ -15,6 +15,17 @@ pipeline {
     // PIPELINE ACTION
     stages {
 
+        stage('Checkout') {
+            steps {
+                script {
+                    git branch: "release/ansible",
+                        credentialsId: "jenkins",
+                        url: "git@github.com:lucasomena5/lucasomena5.git"             
+                }
+            }
+
+        }
+
         // PIPELINE ACTION
         stage('Kubernetes Installation') {            
             steps{
