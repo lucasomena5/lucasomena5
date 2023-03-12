@@ -36,7 +36,7 @@ pipeline {
                             playbook: "./playbooks/KubernetesClusterInstallation.yml",
                             inventory: "${KUBERNETES_INVENTORY}",
                             colorized: true,
-                            extras: "-b",   
+                            extras: "-b -vvvv",   
                     )
                     
                     
