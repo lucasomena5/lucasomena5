@@ -17,7 +17,7 @@
     owner: root 
     group: root
 
-- name: Configure kube
+- name: Install Calico Drivers
   shell: |
     kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
 
