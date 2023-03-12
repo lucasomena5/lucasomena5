@@ -74,42 +74,42 @@
 #   when:
 #     - inventory_hostname in groups['kubernetes']
 
-- name: Generate /etc/hosts file
-  template:
-    src: daemon.j2
-    dest: /etc/docker/daemon.json
+# - name: Generate /etc/docker/daemon.json file
+#   template:
+#     src: daemon.j2
+#     dest: /etc/docker/daemon.json
 
-- name: Reload service daemon
-  shell: "systemctl daemon-reload"
+# - name: Reload service daemon
+#   shell: "systemctl daemon-reload"
 
-- name: Restart docker service
-  service:
-    name: docker
-    state: restarted
+# - name: Restart docker service
+#   service:
+#     name: docker
+#     state: restarted
 
-- name: Generate /etc/modules-load.d/containerd.conf file
-  template:
-    src: containerd.conf.j2
-    dest: /etc/modules-load.d/containerd.conf
+# - name: Generate /etc/modules-load.d/containerd.conf file
+#   template:
+#     src: containerd.conf.j2
+#     dest: /etc/modules-load.d/containerd.conf
 
-- name: modprobe command
-  shell: "modprobe overlay"
+# - name: modprobe command
+#   shell: "modprobe overlay"
 
-- name: Generate /etc/sysctl.d/kubernetes.conf file
-  template:
-    src: kubernetes.conf.j2
-    dest: /etc/sysctl.d/kubernetes.conf
+# - name: Generate /etc/sysctl.d/kubernetes.conf file
+#   template:
+#     src: kubernetes.conf.j2
+#     dest: /etc/sysctl.d/kubernetes.conf
 
-- name: sysctl reload 
-  shell: "sysctl --system"
+# - name: sysctl reload 
+#   shell: "sysctl --system"
 
-- name: Adding KUBELET_ARGS
-  shell: "echo 'KUBELET_EXTRA_ARGS=\"--cgroup-driver=cgroupfs\"' >> /etc/default/kubelet"
+# - name: Adding KUBELET_ARGS
+#   shell: "echo 'KUBELET_EXTRA_ARGS=\"--cgroup-driver=cgroupfs\"' >> /etc/default/kubelet"
 
-- name: Reload service daemon
-  shell: "systemctl daemon-reload"
+# - name: Reload service daemon
+#   shell: "systemctl daemon-reload"
 
-- name: Restart kubelet service
-  service:
-    name: kubelet
-    state: restarted
+# - name: Restart kubelet service
+#   service:
+#     name: kubelet
+#     state: restarted
