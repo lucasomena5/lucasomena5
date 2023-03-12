@@ -17,7 +17,7 @@
 
 - name: Add the Kubernetes source to the APT source list
   apt_repository: 
-    repo: 'deb http://apt.kubernetes.io/ kubernetes-xenian main' 
+    repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main' 
     state: present
 
 - name: Install Docker
