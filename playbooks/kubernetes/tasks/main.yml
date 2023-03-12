@@ -10,20 +10,6 @@
   - curl
   - apt-transport-https
 
-- name: Add the Kubernetes APT key
-  apt_key: 
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg 
-    state: present
-
-# - name: Add the Kubernetes source to the APT source list
-#   apt_repository: 
-#     repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main' 
-#     state: present
-
-- name: Add the Kubernetes source to the APT source list
-  shell: |
-    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/kubernetes.gpg] http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main" | sudo tee -a /etc/apt/sources.list
-
 - name: Install Docker
   apt: 
     name: docker.io
