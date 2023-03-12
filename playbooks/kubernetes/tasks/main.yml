@@ -1,4 +1,7 @@
 ---
+- name: Apt Update 
+  shell: "apt-get update -y"
+
 - name: Install pre-requisites
   apt: 
     name: '{{item}}'
@@ -12,7 +15,7 @@
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg 
     state: present
 
-- name: Add the Kubernete source to the APT source list
+- name: Add the Kubernetes source to the APT source list
   apt_repository: 
     repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main' 
     state: present
