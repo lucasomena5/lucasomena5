@@ -3,6 +3,10 @@ k8s-master-1 ansible_ssh_host=192.168.1.31 hostname=k8s-master-1
 k8s-node-1 ansible_ssh_host=192.168.1.32 hostname=k8s-node-1
 k8s-node-2 ansible_ssh_host=192.168.1.33 hostname=k8s-node-2
 
+[kubernetes:vars]
+ansible_user=root
+ansible_ssh_private_key_file=/root/.ssh/vmware-ssh-key
+
 [jenkins-master]
 jenkins-1 ansible_ssh_host=192.168.1.21 hostname=jenkins-1
 
