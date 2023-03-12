@@ -3,7 +3,8 @@
   shell: kubeadm init --pod-network-cidr=10.200.0.0/16 --service-cidr=10.100.0.0/16 --service-dns-domain="kubernetes.lab"
 
 - name: Create directories kube
-  file: path=/root/.kube 
+  file: 
+    path: /root/.kube 
     state: directory 
     owner: root 
     group: root
