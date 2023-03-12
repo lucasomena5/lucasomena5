@@ -1,6 +1,6 @@
 ---
 - name: Set up kubeadm
-  shell: kubeadm init --pod-network-cidr=10.200.0.0/16 --service-cidr=10.100.0.0/16 --service-dns-domain="kubernetes.lab" --ignore-preflight-errors=Mem --ignore-preflight-errors=NumCPU
+  shell: kubeadm init --pod-network-cidr=10.201.0.0/16 --service-cidr=10.100.0.0/16 --service-dns-domain="kubernetes.lab" --ignore-preflight-errors=Mem --ignore-preflight-errors=NumCPU
 
 - name: Create directories kube
   file: 
@@ -17,13 +17,9 @@
     owner: root 
     group: root
 
-- name: Copy weave kube
-  template: 
-    src: calico.yml.j2 
-    dest: /tmp/calico.yml
-
 - name: Configure kube
-  shell: kubectl apply -f /tmp/calico.yml
+  shell: |
+    kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
 
 # - name: Generate /etc/hosts file
 #   template:
