@@ -85,3 +85,32 @@
   service:
     name: docker
     state: restarted
+
+- name: Generate /etc/modules-load.d/containerd.conf file
+  template:
+    src: containerd.conf.j2
+    dest: /etc/modules-load.d/containerd.conf
+
+- name: modprobe command
+  shell: "modprobe overlay"
+
+ - name: Generate /etc/sysctl.d/kubernetes.conf file
+  template:
+    src: kubernetes.conf.j2
+    dest: /etc/sysctl.d/kubernetes.conf
+
+- name: sysctl reload 
+  shell: "sysctl --system"
+
+- name: Adding KUBELET_ARGS
+  shell: "echo 'KUBELET_EXTRA_ARGS=\"--cgroup-driver=cgroupfs\"' >> /etc/default/kubelet"
+
+- name: Reload service daemon
+  systemd:
+    name: daemon-reload
+    state: reloaded
+
+- name: Restart docker service
+  service:
+    name: kubelet
+    state: restarted
