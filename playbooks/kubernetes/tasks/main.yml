@@ -1,7 +1,4 @@
 ---
-- name: Apt Update 
-  shell: "apt-get update -y"
-
 - name: Install pre-requisites
   apt: 
     name: '{{item}}'
