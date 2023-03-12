@@ -22,7 +22,7 @@
 
 - name: Add the Kubernetes source to the APT source list
   shell: |
-    echo 'deb https://apt.kubernetes.io/ kubernetes-xenial main' >> /etc/apt/sources.list.d/kubernetes.list
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/kubernetes.gpg] http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main" | sudo tee -a /etc/apt/sources.list
 
 - name: Install Docker
   apt: 
