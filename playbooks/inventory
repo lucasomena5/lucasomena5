@@ -1,7 +1,5 @@
-[kubernetes-master]
+[kubernetes]
 k8s-master-1 ansible_ssh_host=192.168.1.31 hostname=k8s-master-1
-
-[kubernetes-nodes]
 k8s-node-1 ansible_ssh_host=192.168.1.32 hostname=k8s-node-1
 k8s-node-2 ansible_ssh_host=192.168.1.33 hostname=k8s-node-2
 

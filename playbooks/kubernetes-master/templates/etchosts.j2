@@ -11,5 +11,5 @@ ff02::2 ip6-allrouters
 
 {% for item in play_hosts %}
 {% set short_name = item.split('.') %}
-{{ hostvars[item]['ansible_host'] }}  {{ item }} {{ short_name[0] }}
+{{ hostvars[item]['kubernetes'] }}  {{ item }} {{ short_name[0] }}
 {% endfor %}
