@@ -80,9 +80,7 @@
     dest: /etc/docker/daemon.json
 
 - name: Reload service daemon
-  systemd:
-    name: daemon-reload
-    state: reloaded
+  shell: "systemctl daemon-reload"
 
 - name: Restart docker service
   service:
@@ -109,9 +107,7 @@
   shell: "echo 'KUBELET_EXTRA_ARGS=\"--cgroup-driver=cgroupfs\"' >> /etc/default/kubelet"
 
 - name: Reload service daemon
-  systemd:
-    name: daemon-reload
-    state: reloaded
+  shell: "systemctl daemon-reload"
 
 - name: Restart kubelet service
   service:
