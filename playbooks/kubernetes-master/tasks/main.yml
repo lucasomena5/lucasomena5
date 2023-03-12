@@ -1,6 +1,6 @@
 ---
 - name: Set up kubeadm
-  shell: kubeadm init --pod-network-cidr=10.200.0.0/16 --service-cidr=10.100.0.0/16 --service-dns-domain="kubernetes.lab"
+  shell: kubeadm init --pod-network-cidr=10.200.0.0/16 --service-cidr=10.100.0.0/16 --service-dns-domain="kubernetes.lab" --ignore-preflight-errors=Mem --ignore-preflight-errors=NumCPU
 
 - name: Create directories kube
   file: 
