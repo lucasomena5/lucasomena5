@@ -86,8 +86,11 @@
     src: containerd.conf.j2
     dest: /etc/modules-load.d/containerd.conf
 
-- name: modprobe command
+- name: modprobe command (1/2)
   shell: "modprobe overlay"
+
+- name: modprobe command (2/2)
+  shell: "modprobe br_netfilter"
 
 - name: Generate /etc/sysctl.d/kubernetes.conf file
   template:
@@ -97,8 +100,8 @@
 - name: sysctl reload 
   shell: "sysctl --system"
 
-- name: Adding KUBELET_ARGS
-  shell: "echo 'KUBELET_EXTRA_ARGS=\"--cgroup-driver=cgroupfs\"' >> /etc/default/kubelet"
+# - name: Adding KUBELET_ARGS
+#   shell: "echo 'KUBELET_EXTRA_ARGS=\"--cgroup-driver=cgroupfs\"' >> /etc/default/kubelet"
 
 - name: Reload service daemon
   shell: "systemctl daemon-reload"
