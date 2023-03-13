@@ -59,14 +59,30 @@
     path: /etc/fstab
     regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
     replace: '# \1'
-  when:
-    - inventory_hostname in groups['kubernetes']
 
 - name: Iptables See Bridged Traffic
   shell: |
     sysctl net.bridge.bridge-nf-call-iptables=1 
-  when:
-    - inventory_hostname in groups['kubernetes']
+
+- name: Iptables See Bridged Traffic
+  shell: |
+    sysctl net.bridge.bridge-nf-call-ip6tables=1 
+
+- name: Iptables See Bridged Traffic
+  shell: |
+    sysctl net.ipv4.ip_forward = 1
+
+- name: Iptables See Bridged Traffic
+  shell: |
+    sysctl --system
+
+- name: Reload service daemon
+  shell: "systemctl daemon-reload"
+
+- name: Restart kubelet service
+  service:
+    name: kubelet
+    state: restarted
 
 - name: Generate /etc/docker/daemon.json file
   template:
@@ -81,35 +97,17 @@
     name: docker
     state: restarted
 
-- name: Generate /etc/modules-load.d/containerd.conf file
-  template:
-    src: containerd.conf.j2
-    dest: /etc/modules-load.d/containerd.conf
-
-- name: Generate /etc/sysctl.d/kubernetes.conf file
-  template:
-    src: kubernetes.conf.j2
-    dest: /etc/sysctl.d/kubernetes.conf
-
 - name: Add KUBELET_EXTRA_ARGS
   lineinfile:
     dest: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
     line: "Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false""
     insertafter: '[Service]'
 
-- name: modprobe command (1/2)
-  shell: "modprobe overlay"
-
-- name: modprobe command (2/2)
-  shell: "modprobe br_netfilter"
-
-- name: Adding net.bridge
-  shell: "sysctl net.bridge.bridge-nf-call-iptables=1"
-
 - name: Reload service daemon
   shell: "systemctl daemon-reload"
 
-- name: Restart kubelet service
+- name: Restart docker service
   service:
     name: kubelet
     state: restarted
+
