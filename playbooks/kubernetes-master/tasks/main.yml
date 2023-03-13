@@ -36,11 +36,11 @@
     src: hosts.j2
     dest: /etc/hosts
 
-- name: Generate Calico Drivers YAML file
-  template:
-    src: calico.yaml.j2
-    dest: /tmp/calico.yaml
+# - name: Generate Calico Drivers YAML file
+#   template:
+#     src: calico.yaml.j2
+#     dest: /tmp/calico.yaml
 
-- name: Install Calico Drivers
-  shell: |
-    kubectl apply -f /tmp/calico.yaml
+# - name: Install Calico Drivers
+#   shell: |
+#     kubectl apply -f /tmp/calico.yaml
