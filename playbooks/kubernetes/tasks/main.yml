@@ -100,7 +100,7 @@
 - name: Add KUBELET_EXTRA_ARGS
   lineinfile:
     dest: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-    line: "Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false""
+    line: "Environment=\"KUBELET_EXTRA_ARGS=--fail-swap-on=false\""
     insertafter: '[Service]'
 
 - name: Reload service daemon
