@@ -100,6 +100,12 @@
 - name: sysctl reload 
   shell: "sysctl --system"
 
+- name: Add KUBELET_EXTRA_ARGS
+  lineinfile:
+    dest: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+    line: "Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false""
+    insertafter: '[Service]'
+
 # - name: Adding KUBELET_ARGS
 #   shell: "echo 'KUBELET_EXTRA_ARGS=\"--cgroup-driver=cgroupfs\"' >> /etc/default/kubelet"
 
