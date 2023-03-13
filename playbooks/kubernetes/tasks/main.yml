@@ -70,10 +70,6 @@
 
 - name: Iptables See Bridged Traffic
   shell: |
-    sysctl net.ipv4.ip_forward = 1
-
-- name: Iptables See Bridged Traffic
-  shell: |
     sysctl --system
 
 - name: Reload service daemon
