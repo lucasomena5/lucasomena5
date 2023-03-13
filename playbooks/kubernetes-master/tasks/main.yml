@@ -17,6 +17,11 @@
     owner: root 
     group: root
 
+- name: Generate /etc/hosts file
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
+
 # - name: restart server
 #   shell: 'sleep 1 && shutdown -r now "Reboot triggered by Ansible" && sleep 1'
 #   async: 1
@@ -30,17 +35,3 @@
 #       port={{ ansible_ssh_port }}
 #       delay=10
 #     become: false
-
-- name: Generate /etc/hosts file
-  template:
-    src: hosts.j2
-    dest: /etc/hosts
-
-# - name: Generate Calico Drivers YAML file
-#   template:
-#     src: calico.yaml.j2
-#     dest: /tmp/calico.yaml
-
-# - name: Install Calico Drivers
-#   shell: |
-#     kubectl apply -f /tmp/calico.yaml
