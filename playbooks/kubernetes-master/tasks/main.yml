@@ -17,11 +17,25 @@
     owner: root 
     group: root
 
+- name: restart server
+  shell: 'sleep 1 && shutdown -r now "Reboot triggered by Ansible" && sleep 1'
+  async: 1
+  poll: 0
+  become: true
+
+- name: Wait for server to restart {{ inventory_hostname }}
+  local_action:
+    module: wait_for
+      host={{ inventory_hostname }}
+      port={{ ansible_ssh_port }}
+      delay=10
+    become: false
+    
 - name: Install Calico Drivers
   shell: |
     kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
 
-# - name: Generate /etc/hosts file
-#   template:
-#     src: hosts.j2
-#     dest: /etc/hosts
+- name: Generate /etc/hosts file
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
