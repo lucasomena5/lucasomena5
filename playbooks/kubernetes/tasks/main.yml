@@ -86,19 +86,10 @@
     src: containerd.conf.j2
     dest: /etc/modules-load.d/containerd.conf
 
-- name: modprobe command (1/2)
-  shell: "modprobe overlay"
-
-- name: modprobe command (2/2)
-  shell: "modprobe br_netfilter"
-
 - name: Generate /etc/sysctl.d/kubernetes.conf file
   template:
     src: kubernetes.conf.j2
     dest: /etc/sysctl.d/kubernetes.conf
-
-- name: sysctl reload 
-  shell: "sysctl --system"
 
 - name: Add KUBELET_EXTRA_ARGS
   lineinfile:
@@ -106,8 +97,14 @@
     line: "Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false""
     insertafter: '[Service]'
 
-# - name: Adding KUBELET_ARGS
-#   shell: "echo 'KUBELET_EXTRA_ARGS=\"--cgroup-driver=cgroupfs\"' >> /etc/default/kubelet"
+- name: modprobe command (1/2)
+  shell: "modprobe overlay"
+
+- name: modprobe command (2/2)
+  shell: "modprobe br_netfilter"
+
+- name: Adding net.bridge
+  shell: "sysctl net.bridge.bridge-nf-call-iptables=1"
 
 - name: Reload service daemon
   shell: "systemctl daemon-reload"
