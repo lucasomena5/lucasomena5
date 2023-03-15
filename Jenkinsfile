@@ -31,13 +31,13 @@ pipeline {
         stage('Kubernetes Installation') {            
             steps{
                 script {
-
-                    ansiblePlaybook(
-                            playbook: "./playbooks/KubernetesClusterInstallation.yml",
-                            inventory: "${KUBERNETES_INVENTORY}",
-                            colorized: true,
-                            extras: "-b -v",   
-                    )
+                    echo "Install kubernetes - Master"
+                    // ansiblePlaybook(
+                    //         playbook: "./playbooks/KubernetesClusterInstallation.yml",
+                    //         inventory: "${KUBERNETES_INVENTORY}",
+                    //         colorized: true,
+                    //         extras: "-b -v",   
+                    // )
                     
                     
                 }
@@ -47,7 +47,7 @@ pipeline {
         stage('Kubernetes Nodes Installation') {            
             steps{
                 script {
-
+                    echo "Install kubernetes - Nodes"
                     ansiblePlaybook(
                             playbook: "./playbooks/KubernetesNodesInstallation.yml",
                             inventory: "${KUBERNETES_INVENTORY}",
