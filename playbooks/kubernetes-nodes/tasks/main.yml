@@ -4,9 +4,6 @@
     kubeadm token create --print-join-command
   register: kubernetes_token
 
-- debug:
-  var: kubernetes_token.stdout_lines
-
 - name: Join nodes
   shell: |
     "{{ kubernetes_token.stdout_lines }}"
