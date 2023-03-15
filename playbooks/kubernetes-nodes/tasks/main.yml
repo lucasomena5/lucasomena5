@@ -7,9 +7,7 @@
     - inventory_hostname in groups['kubernetes']
 
 - debug:
-    msg: "{{ item.stdout }}"
-  loop: 
-    - "{{ kubernetes_token.stdout }}"
+    msg: "{{ kubernetes_token.stdout }}"
 
 # - name: Join nodes
 #   shell: |
