@@ -1,7 +1,7 @@
-- name: Install kubernetes 
-  hosts: kubernetes_nodes
-  roles:
-    - { role: ../kubernetes }
+# - name: Install kubernetes 
+#   hosts: kubernetes_nodes
+#   roles:
+#     - { role: ../kubernetes }
 
 - name: Join cluster kubernetes 
   hosts: kubernetes, kubernetes_nodes
