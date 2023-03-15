@@ -1,109 +1,12 @@
 ---
-- name: Pre-requisites for kubernetes installation
+- name: Generate Token kubeadm
   shell: |
-    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
-    echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
-    apt-get update -y 
-    ufw disable
+    kubeadm token create --print-join-command
+  register: kubernetes_token
 
-- name: Install pre-requisites
-  apt: 
-    name: '{{item}}'
-    state: present
-  with_items:
-  - curl
-  - apt-transport-https
+- debug:
+  var: kubernetes_token.stdout_lines
 
-- name: Install Docker
-  apt: 
-    name: docker.io
-    state: present
-
-- name: Enable service docker state
-  service:
-    name: docker
-    enabled: true
-
-- name: Start docker service
-  service:
-    name: docker
-    state: started
-
-- name: Install Kubernetes
-  apt: 
-    name: '{{item}}'
-    state: present
-  with_items:
-  - kubelet
-  - kubeadm
-  - kubectl
-  - kubernetes-cni
-
-- name: Prevent kubectl, kubeadm, and kubelet from being upgraded
-  dpkg_selections:
-    name: '{{item}}'
-    selection: hold
-  with_items:
-  - kubelet
-  - kubeadm
-  - kubectl
-
-- name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
+- name: Join nodes
   shell: |
-    swapoff -a 
-  when:
-    - inventory_hostname in groups['kubernetes']
-
-- name: Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)
-  replace:
-    path: /etc/fstab
-    regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
-    replace: '# \1'
-
-- name: Iptables See Bridged Traffic
-  shell: |
-    sysctl net.bridge.bridge-nf-call-iptables=1 
-
-- name: Iptables See Bridged Traffic
-  shell: |
-    sysctl net.bridge.bridge-nf-call-ip6tables=1 
-
-- name: Iptables See Bridged Traffic
-  shell: |
-    sysctl --system
-
-- name: Reload service daemon
-  shell: "systemctl daemon-reload"
-
-- name: Restart kubelet service
-  service:
-    name: kubelet
-    state: restarted
-
-- name: Generate /etc/docker/daemon.json file
-  template:
-    src: daemon.j2
-    dest: /etc/docker/daemon.json
-
-- name: Reload service daemon
-  shell: "systemctl daemon-reload"
-
-- name: Restart docker service
-  service:
-    name: docker
-    state: restarted
-
-- name: Add KUBELET_EXTRA_ARGS
-  lineinfile:
-    dest: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-    line: "Environment=\"KUBELET_EXTRA_ARGS=--fail-swap-on=false\""
-    insertafter: '[Service]'
-
-- name: Reload service daemon
-  shell: "systemctl daemon-reload"
-
-- name: Restart docker service
-  service:
-    name: kubelet
-    state: restarted
-
+    "{{ kubernetes_token.stdout_lines }}"
