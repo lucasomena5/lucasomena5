@@ -8,6 +8,6 @@
 
 - name: Join nodes
   shell: |
-    "{{ kubernetes_token.stdout }}"
+    "{{ kubernetes_token.results }}"
   when:
     - inventory_hostname in groups['kubernetes_nodes']|default([])
