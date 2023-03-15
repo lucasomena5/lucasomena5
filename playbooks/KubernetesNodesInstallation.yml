@@ -2,3 +2,8 @@
   hosts: kubernetes_nodes
   roles:
     - { role: ../kubernetes }
+
+- name: Join cluster kubernetes 
+  hosts: kubernetes_nodes
+  roles:
+    - { role: ../kubernetes-nodes }
