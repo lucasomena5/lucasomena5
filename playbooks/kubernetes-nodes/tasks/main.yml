@@ -3,7 +3,11 @@
   shell: |
     kubeadm token create --print-join-command
   register: kubernetes_token
+  when:
+    - inventory_hostname in groups['kubernetes']|default([])
 
 - name: Join nodes
   shell: |
     "{{ kubernetes_token.stdout_lines }}"
+  when:
+    - inventory_hostname in groups['kubernetes_nodes']|default([])
