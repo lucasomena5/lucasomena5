@@ -1,6 +1,10 @@
 ---
-- name: Apt Update 
-  shell: "apt-get update -y"
+- name: Pre-requisites for kubernetes installation
+  shell: |
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+    echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
+    apt-get update -y 
+    ufw disable
 
 - name: Install pre-requisites
   apt: 
@@ -9,20 +13,6 @@
   with_items:
   - curl
   - apt-transport-https
-
-- name: Add the Kubernetes APT key
-  apt_key: 
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg 
-    state: present
-
-# - name: Add the Kubernetes source to the APT source list
-#   apt_repository: 
-#     repo: 'deb http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main' 
-#     state: present
-
-- name: Add the Kubernetes source to the APT source list
-  shell: |
-    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/kubernetes.gpg] http://apt.kubernetes.io/ kubernetes-{{ansible_distribution_release}} main" | sudo tee -a /etc/apt/sources.list
 
 - name: Install Docker
   apt: 
@@ -69,14 +59,26 @@
     path: /etc/fstab
     regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
     replace: '# \1'
-  when:
-    - inventory_hostname in groups['kubernetes']
 
 - name: Iptables See Bridged Traffic
   shell: |
     sysctl net.bridge.bridge-nf-call-iptables=1 
-  when:
-    - inventory_hostname in groups['kubernetes']
+
+- name: Iptables See Bridged Traffic
+  shell: |
+    sysctl net.bridge.bridge-nf-call-ip6tables=1 
+
+- name: Iptables See Bridged Traffic
+  shell: |
+    sysctl --system
+
+- name: Reload service daemon
+  shell: "systemctl daemon-reload"
+
+- name: Restart kubelet service
+  service:
+    name: kubelet
+    state: restarted
 
 - name: Generate /etc/docker/daemon.json file
   template:
@@ -91,29 +93,17 @@
     name: docker
     state: restarted
 
-- name: Generate /etc/modules-load.d/containerd.conf file
-  template:
-    src: containerd.conf.j2
-    dest: /etc/modules-load.d/containerd.conf
-
-- name: modprobe command
-  shell: "modprobe overlay"
-
-- name: Generate /etc/sysctl.d/kubernetes.conf file
-  template:
-    src: kubernetes.conf.j2
-    dest: /etc/sysctl.d/kubernetes.conf
-
-- name: sysctl reload 
-  shell: "sysctl --system"
-
-- name: Adding KUBELET_ARGS
-  shell: "echo 'KUBELET_EXTRA_ARGS=\"--cgroup-driver=cgroupfs\"' >> /etc/default/kubelet"
+- name: Add KUBELET_EXTRA_ARGS
+  lineinfile:
+    dest: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+    line: "Environment=\"KUBELET_EXTRA_ARGS=--fail-swap-on=false\""
+    insertafter: '[Service]'
 
 - name: Reload service daemon
   shell: "systemctl daemon-reload"
 
-- name: Restart kubelet service
+- name: Restart docker service
   service:
     name: kubelet
     state: restarted
+

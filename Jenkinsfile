@@ -43,6 +43,22 @@ pipeline {
                 }
             }
         }
+
+        stage('Kubernetes Nodes Installation') {            
+            steps{
+                script {
+
+                    ansiblePlaybook(
+                            playbook: "./playbooks/KubernetesNodesInstallation.yml",
+                            inventory: "${KUBERNETES_INVENTORY}",
+                            colorized: true,
+                            extras: "-b -v",   
+                    )
+                    
+                    
+                }
+            }
+        }
     }
 
 }
