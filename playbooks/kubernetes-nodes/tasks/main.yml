@@ -6,8 +6,13 @@
   when:
     - inventory_hostname in groups['kubernetes']|default([])
 
-- name: Join nodes
-  shell: |
-    "{{ kubernetes_token.results }}"
-  when:
-    - inventory_hostname in groups['kubernetes_nodes']|default([])
+- debug:
+    msg: "{{ item.stderr }}"
+  loop: 
+    - "{{ kubernetes_token.results }}"
+
+# - name: Join nodes
+#   shell: |
+#     "{{ kubernetes_token.results }}"
+#   when:
+#     - inventory_hostname in groups['kubernetes_nodes']|default([])
