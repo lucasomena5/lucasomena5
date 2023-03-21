@@ -23,12 +23,12 @@
 
 [kubernetes_acg:vars]
 ansible_user=cloud_user
-#ansible_password=ls100489
+ansible_password=ls100489
 ansible_ssh_private_key_file="/root/.ssh/vmware-ssh-key"
 
 [kubernetes_acg_nodes:vars]
 ansible_user=cloud_user
-#ansible_password=ls100489
+ansible_password=ls100489
 ansible_ssh_private_key_file="/root/.ssh/vmware-ssh-key"
 
 #[jenkins_master]
