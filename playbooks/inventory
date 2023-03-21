@@ -15,11 +15,11 @@ ansible_password=ls100489
 #ansible_ssh_private_key_file=/root/.ssh/vmware-ssh-key
 
 [kubernetes_acg]
-k8s-master-1 ansible_ssh_host=13.52.75.45 hostname=k8s-master-1
+k8s-acg-master-1 ansible_ssh_host=13.52.75.45 hostname=k8s-master-1
 
 [kubernetes_acg_nodes]
-k8s-node-1 ansible_ssh_host=18.144.88.114 hostname=k8s-node-1
-k8s-node-2 ansible_ssh_host=54.193.226.59 hostname=k8s-node-2
+k8s-acg-node-1 ansible_ssh_host=18.144.88.114 hostname=k8s-node-1
+k8s-acg-node-2 ansible_ssh_host=54.193.226.59 hostname=k8s-node-2
 
 [kubernetes_acg:vars]
 ansible_user=cloud_user
