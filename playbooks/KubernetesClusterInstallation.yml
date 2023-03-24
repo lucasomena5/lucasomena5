@@ -1,9 +1,0 @@
-- name: Install kubernetes 
-  hosts: kubernetes_acg
-  roles:
-    - { role: ../kubernetes }
-
-- name: Configure kubernetes master
-  hosts: kubernetes_acg
-  roles:
-    - { role: ../kubernetes-master }
