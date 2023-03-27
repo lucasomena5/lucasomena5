@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
 
-                    git branch: "release/ansible",
+                    git branch: "release/docker",
                         credentialsId: "github-ssh-key",
                         url: "git@github.com:lucasomena5/lucasomena5.git"             
                 }
