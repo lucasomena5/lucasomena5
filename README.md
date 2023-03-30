@@ -1,3 +1,9 @@
+# ANSIBLE
+```
+ansible-playbook -i playbooks/inventory -b playbooks/KubernetesClusterInstallation.yml
+```
+
+
 # Master Isolation
 
 By default, your cluster will not schedule pods on the master for security reasons. If you want to be able to schedule pods on the master, e.g. for a single-machine Kubernetes cluster for development, run:
@@ -140,3 +146,5 @@ kubectl exec pod_name -i -t -- /bin/bash
 > A ClusterIP: a virtual IP address only reachable from within the cluster
 > A NodePort: a port that is the same on each node that is also reachable externally
 > A LoadBancer: a LoadBancer created by the cloud provider that will route external traffic to every node on the NodePort
+
+
