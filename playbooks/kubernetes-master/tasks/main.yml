@@ -36,5 +36,15 @@
       delay=10
     become: false
 
+- name: Stop kubelet service
+  service:
+    name: kubelet
+    state: stopped
+
+- name: Start kubelet service
+  service:
+    name: kubelet
+    state: started
+    
 - name: Remove NoSchedule from master node
   shell: "kubectl taint node \$(kubectl get nodes --no-headers | awk '{print $1}') node-role.kubernetes.io/master:NoSchedule-"
