@@ -1,3 +1,22 @@
+######################### CLOUD GURU INSTANCES #########################
+
+[acg_kubernetes]
+192.168.1.31
+
+[acg_kubernetes_nodes]
+
+[acg_kubernetes:vars]
+ansible_user=cloud_user
+#ansible_password=ls100489
+ansible_ssh_private_key_file=/root/.ssh/vmware-ssh-key
+
+[acg_kubernetes_nodes:vars]
+ansible_user=cloud_user
+#ansible_password=ls100489
+ansible_ssh_private_key_file=/root/.ssh/vmware-ssh-key
+
+######################### CLOUD GURU INSTANCES #########################
+
 [kubernetes]
 k8s-master-1 ansible_ssh_host=192.168.1.31 hostname=k8s-master-1
 
