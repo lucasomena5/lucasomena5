@@ -35,3 +35,6 @@
       port={{ ansible_ssh_port }}
       delay=10
     become: false
+
+- name: Remove NoSchedule from master node
+  shell: "kubectl taint node \$(kubectl get nodes --no-headers | awk '{print $1}') node-role.kubernetes.io/master:NoSchedule-"
