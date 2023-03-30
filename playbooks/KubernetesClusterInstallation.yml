@@ -1,5 +1,5 @@
 - name: Install kubernetes 
-  hosts: acg_kubernetes, acg_kubernetes_nodes
+  hosts: acg_kubernetes
   roles:
     - { role: ../kubernetes }
 
