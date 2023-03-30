@@ -4,6 +4,6 @@
     - { role: ../kubernetes }
 
 - name: Configure kubernetes master
-  hosts: kubernetes
+  hosts: acg_kubernetes
   roles:
     - { role: ../kubernetes-master }
