@@ -4,6 +4,6 @@
 #     - { role: ../kubernetes }
 
 - name: Join cluster kubernetes 
-  hosts: kubernetes, kubernetes_nodes
+  hosts: kubernetes_acg, kubernetes_acg_nodes
   roles:
     - { role: ../kubernetes-nodes }

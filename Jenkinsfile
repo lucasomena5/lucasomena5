@@ -2,9 +2,10 @@ pipeline {
     agent any
     
     environment {
-        ANSIBLE_HOST_KEY_CHECKING = 'false'
+        ANSIBLE_HOST_KEY_CHECKING = 'False'
         ANSIBLE_VAULT_SECRET = 'ansible-pass'
         KUBERNETES_INVENTORY = "./playbooks/inventory"
+        //ANSIBLE_HOST_KEY_CHECKING = "False"
     }
 
     options {
@@ -52,7 +53,7 @@ pipeline {
                             playbook: "./playbooks/KubernetesNodesInstallation.yml",
                             inventory: "${KUBERNETES_INVENTORY}",
                             colorized: true,
-                            extras: "-b -v",   
+                            extras: "-b -vvvv",   
                     )
                     
                     
