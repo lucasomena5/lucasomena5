@@ -52,7 +52,7 @@
   shell: |
     swapoff -a 
   when:
-    - inventory_hostname in groups['kubernetes']
+    - inventory_hostname in groups['acg_kubernetes']
 
 - name: Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)
   replace:
