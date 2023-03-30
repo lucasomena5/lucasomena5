@@ -22,16 +22,16 @@
     src: hosts.j2
     dest: /etc/hosts
 
-# - name: restart server
-#   shell: 'sleep 1 && shutdown -r now "Reboot triggered by Ansible" && sleep 1'
-#   async: 1
-#   poll: 0
-#   become: true
+- name: restart server
+  shell: 'sleep 1 && shutdown -r now "Reboot triggered by Ansible" && sleep 1'
+  async: 1
+  poll: 0
+  become: true
 
-# - name: Wait for server to restart {{ inventory_hostname }}
-#   local_action:
-#     module: wait_for
-#       host={{ inventory_hostname }}
-#       port={{ ansible_ssh_port }}
-#       delay=10
-#     become: false
+- name: Wait for server to restart {{ inventory_hostname }}
+  local_action:
+    module: wait_for
+      host={{ inventory_hostname }}
+      port={{ ansible_ssh_port }}
+      delay=10
+    become: false

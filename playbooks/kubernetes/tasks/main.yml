@@ -1,52 +1,52 @@
-# ---
-# - name: Pre-requisites for kubernetes installation
-#   shell: |
-#     curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
-#     echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
-#     apt-get update -y 
-#     ufw disable
+---
+- name: Pre-requisites for kubernetes installation
+  shell: |
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+    echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
+    apt-get update -y 
+    ufw disable
 
-# - name: Install pre-requisites
-#   apt: 
-#     name: '{{item}}'
-#     state: present
-#   with_items:
-#   - curl
-#   - apt-transport-https
+- name: Install pre-requisites
+  apt: 
+    name: '{{item}}'
+    state: present
+  with_items:
+  - curl
+  - apt-transport-https
 
-# - name: Install Docker
-#   apt: 
-#     name: docker.io
-#     state: present
+- name: Install Docker
+  apt: 
+    name: docker.io
+    state: present
 
-# - name: Enable service docker state
-#   service:
-#     name: docker
-#     enabled: true
+- name: Enable service docker state
+  service:
+    name: docker
+    enabled: true
 
-# - name: Start docker service
-#   service:
-#     name: docker
-#     state: started
+- name: Start docker service
+  service:
+    name: docker
+    state: started
 
-# - name: Install Kubernetes
-#   apt: 
-#     name: '{{item}}'
-#     state: present
-#   with_items:
-#   - kubelet
-#   - kubeadm
-#   - kubectl
-#   - kubernetes-cni
+- name: Install Kubernetes
+  apt: 
+    name: '{{item}}'
+    state: present
+  with_items:
+  - kubelet
+  - kubeadm
+  - kubectl
+  - kubernetes-cni
 
-# - name: Prevent kubectl, kubeadm, and kubelet from being upgraded
-#   dpkg_selections:
-#     name: '{{item}}'
-#     selection: hold
-#   with_items:
-#   - kubelet
-#   - kubeadm
-#   - kubectl
+- name: Prevent kubectl, kubeadm, and kubelet from being upgraded
+  dpkg_selections:
+    name: '{{item}}'
+    selection: hold
+  with_items:
+  - kubelet
+  - kubeadm
+  - kubectl
 
 - name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
   shell: |
