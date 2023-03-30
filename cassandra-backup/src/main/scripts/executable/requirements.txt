@@ -1,0 +1,4 @@
+envyaml == 1.9.210927
+paramiko == 2.9.2
+six >= 1.12.0
+requests

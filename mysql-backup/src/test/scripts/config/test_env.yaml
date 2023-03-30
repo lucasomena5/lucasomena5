@@ -1,0 +1,6 @@
+log_config:
+  log_level: ${LOG_LEVEL}
+
+db_config:
+  db_port: ${DB_SERVICE_PORT}
+  db_service_prefix: ${DB_SERVICE_PREFIX}

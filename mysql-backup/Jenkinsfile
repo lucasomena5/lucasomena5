@@ -1,0 +1,11 @@
+@Library('JenkinsSharedLibrary') _
+
+batchPythonContainerized {
+  moduleDir = 'telus-dbbackup-batch'
+  repositoryUrl = 'git@bitbucket.org:telusvideoservices/telus-dbbackup-batch.git'
+  gitBranchDevOps = 'main'
+  cronScheduleBranch = 'release/AVS_6.6'
+  repositoryUrlDevOpsOCP = 'git@bitbucket.org:telusvideoservices/telus-dbbackup-batch-devops.git'
+  mavenAdditionalParams = '-P distributor'
+  targetEnvironment = 'main'
+}

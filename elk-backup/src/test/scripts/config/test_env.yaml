@@ -1,0 +1,8 @@
+directory_config:
+  done_dir: ${TELUS_ELK_BACKUP_TEST_DONE_DIR}
+
+log_config:
+  log_level: ${LOG_LEVEL}
+
+elk_config:
+  total_nodes: ${TELUS_ELK_TEST_NODE_COUNT}

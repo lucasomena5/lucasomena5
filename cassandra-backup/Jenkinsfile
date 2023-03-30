@@ -1,0 +1,11 @@
+@Library('JenkinsSharedLibrary') _
+
+batchPythonContainerized {
+  moduleDir = 'telus-cassandra-dbbackup-batch'
+  repositoryUrl = 'git@bitbucket.org:telusvideoservices/telus-cassandra-dbbackup-batch.git'
+  gitBranchDevOps = 'master'
+  cronScheduleBranch = 'release/AVS_6.6'
+  repositoryUrlDevOpsOCP = 'git@bitbucket.org:telusvideoservices/telus-cassandra-dbbackup-batch-devops.git'
+  mavenAdditionalParams = '-P distributor'
+  targetEnvironment = 'main'
+}

@@ -1,0 +1,34 @@
+{
+  "client68-telus.dev.n.svc.tv.telus.net": [
+    {
+      "avs-es-service-01": "172.18.58.51",
+      "avs-es-service-02": "172.18.58.52",
+      "avs-es-service-03": "172.18.58.53",
+      "service-account": "sa_111214162090148739711"
+    }
+  ],
+  "client68-telus.sit.n.svc.tv.telus.net": [
+    {
+      "avs-es-service-01": "172.18.60.104",
+      "avs-es-service-02": "172.18.60.105",
+      "avs-es-service-03": "172.18.60.106",
+      "service-account": "sa_104984035270335660718"
+    }
+  ],
+  "client68-telus.preprod.n.svc.tv.telus.net": [
+    {
+      "avs-es-service-01": "172.18.96.110",
+      "avs-es-service-02": "172.18.96.111",
+      "avs-es-service-03": "172.18.96.112",
+      "service-account": "sa_102668533265953291904"
+    }
+  ],
+  "client68-telus.prod.g.svc.tv.telus.net": [
+    {
+      "avs-es-service-01": "172.18.64.53",
+      "avs-es-service-02": "172.18.64.54",
+      "avs-es-service-03": "172.18.64.55",
+      "service-account": "sa_107980151391027428528"
+    }
+  ]
+}

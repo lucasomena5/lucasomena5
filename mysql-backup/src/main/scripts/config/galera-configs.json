@@ -1,0 +1,38 @@
+{
+  "telus.dev.n.svc.tv.telus.net": [
+    {
+      "avs-be-service-01": "172.18.58.30",
+      "avs-be-service-02": "172.18.58.31",
+      "avs-be-service-03": "172.18.58.29",
+      "backup-bucket": "avs66-dev-database-dump-storage",
+      "service-account": "sa_111214162090148739711"
+    }
+  ],
+  "telus.sit.n.svc.tv.telus.net": [
+    {
+      "avs-be-service-01": "172.18.60.42",
+      "avs-be-service-02": "172.18.60.40",
+      "avs-be-service-03": "172.18.60.36",
+      "backup-bucket": "avs66-sit-database-dump-storage",
+      "service-account": "sa_104984035270335660718"
+    }
+  ],
+  "telus.preprod.n.svc.tv.telus.net": [
+    {
+      "avs-be-service-01": "172.18.96.40",
+      "avs-be-service-02": "172.18.96.11",
+      "avs-be-service-03": "172.18.96.37",
+      "backup-bucket": "avs66-prepr-database-dump-storage",
+      "service-account": "sa_102668533265953291904"
+    }
+  ],
+  "telus.prod.g.svc.tv.telus.net": [
+    {
+      "avs-be-service-01": "172.18.64.80",
+      "avs-be-service-02": "172.18.64.87",
+      "avs-be-service-03": "172.18.64.87",
+      "backup-bucket": "avs66-gcp-telus-database-dump-storage",
+      "service-account": "sa_103396488072574960116"
+    }
+  ]
+}

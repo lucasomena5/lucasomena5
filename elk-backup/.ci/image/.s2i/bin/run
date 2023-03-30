@@ -1,0 +1,16 @@
+#!/bin/bash                                                                     
+
+#Command line arguments given to this script
+
+args="$*"
+
+#Global S2I variable setup
+SCRIPT_DIR="$(dirname $0)"
+#source "/usr/local/s2i/s2i-setup"
+#source "/usr/local/s2i/common.sh"
+
+if [ -f "/tmp/src/deployments/bin/run.sh" ]; then
+echo "Starting the application using the bundled /tmp/src/deployments/bin/run.sh ..."
+exec /tmp/src/deployments/bin/run.sh 
+fi
+

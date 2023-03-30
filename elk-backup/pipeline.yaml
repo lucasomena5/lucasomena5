@@ -1,0 +1,4 @@
+service_name: telus-elkbackup-batch
+helm_repo_name: telus-elkbackup-batch-helm
+type: Batch-Python-Jobs
+sast_type : python

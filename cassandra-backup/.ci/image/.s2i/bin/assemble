@@ -1,0 +1,28 @@
+#!/bin/sh
+
+set -e
+
+#source "${JBOSS_CONTAINER_UTIL_LOGGING_MODULE}/logging.sh"
+#source "${JBOSS_CONTAINER_MAVEN_S2I_MODULE}/maven-s2i"
+
+# include our s2i_core_*() overrides/extensions
+#source "${JBOSS_CONTAINER_JAVA_S2I_MODULE}/s2i-core-hooks"
+
+# inject our overridden maven_s2i_*() functions
+#source "${JBOSS_CONTAINER_JAVA_S2I_MODULE}/maven-s2i-overrides"
+
+# invoke the build
+#maven_s2i_build
+
+chmod 775 /tmp/src/deployments/bin/run.sh
+chmod 775 /tmp/src/deployments/executable
+chmod 775 /tmp/src/deployments/batches
+
+echo "before pip install"
+
+if [[ -f /tmp/src/deployments/executable/requirements.txt ]]; then
+	echo "---> Installing dependencies ..."
+	pip install -r /tmp/src/deployments/executable/requirements.txt
+fi
+
+echo "... done"

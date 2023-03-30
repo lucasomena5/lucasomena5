@@ -1,0 +1,4 @@
+service_name: telus-cassandra-dbbackup-batch
+helm_repo_name: telus-cassandra-dbbackup-batch-helm
+type: Batch-Python-Jobs
+sast_type : python

@@ -1,0 +1,38 @@
+{
+  "client68-telus.dev.n.svc.tv.telus.net": [
+    {
+      "avs-wss-cassandra-db-service-01": "172.18.58.54",
+      "avs-wss-cassandra-db-service-02": "172.18.58.49",
+      "avs-wss-cassandra-db-service-03": "172.18.58.50",
+      "backup-bucket": "avs68-dev-database-dump-storage",
+      "service-account": "sa_111214162090148739711"
+    }
+  ],
+  "client68-telus.sit.n.svc.tv.telus.net": [
+    {
+      "avs-wss-cassandra-db-service-01": "172.18.60.90",
+      "avs-wss-cassandra-db-service-02": "172.18.60.91",
+      "avs-wss-cassandra-db-service-03": "172.18.60.92",
+      "backup-bucket": "avs68-sit-database-dump-storage",
+      "service-account": "sa_104984035270335660718"
+    }
+  ],
+  "client68-telus.preprod.n.svc.tv.telus.net": [
+    {
+      "avs-wss-cassandra-db-service-01": "172.18.96.107",
+      "avs-wss-cassandra-db-service-02": "172.18.96.108",
+      "avs-wss-cassandra-db-service-03": "172.18.96.109",
+      "backup-bucket": "avs68-prepr-database-dump-storage",
+      "service-account": "sa_102668533265953291904"
+    }
+  ],
+  "client68-telus.prod.g.svc.tv.telus.net": [
+    {
+      "avs-wss-cassandra-db-service-01": "172.18.64.91",
+      "avs-wss-cassandra-db-service-02": "172.18.64.92",
+      "avs-wss-cassandra-db-service-03": "172.18.64.93",
+      "backup-bucket": "avs68-gcp-telus-database-dump-storage",
+      "service-account": "sa_107980151391027428528"
+    }
+  ]
+}
