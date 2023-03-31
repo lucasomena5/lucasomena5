@@ -47,4 +47,4 @@
     state: started
     
 - name: Remove NoSchedule from master node
-  shell: "kubectl taint node \$(kubectl get nodes --no-headers | awk '{print $1}') node-role.kubernetes.io/master:NoSchedule-"
+  shell: "kubectl taint node \$(kubectl get nodes --no-headers | awk '{print $1}') node-role.kubernetes.io/control-plane:NoSchedule-"
