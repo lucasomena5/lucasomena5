@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<customers>
+    <customers name = "Lucas Omena">
+        <customers_id>1</customers_id>
+        <customers_email>lucasomena5@gmail.com</customers_email>
+        <prov_state>BC</prov_state>
+        <country>CA</country>
+-   </customer>
