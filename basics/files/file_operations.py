@@ -8,7 +8,7 @@ def printMsg(msg):
         print(item)
 
 # Set up the working directory, fileName, full file path 
-workingDir = 'basics'
+workingDir = 'basics/files'
 fileName = 'message.txt'
 myPath = os.path.join('/home/lucasomena/REPO/lucasomena5', workingDir)
 myFile = os.path.join('/home/lucasomena/REPO/lucasomena5', workingDir, fileName)
