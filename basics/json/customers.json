@@ -5,5 +5,12 @@
         "customer_email": "lucasomena5@gmail.com",
         "prov_state": "BC",
         "country": "CA"
+    },
+    {
+        "customer_id": 2,
+        "customer_name": "Bruna Omena",
+        "customer_email": "brunaomena17@gmail.com",
+        "prov_state": "BC",
+        "country": "CA"
     }
 ]
