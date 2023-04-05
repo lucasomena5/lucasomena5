@@ -1,9 +1,9 @@
 - name: Install kubernetes 
-  hosts: acg_kubernetes
+  hosts: kubernetes_master
   roles:
-    - { role: ../kubernetes }
+    - { role: ../kubernetes-vmware }
 
-- name: Configure kubernetes master
-  hosts: acg_kubernetes
-  roles:
-    - { role: ../kubernetes-master }
+# - name: Configure kubernetes master and workers
+#   hosts: kubernetes_master, kubernetes_workers
+#   roles:
+#     - { role: ../kubernetes-master }

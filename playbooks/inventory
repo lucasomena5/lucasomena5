@@ -1,34 +1,33 @@
+############################################### CLOUDGURU ###############################################
 [acg_kubernetes]
-e6a11e6aa81c.mylabserver.com
-
-[acg_kubernetes_nodes]
-
+34.201.8.243
 
 [acg_kubernetes:vars]
 ansible_user=cloud_user
-#ansible_password=ls100489
 ansible_ssh_private_key_file="/home/lucasomena/.ssh/vmware-ssh-key"
 
-[acg_kubernetes_nodes:vars]
-ansible_user=cloud_user
-#ansible_password=ls100489
+############################################### CLOUDGURU ###############################################
+
+
+############################################### VMWARE ###############################################
+[kubernetes_master]
+k8s-master ansible_ssh_host=192.168.1.30 hostname=k8s-master
+
+[kubernetes_master:vars]
+ansible_user=root
 ansible_ssh_private_key_file="/home/lucasomena/.ssh/vmware-ssh-key"
 
-#[kubernetes]
-#k8s-master-1 ansible_ssh_host=192.168.1.31 hostname=k8s-master-1
-#
-#[kubernetes_nodes]
-#k8s-node-1 ansible_ssh_host=192.168.1.32 hostname=k8s-node-1
-#k8s-node-2 ansible_ssh_host=192.168.1.33 hostname=k8s-node-2
-#
-#[kubernetes:vars]
-#ansible_user=root
-#ansible_password=ls100489
-#
-#[kubernetes_nodes:vars]
-#ansible_user=root
-#ansible_password=ls100489
-##ansible_ssh_private_key_file=/home/lucasomena/.ssh/vmware-ssh-key
+[kubernetes_workers]
+k8s-worker1 ansible_ssh_host=192.168.1.31 hostname=k8s-worker1
+k8s-worker2 ansible_ssh_host=192.168.1.32 hostname=k8s-worker2
+
+[kubernetes_workers:vars]
+ansible_user=root
+ansible_ssh_private_key_file="/home/lucasomena/.ssh/vmware-ssh-key"
+
+############################################### VMWARE ###############################################
+
+
 
 #[jenkins_master]
 #jenkins-1 ansible_ssh_host=192.168.1.21 hostname=jenkins-1
