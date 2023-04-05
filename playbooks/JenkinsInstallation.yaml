@@ -1,4 +1,0 @@
-- name: Install Jenkins 
-  hosts: jenkins_nodes
-  roles:
-    - { role: ../jenkins }
