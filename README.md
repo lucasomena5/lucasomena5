@@ -1,19 +1,6 @@
-# Go
-```
-go mod init demo
-```
-```
-go run .
-```
-```
-go run . -level DEBUG
-```
+# VAGRANT
 
-# Go Dev
-https://go.dev/
+https://app.vagrantup.com/boxes/search
 
-# Effective Go
-https://go.dev/doc/effective_go
+https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation
 
-# Wiki
-https://github.com/golang/go/wiki
