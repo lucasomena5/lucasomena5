@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Ensure learning VM hostnames in /etc/hosts 
+    diff: yes
+    become: yes
+    blockinfile:
+      path: /etc/hosts
+      marker: '# {mark} ANSIBLE MANAGED BLOCK - mdls'
+      create: no
+      state: present
+      # state: absent # to remove this block
+      block: |
+        # installing examples - used in all course modules
+        192.168.30.101  getdc
+        192.168.30.102  cli-only
+        192.168.30.103  snappy
+        192.168.30.105  archy
+        192.168.30.108  centos-8
+        192.168.30.109  binaries
+        
+        # security focused examples
+        192.168.30.110  secured
+        # 192.168.30.119  rootless
+        
+        # containerd examples
+        192.168.30.120 alone
+        192.168.30.121 alone-pkg
