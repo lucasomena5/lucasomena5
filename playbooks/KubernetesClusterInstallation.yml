@@ -1,7 +1,7 @@
 - name: Install kubernetes 
   hosts: kubernetes_master
   roles:
-    - { role: ../kubernetes-vmware }
+    - { role: ../kubernetes-ubuntu }
 
 # - name: Configure kubernetes master and workers
 #   hosts: kubernetes_master, kubernetes_workers
