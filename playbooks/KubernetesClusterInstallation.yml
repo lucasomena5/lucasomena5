@@ -1,5 +1,5 @@
 - name: Install kubernetes 
-  hosts: kubernetes_master
+  hosts: kubernetes
   roles:
     - { role: ../kubernetes-ubuntu }
 
