@@ -55,6 +55,11 @@
 - name: Swapoff 
   command: "sudo swapoff -a"
 
+- name: /etc/hosts file 
+  template:
+    src: vmware-hosts.j2
+    dest: /etc/hosts
+
 - name: br_netfilter modules load
   template:
     src: modules.j2
@@ -71,14 +76,14 @@
 - name: Kubeadm init 
   shell: "sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --cri-socket=/run/containerd/containerd.sock"
   when:
-    - inventory_hostname in groups['acg_kubernetes_master']
+    - inventory_hostname in groups['kubernetes_master']
 
 - name: Create a directory $HOME/.kube if it does not exist
   file:
     path: $HOME/.kube
     state: directory
   when:
-    - inventory_hostname in groups['acg_kubernetes_master']
+    - inventory_hostname in groups['kubernetes_master']
 
 - name: Copy file with owner and permissions
   copy:
@@ -88,7 +93,7 @@
     group: cloud_user
     mode: '0775'
   when:
-    - inventory_hostname in groups['acg_kubernetes_master']
+    - inventory_hostname in groups['kubernetes_master']
 
 - name: Install the Tigera Calico operator
   command: "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml"
