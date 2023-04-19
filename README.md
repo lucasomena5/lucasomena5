@@ -1,8 +1,7 @@
 # ANSIBLE
 ```
-ansible-playbook -i playbooks/inventory -b playbooks/KubernetesClusterInstallation.yml
+ansible-playbook -i ./playbooks/inventory -b ./playbooks/KubernetesClusterInstallation.yml
 ```
-
 
 # Master Isolation
 
