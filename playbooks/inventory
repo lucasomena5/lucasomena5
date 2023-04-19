@@ -3,16 +3,15 @@
 e6a11e6aa81c.mylabserver.com
 
 [acg_kubernetes_nodes]
-
+e6a11e6aa82c.mylabserver.com
+e6a11e6aa83c.mylabserver.com
 
 [acg_kubernetes:vars]
 ansible_user=cloud_user
-#ansible_password=ls100489
 ansible_ssh_private_key_file="/home/lucasomena/.ssh/vmware-ssh-key"
 
 [acg_kubernetes_nodes:vars]
 ansible_user=cloud_user
-#ansible_password=ls100489
 ansible_ssh_private_key_file="/home/lucasomena/.ssh/vmware-ssh-key"
 
 ############################################### VMWARE ###############################################
