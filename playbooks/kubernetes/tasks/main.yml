@@ -49,8 +49,7 @@
   - kubectl
 
 - name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
-  shell: |
-    swapoff -a 
+  command: "swapoff -a"
 
 - name: Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)
   replace:
@@ -98,7 +97,7 @@
     insertafter: '[Service]'
 
 - name: Reload service daemon
-  shell: "systemctl daemon-reload"
+  command: "systemctl daemon-reload"
 
 - name: Restart docker service
   service:
