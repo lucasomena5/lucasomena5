@@ -97,6 +97,10 @@
 
 - name: Install the Tigera Calico operator
   command: "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml"
+  when:
+    - inventory_hostname in groups['kubernetes_master']
 
 - name: Install the custom resource definitions
   command: "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml"
+  when:
+    - inventory_hostname in groups['kubernetes_master']
