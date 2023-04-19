@@ -1,12 +1,12 @@
 ############################################### CLOUDGURU ###############################################
-[acg_kubernetes]
-e6a11e6aa81c.mylabserver.com
+[acg_kubernetes_master]
+e6a11e6aa81c.mylabserver.com ansible_host=18.119.113.125
 
 [acg_kubernetes_nodes]
-e6a11e6aa82c.mylabserver.com
-e6a11e6aa83c.mylabserver.com
+e6a11e6aa82c.mylabserver.com ansible_host=3.145.46.24
+e6a11e6aa83c.mylabserver.com ansible_host=3.142.245.174
 
-[acg_kubernetes:vars]
+[acg_kubernetes_master:vars]
 ansible_user=cloud_user
 ansible_ssh_private_key_file="/home/lucasomena/.ssh/vmware-ssh-key"
 

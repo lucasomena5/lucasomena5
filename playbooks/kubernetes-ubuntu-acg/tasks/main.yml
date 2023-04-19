@@ -1,0 +1,97 @@
+---
+- name: Update repositories cache
+  apt:
+    update_cache: yes
+
+- name: Install the package "containerd"
+  apt:
+    name: containerd
+
+- name: Create a directory /etc/containerd if it does not exist
+  file:
+    path: /etc/containerd
+    state: directory
+
+- name: Copy containerd config
+  command: "sudo containerd config default | sudo tee /etc/containerd/config.toml"
+
+- name: Reload service containerd, in all cases
+  service:
+    name: containerd
+    state: reloaded
+
+- name: Update repositories cache
+  apt:
+    update_cache: yes
+
+- name: Install a list of packages
+  apt:
+    pkg:
+    - apt-transport-https 
+    - curl
+
+- name: Add an Apt signing key, uses whichever key is at the URL
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: Add kubernetes repo to /etc/apt/sources.list.d/kubernetes.list
+  apt_repository:
+    repo: "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+    state: present
+    filename: kubernetes.list
+
+- name: Update repositories cache
+  apt:
+    update_cache: yes
+
+- name: Install a list of packages
+  apt:
+    pkg:
+    - kubelet 
+    - kubeadm 
+    - kubectl
+
+- name: Swapoff 
+  command: "sudo swapoff -a"
+
+- name: br_netfilter modules load
+  template:
+    src: modules.j2
+    dest: /etc/modules
+
+- name: net.ipv4.ip_forward modules load
+  template:
+    src: sysctl.conf.j2
+    dest: /etc/sysctl.conf
+
+- name: Setting persistent kernel's bridge firewalling code
+  command: "sudo sysctl -p /etc/sysctl.conf"
+
+- name: Kubeadm init 
+  shell: "sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --cri-socket=/run/containerd/containerd.sock"
+  when:
+    - inventory_hostname in groups['acg_kubernetes_master']
+
+- name: Create a directory $HOME/.kube if it does not exist
+  file:
+    path: $HOME/.kube
+    state: directory
+  when:
+    - inventory_hostname in groups['acg_kubernetes_master']
+
+- name: Copy file with owner and permissions
+  copy:
+    src: /etc/kubernetes/admin.conf 
+    dest: $HOME/.kube/config
+    owner: cloud_user
+    group: cloud_user
+    mode: '0775'
+  when:
+    - inventory_hostname in groups['acg_kubernetes_master']
+
+- name: Install the Tigera Calico operator
+  command: "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml"
+
+- name: Install the custom resource definitions
+  command: "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml"
