@@ -1,6 +1,5 @@
 ---
 - name: Update repositories cache
-  become: yes
   apt:
     update_cache: yes
 
