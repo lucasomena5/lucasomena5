@@ -16,16 +16,16 @@ ansible_ssh_private_key_file="/home/lucasomena/.ssh/vmware-ssh-key"
 
 ############################################### VMWARE ###############################################
 [kubernetes]
-k8s-master ansible_host=192.168.1.31
-k8s-worker1 ansible_host=192.168.1.32
-k8s-worker2 ansible_host=192.168.1.33
+192.168.1.31
+192.168.1.32
+192.168.1.33
 
 [kubernetes_master]
-k8s-master ansible_host=192.168.1.31
+192.168.1.31
 
 [kubernetes_nodes]
-k8s-worker1 ansible_host=192.168.1.32
-k8s-worker2 ansible_host=192.168.1.33
+192.168.1.32
+192.168.1.33
 
 [kubernetes:vars]
 ansible_user=root
