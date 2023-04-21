@@ -15,10 +15,10 @@
 - name: Copy containerd config
   command: "sudo containerd config default | sudo tee /etc/containerd/config.toml"
 
-- name: Reload service containerd, in all cases
+- name: Restart service containerd, in all cases
   service:
     name: containerd
-    state: reloaded
+    state: restarted
 
 - name: Update repositories cache
   apt:
@@ -72,35 +72,3 @@
 
 - name: Setting persistent kernel's bridge firewalling code
   command: "sudo sysctl -p /etc/sysctl.conf"
-
-- name: Kubeadm init 
-  shell: "sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --cri-socket=/run/containerd/containerd.sock"
-  when:
-    - inventory_hostname in groups['kubernetes_master']
-
-- name: Create a directory $HOME/.kube if it does not exist
-  file:
-    path: $HOME/.kube
-    state: directory
-  when:
-    - inventory_hostname in groups['kubernetes_master']
-
-- name: Copy file with owner and permissions
-  copy:
-    src: /etc/kubernetes/admin.conf 
-    dest: $HOME/.kube/config
-    owner: cloud_user
-    group: cloud_user
-    mode: '0775'
-  when:
-    - inventory_hostname in groups['kubernetes_master']
-
-- name: Install the Tigera Calico operator
-  command: "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml"
-  when:
-    - inventory_hostname in groups['kubernetes_master']
-
-- name: Install the custom resource definitions
-  command: "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml"
-  when:
-    - inventory_hostname in groups['kubernetes_master']

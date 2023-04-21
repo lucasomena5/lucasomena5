@@ -3,7 +3,7 @@
   roles:
     - { role: ../kubernetes-ubuntu }
 
-# - name: Configure kubernetes master and workers
-#   hosts: kubernetes_master, kubernetes_workers
-#   roles:
-#     - { role: ../kubernetes-master }
+- name: Initializing kubernetes cluster
+  hosts: kubernetes_master
+  roles:
+    - { role: ../kubernetes-master }
