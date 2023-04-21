@@ -1,70 +1,36 @@
 ---
-- name: Set up kubeadm
-  command: "kubeadm init --ignore-preflight-errors=Mem --ignore-preflight-errors=NumCPU"
-  #shell: kubeadm init --pod-network-cidr=10.100.0.0/16 --service-cidr=10.200.0.0/16 --service-dns-domain="kubernetes.lab" --ignore-preflight-errors=Mem --ignore-preflight-errors=NumCPU
+# - name: Kubeadm init 
+#   shell: "sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --cri-socket=/run/containerd/containerd.sock --ignore-preflight-errors=Mem --ignore-preflight-errors=NumCPU"
+#   when:
+#     - inventory_hostname in groups['kubernetes_master']
 
-- name: Create directories kube
-  file: 
-    path: /root/.kube 
-    state: directory 
-    owner: root 
-    group: root
+# - name: Create a directory $HOME/.kube if it does not exist
+#   file:
+#     path: $HOME/.kube
+#     state: directory
 
-- name: Configure kube
-  copy: 
-    src: /etc/kubernetes/admin.conf 
-    dest: /root/.kube/config 
-    remote_src: yes 
-    owner: root 
-    group: root
+# - name: Copy file with owner and permissions
+#   copy:
+#     src: /etc/kubernetes/admin.conf 
+#     dest: $HOME/.kube/config
+#     owner: cloud_user
+#     group: cloud_user
+#     mode: '0775'
+#   when:
+#   - inventory_hostname in groups['kubernetes_master']
 
-- name: Set up Pod Network - Flannel
-  command: "kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml"
+- name: Copy /etc/kubernetes/admin.conf to $HOME/.kube/config
+  shell: "sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config"
 
-- name: Generate join token
-  command: kubeadm token create --print-join-command
-  register: kubeadm_join_cmd
-  when:
-    - inventory_hostname in groups['kubernetes']
+- name: Change permission of $HOME/.kube/config
+  shell: "sudo chown $(id -u):$(id -g) $HOME/.kube/config"
 
-- set_fact:
-    kubeadm_join: "{{ kubeadm_join_cmd.stdout }}"
+- name: Install the Tigera Calico operator
+  command: "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml"
+  # when:
+  #   - inventory_hostname in groups['kubernetes_master']
 
-- debug: 
-    var: kubeadm_join
-
-# - name: Store join command
-#   action: copy content="{{ kubeadm_join }}" dest="/etc/kubernetes/kubeadm-join.command"
-
-- name: Run kubeadm join
-  command: "{{ kubeadm_join }}"
-  when:
-    - inventory_hostname in groups['kubernetes-workers']
-  
-
-# - name: restart server
-#   shell: 'sleep 1 && shutdown -r now "Reboot triggered by Ansible" && sleep 1'
-#   async: 1
-#   poll: 0
-#   become: true
-
-# - name: Wait for server to restart {{ inventory_hostname }}
-#   local_action:
-#     module: wait_for
-#       host={{ inventory_hostname }}
-#       port={{ ansible_ssh_port }}
-#       delay=10
-#     become: false
-
-# - name: Stop kubelet service
-#   service:
-#     name: kubelet
-#     state: stopped
-
-# - name: Start kubelet service
-#   service:
-#     name: kubelet
-#     state: started
-    
-# - name: Remove NoSchedule from master node
-#   shell: "kubectl taint node $(kubectl get nodes --no-headers | awk '{print $1}') node-role.kubernetes.io/control-plane:NoSchedule-"
+- name: Install the custom resource definitions
+  command: "kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml"
+  # when:
+  #   - inventory_hostname in groups['kubernetes_master']
