@@ -10,7 +10,7 @@ resource "aws_vpc" "vpc" {
   instance_tenancy                 = "default"
 
   tags = merge(
-    {"Name" = "tf-vpc"}, 
+    {"Name" = "tf-vpc-a"}, 
     var.default_tags
   )
 }
