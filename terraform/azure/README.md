@@ -1,3 +1,0 @@
-# AZURE
-
-https://www.bing.com/ck/a?!&&p=fde082e5dc699432JmltdHM9MTY4MjI5NDQwMCZpZ3VpZD0xMTQwYzU1NS03Yzg0LTYyMGItMWZhOC1kN2I0N2QzZDYzNzcmaW5zaWQ9NTE4NA&ptn=3&hsh=3&fclid=1140c555-7c84-620b-1fa8-d7b47d3d6377&psq=terraform+connect+az+login&u=a1aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL2VuLXVzL2F6dXJlL2RldmVsb3Blci90ZXJyYWZvcm0vYXV0aGVudGljYXRlLXRvLWF6dXJl&ntb=1
