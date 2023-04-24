@@ -1,7 +1,22 @@
 resource "aws_vpc" "vpc" {
-  cidr_block = var.cidr_block
+  cidr_block                       = var.cidr_block
+  assign_generated_ipv6_cidr_block = false
+  enable_dns_support               = true
+  enable_dns_hostnames             = true
+  instance_tenancy                 = "default"
 
-  tags = {
-    "Name" = "tf-vpc"
-  }
+  tags = merge(
+    {"Name" = "tf-vpc"}, 
+    var.default_tags
+  )
+}
+
+resource "aws_subnet" "subnet_a" {
+  vpc_id     = aws_vpc.vpc.id
+  cidr_block = "10.0.1.0/24"
+  
+  tags = merge(
+    {"Name" = "tf-subnet-a"}, 
+    var.default_tags
+  )
 }

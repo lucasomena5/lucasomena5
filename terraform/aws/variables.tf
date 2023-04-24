@@ -1,14 +1,24 @@
 variable "region" {
-  type = string
+  type    = string
   default = "us-east-1"
 }
 
 variable "profile" {
-  type = string 
+  type    = string
   default = "lab-aws"
 }
 
 variable "cidr_block" {
-  type = string 
+  type    = string
   default = "10.0.0.0/16"
+}
+
+variable "default_tags" {
+  type = map(any)
+  default = {
+    Purpose   = "Terraform Lab"
+    CreatedBy = "Lucas Omena"
+    Version   = "1.0"
+    Provider  = "AWS"
+  }
 }
