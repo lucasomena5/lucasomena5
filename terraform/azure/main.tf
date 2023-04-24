@@ -5,12 +5,14 @@ terraform {
     container_name       = "tf-state"
     key                  = "terraform/azure/lab.tfstate"
   }
+
   required_providers {
     azurerm = {
         source = "hashicorp/azurerm"
         version = ">=3.49.0"
     }
   }
+  
   required_version = ">=1.4"
 }
 

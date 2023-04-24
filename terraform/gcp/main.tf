@@ -8,8 +8,10 @@ terraform {
 
   backend "gcs" {
     bucket = "tf-state-playground-370411"
-    prefix = "terraform/gcs/lab.tfstate"
+    prefix = "terraform/gcs/"   
   }
+  
+  required_version = ">=1.4"
 }
 
 provider "google" {
