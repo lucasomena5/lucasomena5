@@ -1,0 +1,24 @@
+redis:
+  image: redis 
+db:
+  image: postgres:9.4
+vote:
+  build: ./vote
+  image: voting-app
+  ports:
+    - 5000:80
+  links:
+    - redis
+result:
+  build: ./result
+  image: result-app
+  ports:
+    - 5001:80
+  links:
+    - db
+worker:
+  build: ./worker
+  image: worker
+  links:
+    - redis
+    - db
