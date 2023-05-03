@@ -1,6 +1,7 @@
 // AWS ACCOUNT VARIABLES
 region  = "us-east-1"
-profile = "lab-accenture"
+#profile = "AWSPowerUserAccess-612302207233"
+profile = "lab-aws"
 
 // NETWORK RESOURCES
 vpc_cidr_block       = "10.100.0.0/16"

@@ -136,16 +136,16 @@ variable "assign_public_ip" {
   default     = true
 }
 
-// QUANTITY OF PUBLIC SUBNETS SHOULD BE CREATED
+// NUMBER OF PUBLIC SUBNETS SHOULD BE CREATED
 variable "qtd_public_subnet" {
-  description = "(Required) Quantity of public subnets."
+  description = "(Required) Number of public subnets."
   type        = number
   default     = 2
 }
 
-// QUANTITY OF PRIVATE SUBNETS SHOULD BE CREATED
+// NUMBER OF PRIVATE SUBNETS SHOULD BE CREATED
 variable "qtd_private_subnet" {
-  description = "(Required) Quantity of private subnets."
+  description = "(Required) Number of private subnets."
   type        = number
   default     = 2
 }
