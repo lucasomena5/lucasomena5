@@ -1,5 +1,5 @@
 resource "aws_iam_role" "cluster_role" {
-  name = "translucent-cluster-role"
+  name = "forgerock-cluster-role"
 
   assume_role_policy = <<EOF
 {
@@ -23,7 +23,7 @@ resource "aws_iam_role_policy_attachment" "cluster_role_attachment" {
 }
 
 resource "aws_iam_role" "nodegroup_role" {
-  name = "translucent-nodegroup-role"
+  name = "forgerock-nodegroup-role"
 
   assume_role_policy = <<EOF
 {

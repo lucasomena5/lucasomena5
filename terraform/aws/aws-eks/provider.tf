@@ -1,12 +1,12 @@
 // AWS PROVIDER CODE BLOCK
-// aws configure --profile translucent
+// aws configure --profile forgerock
 provider "aws" {
   region  = var.region
   profile = var.profile
 
   default_tags {
     tags = {
-      "Project"   = "Translucent DevOps Test"
+      "Project"   = "ForgeRock"
       "ManagedBy" = "Terraform"
     }
   }

@@ -1,5 +1,5 @@
 locals {
-  naming_kms = join("-", ["kms", var.purpose, var.environment, format("%02d", var.number_of_sequence)])
+  naming_kms = join("-", ["kms", lower(var.purpose), var.environment, format("%02d", var.number_of_sequence)])
 }
 
 data "aws_caller_identity" "current" {}
@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "cmk_policy" {
     }
     actions   = ["kms:*"]
     resources = ["*"]
-  } 
+  }
 }
 
 resource "aws_kms_key" "cmk" {

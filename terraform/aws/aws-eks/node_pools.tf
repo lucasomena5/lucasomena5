@@ -1,7 +1,7 @@
 // LOCAL VARIABLES TO CREATE NODE GROUP LABELS, DEFINY NUMBER OF NODES, INTANCE TYPE, AND CONFIGURE ON_DEMAND OR SPOT
 locals {
   node_pool_labels = {
-    type = "test-translucent"
+    type = "test-forgerock"
   }
 
   nodes_number = range(0, var.node_pool_max_size + 1)
