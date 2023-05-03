@@ -5,7 +5,7 @@ FROM java:latest
 
 WORKDIR /opt
 
-RUN apt-get install -y wget unzip
+RUN apt-get install -y wget unzip curl
 
 RUN wget --quiet http://download.forgerock.org/downloads/opendj/nightly/20150813_0017/OpenDJ-3.0.0-20150813.zip && unzip OpenDJ-3.0.0-20150813.zip && rm -r OpenDJ-3.0.0-20150813.zip 
 RUN wget http://opendj.forgerock.org/Example.ldif -O /opt/Example.ldif

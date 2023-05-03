@@ -9,8 +9,8 @@ connectivity_type    = "public"
 assign_public_ip     = true
 enable_dns_support   = true
 enable_dns_hostnames = true
-qtd_public_subnet    = 2
-qtd_private_subnet   = 2
+number_public_subnet    = 2
+number_private_subnet   = 2
 
 allowed_ports = [{
   description = "Allow HTTP ports"
@@ -46,6 +46,6 @@ node_pool_max_size     = 4
 
 // TAGGING NAMES
 purpose            = "forgerock"
-environment        = "shared"
+environment        = "lab"
 number_of_sequence = 1
 

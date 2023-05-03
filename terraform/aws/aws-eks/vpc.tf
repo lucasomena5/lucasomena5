@@ -1,6 +1,6 @@
 locals {
-  range_public_subnet  = range(10, sum([10, var.qtd_public_subnet]))
-  range_private_subnet = range(20, sum([20, var.qtd_private_subnet]))
+  range_public_subnet  = range(10, sum([10, var.number_public_subnet]))
+  range_private_subnet = range(20, sum([20, var.number_private_subnet]))
 }
 
 data "aws_availability_zones" "azs" {
@@ -12,6 +12,9 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = var.enable_dns_hostnames
   enable_dns_support   = var.enable_dns_support
 
+  // forgerock
+  assign_generated_ipv6_cidr_block = true
+
   tags = {
     "Name"        = join("-", ["vpc", var.purpose, var.environment, format("%02d", var.number_of_sequence)]),
     "Environment" = "${local.environment}"
@@ -20,6 +23,7 @@ resource "aws_vpc" "vpc" {
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
+
   tags = {
     "Name"        = join("-", ["igw", var.purpose, var.environment, format("%02d", var.number_of_sequence)]),
     "Environment" = "${local.environment}"
@@ -60,6 +64,9 @@ resource "aws_subnet" "public_subnet" {
   availability_zone       = data.aws_availability_zones.azs.names[local.range_public_subnet[count.index] == 10 ? 0 : 1]
   map_public_ip_on_launch = var.assign_public_ip
 
+  // forgerock
+  //ipv6_cidr_block = count.index == 1 ? cidrsubnet("2600:1f18:547f:fd00::/56", 16, 160) : cidrsubnet("2600:1f18:547f:fd00::/56", 16, 161)
+
   tags = {
     "Name"        = join("-", ["subnet", "public", var.purpose, var.environment, format("%02d", sum([count.index, 1]))]),
     "Environment" = "${local.environment}"
@@ -72,6 +79,9 @@ resource "aws_subnet" "private_subnet" {
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = cidrsubnet(aws_vpc.vpc.cidr_block, 8, local.range_private_subnet[count.index])
   availability_zone = data.aws_availability_zones.azs.names[local.range_private_subnet[count.index] == 20 ? 0 : 1]
+
+  // forgerock
+  //ipv6_cidr_block = count.index == 1 ? cidrsubnet("2600:1f18:547f:fd00::/56", 16, 162) : cidrsubnet("2600:1f18:547f:fd00::/56", 16, 163)
 
   tags = {
     "Name"        = join("-", ["subnet", "private", var.purpose, var.environment, format("%02d", sum([count.index, 1]))]),

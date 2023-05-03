@@ -4,7 +4,6 @@ locals {
 
   environments = {
     "lab"    = "LAB"
-    "shared" = "SHAREDSERVICES"
   }
 
   environment = local.environments[var.environment]
@@ -30,7 +29,8 @@ resource "aws_eks_cluster" "eks" {
 
   enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
   kubernetes_network_config {
-    service_ipv4_cidr = "172.31.0.0/16"
+    #service_ipv4_cidr = "172.31.0.0/16"
+    ip_family = "ipv6"
   }
 
   encryption_config {

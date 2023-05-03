@@ -137,14 +137,14 @@ variable "assign_public_ip" {
 }
 
 // NUMBER OF PUBLIC SUBNETS SHOULD BE CREATED
-variable "qtd_public_subnet" {
+variable "number_public_subnet" {
   description = "(Required) Number of public subnets."
   type        = number
   default     = 2
 }
 
 // NUMBER OF PRIVATE SUBNETS SHOULD BE CREATED
-variable "qtd_private_subnet" {
+variable "number_private_subnet" {
   description = "(Required) Number of private subnets."
   type        = number
   default     = 2
