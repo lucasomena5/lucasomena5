@@ -28,7 +28,7 @@ allowed_ports = [{
 }]
 
 // CLUSTER
-kubernetes_version  = "1.24"
+kubernetes_version  = "1.25"
 enable_key_rotation = true
 
 // NODE GROUP EC2 INSTANCE TYPE 

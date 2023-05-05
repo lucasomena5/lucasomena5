@@ -17,6 +17,43 @@ resource "aws_iam_role" "cluster_role" {
 EOF
 }
 
+resource "aws_iam_policy" "ipv6_policy" {
+  name        = "CustomEKS_CNI_Policy_IPv6Mode"
+  path        = "/"
+  description = "Policy IPv6 mode"
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:AssignIpv6Addresses",
+          "ec2:DescribeInstances",
+          "ec2:DescribeTags",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DescribeInstanceTypes"
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+      {
+        Action = [
+          "ec2:CreateTags"
+        ]
+        Effect   = "Allow"
+        Resource = [
+          "arn:aws:ec2:*:*:network-interface/*"
+        ]
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "cluster_role_ipv6" {
+  role       = aws_iam_role.cluster_role.name
+  policy_arn = aws_iam_policy.ipv6_policy.arn
+}
+
 resource "aws_iam_role_policy_attachment" "cluster_role_attachment" {
   role       = aws_iam_role.cluster_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
@@ -59,4 +96,9 @@ resource "aws_iam_role_policy_attachment" "nodegroup_role_attachment_3" {
 resource "aws_iam_role_policy_attachment" "nodegroup_role_attachment_4" {
   role       = aws_iam_role.nodegroup_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
+}
+
+resource "aws_iam_role_policy_attachment" "nodegroup_role_attachment_5" {
+  role       = aws_iam_role.nodegroup_role.name
+  policy_arn = aws_iam_policy.ipv6_policy.arn
 }

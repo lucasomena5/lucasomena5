@@ -14,6 +14,7 @@ resource "null_resource" "initialize_kubectl" {
   }
 
   depends_on = [ 
-    aws_eks_cluster.eks 
+    aws_eks_cluster.eks,
+    aws_eks_node_group.test_node_pool
   ]
 }
