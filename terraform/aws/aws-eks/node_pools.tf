@@ -15,11 +15,12 @@ locals {
     lab    = var.instance_type_per_environment[*]
     shared = var.instance_type_per_environment[*]
     dev    = var.instance_type_per_environment[*]
-    #pre    = var.instance_type_per_environment[*]
-    #pro    = var.instance_type_per_environment[*]
+    pre    = var.instance_type_per_environment[*]
+    pro    = var.instance_type_per_environment[*]
   }
 
   types_per_environment = {
+    #lab = "SPOT"
     lab = "ON_DEMAND"
   }
 
