@@ -1,4 +1,5 @@
-/* resource "kubernetes_service_account_v1" "aws-load-balancer-controller" {
+resource "kubernetes_service_account_v1" "aws-load-balancer-controller" {
+  default_secret_name = null
   metadata {
     name = "aws-load-balancer-controller"
     namespace = "kube-system"
@@ -14,4 +15,4 @@
   depends_on = [
     null_resource.initialize_kubectl
   ]
-} */
+}

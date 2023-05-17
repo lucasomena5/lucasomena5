@@ -52,7 +52,7 @@ node_pool_min_size     = 2
 node_pool_max_size     = 2
 
 // TAGGING NAMES
-purpose            = "forgerock"
+purpose            = "locust"
 environment        = "lab"
 number_of_sequence = 1
 
