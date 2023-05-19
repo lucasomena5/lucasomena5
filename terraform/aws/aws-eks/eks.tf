@@ -3,7 +3,7 @@ locals {
   naming_eks = join("-", ["eks", var.purpose, var.environment, format("%02d", var.number_of_sequence)])
 
   environments = {
-    "lab"    = "LAB"
+    "lab" = "LAB"
   }
 
   environment = local.environments[var.environment]

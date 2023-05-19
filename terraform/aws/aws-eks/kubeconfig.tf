@@ -3,7 +3,7 @@ locals {
 }
 
 resource "null_resource" "initialize_kubectl" {
-    provisioner "local-exec" {
+  provisioner "local-exec" {
     command = "aws eks --region $REGION update-kubeconfig --name $CLUSTER_NAME $NO_VERIFY_SSL --profile $AWS_PROFILE"
     environment = {
       REGION        = data.aws_region.region.name
@@ -13,7 +13,7 @@ resource "null_resource" "initialize_kubectl" {
     }
   }
 
-  depends_on = [ 
+  depends_on = [
     aws_eks_cluster.eks,
     aws_eks_node_group.test_node_pool
   ]

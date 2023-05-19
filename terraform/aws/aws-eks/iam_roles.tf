@@ -40,7 +40,7 @@ resource "aws_iam_policy" "ipv6_policy" {
         Action = [
           "ec2:CreateTags"
         ]
-        Effect   = "Allow"
+        Effect = "Allow"
         Resource = [
           "arn:aws:ec2:*:*:network-interface/*"
         ]
