@@ -1,18 +1,4 @@
-data "aws_subnet" "subnet_1" {
-  filter {
-    name   = "tag:Name"
-    values = ["${join("-", ["subnet", "public", var.purpose, var.environment, "01"])}"]
-  }
-}
-
-data "aws_subnet" "subnet_2" {
-  filter {
-    name   = "tag:Name"
-    values = ["${join("-", ["subnet", "public", var.purpose, var.environment, "02"])}"]
-  }
-}
-
-resource "null_resource" "eks_helm_charts" {
+/* resource "null_resource" "eks_helm_charts" {
     provisioner "local-exec" {
         command = "helm repo add eks https://aws.github.io/eks-charts"
     }
@@ -55,9 +41,24 @@ resource "helm_release" "eks_helm_install_charts" {
   depends_on = [
     null_resource.initialize_kubectl
   ]
+} */
+
+####################################################################################################
+
+/* data "aws_subnet" "subnet_1" {
+  filter {
+    name   = "tag:Name"
+    values = ["${join("-", ["subnet", "public", var.purpose, var.environment, "01"])}"]
+  }
 }
 
-/* resource "null_resource" "ig_ingress_v1" {
+data "aws_subnet" "subnet_2" {
+  filter {
+    name   = "tag:Name"
+    values = ["${join("-", ["subnet", "public", var.purpose, var.environment, "02"])}"]
+  }
+}
+resource "null_resource" "ig_ingress_v1" {
     provisioner "local-exec" {
         command = "kubectl apply -f ${templatefile("${path.module}/ingress/ig-ingress-v1.tftpl", 
         {

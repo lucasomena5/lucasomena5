@@ -23,10 +23,10 @@ resource "aws_subnet" "public_subnet" {
   count                   = length(local.range_public_subnet)
   vpc_id                  = data.aws_vpc.vpc.id
   cidr_block              = cidrsubnet(data.aws_vpc.vpc.cidr_block, 8, local.range_public_subnet[count.index])
-  availability_zone       = data.aws_availability_zones.azs.names[local.range_public_subnet[count.index] == 10 ? 0 : 1]
+  availability_zone       = data.aws_availability_zones.azs.names[local.range_public_subnet[count.index] == 50 ? 0 : 1]
   map_public_ip_on_launch = var.assign_public_ip
   
-  ipv6_cidr_block = count.index == 1 ? cidrsubnet(data.aws_vpc.vpc.ipv6_cidr_block, 8, sum([count.index,40])) : cidrsubnet(data.aws_vpc.vpc.ipv6_cidr_block, 8, sum([count.index,50]))
+  ipv6_cidr_block = count.index == 1 ? cidrsubnet(data.aws_vpc.vpc.ipv6_cidr_block, 8, sum([count.index,60])) : cidrsubnet(data.aws_vpc.vpc.ipv6_cidr_block, 8, sum([count.index,70]))
   assign_ipv6_address_on_creation = true
 
   tags = {

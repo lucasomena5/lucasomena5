@@ -50,7 +50,7 @@ metadata:
   name: aws-load-balancer-controller
   namespace: kube-system
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::$account_id:role/AmazonEKSLoadBalancerControllerRole
+    eks.amazonaws.com/role-arn: arn:aws:iam::`aws sts get-caller-identity --query "Account" --output text --profile lab-aws`:role/AmazonEKSLoadBalancerControllerRole
 EOF
 
 kubectl apply -f aws-load-balancer-controller-service-account.yaml
@@ -59,6 +59,7 @@ kubectl apply -f aws-load-balancer-controller-service-account.yaml
 helm repo add eks https://aws.github.io/eks-charts
 kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller//crds?ref=master"
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=eks-forgerock-lab-01 --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
 # Identity Provider 
 Create Identity Provider OpenID
@@ -96,3 +97,43 @@ aws iam attach-role-policy \
 kubectl annotate serviceaccount \
     -n kube-system aws-node \
     eks.amazonaws.com/role-arn=arn:aws:iam::416656901077:role/AmazonEKSVPCCNIRole
+
+
+# AUTOSCALE
+
+# Set optional environment variables
+export AWS_PROFILE="lab-aws"
+export AWS_REGION="us-east-1"
+export ACCOUNT_ID=$(aws sts get-caller-identity --output json --profile lab-aws | jq ".Account" | tr -d '"')
+
+# Set common environment variables
+export TARGET_GROUP_NAME="locust" 
+export TARGET_CLUSTER_NAME="eks-${TARGET_GROUP_NAME}-lab-01"
+export TARGET_REGION="${AWS_REGION}"
+
+# Check
+cat <<EOF
+_______________________________________________
+* AWS_PROFILE : ${AWS_PROFILE:-(default)}
+* AWS_REGION  : ${AWS_REGION:-(invalid!)}
+* ACCOUNT_ID  : ${ACCOUNT_ID:-(invalid!)}
+_______________________________________________
+* TARGET_GROUP_NAME   : ${TARGET_GROUP_NAME}
+* TARGET_CLUSTER_NAME : ${TARGET_CLUSTER_NAME}
+* TARGET_REGION       : ${TARGET_REGION:-(invalid!)}
+EOF
+
+cat >"${CA}".yaml <<EOF
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: "${CA}"
+  namespace: kube-system
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::$ACCOUNT_ID:role/"${TARGET_CLUSTER_NAME}-${CA}"
+EOF
+
+aws iam create-role \
+  --role-name "${TARGET_CLUSTER_NAME}-${CA}" \
+  --assume-role-policy-document file://"cluster_autoscaler_autoDiscovery.json" \
+  --profile lab-aws
