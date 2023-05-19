@@ -1,3 +1,11 @@
+data "tf_remote_state" "tf_eks_state_file" {
+  backend = "local"
+
+  config = {
+    path = "/mnt/c/Users/lucas.omena/Documents/REPO/eks.tfstate"
+  }
+}
+
 terraform {
   /* backend "s3" {
     profile = ""
