@@ -68,11 +68,11 @@ resource "aws_subnet" "public_subnet" {
   #assign_ipv6_address_on_creation = true
 
   tags = {
-    "Name"                                       = join("-", ["subnet", "public", var.purpose, var.environment, format("%02d", sum([count.index, 1]))]),
-    "Environment"                                = "${local.environment}"
-    "kubernetes.io/cluster/elb"                  = 1,
-    "kubernetes.io/role/elb"                     = "1",
-    "kubernetes.io/cluster/eks-forgerock-lab-01" = "owned"
+    "Name"                                            = join("-", ["subnet", "public", var.purpose, var.environment, format("%02d", sum([count.index, 1]))]),
+    "Environment"                                     = "${local.environment}"
+    "kubernetes.io/cluster/elb"                       = 1,
+    "kubernetes.io/role/elb"                          = "1",
+    "kubernetes.io/cluster/eks-forgerock-ipv4-lab-01" = "owned"
   }
 }
 
@@ -85,11 +85,11 @@ resource "aws_subnet" "private_subnet" {
   #ipv6_cidr_block                 = count.index == 1 ? cidrsubnet(aws_vpc.vpc.ipv6_cidr_block, 8, sum([count.index, 20])) : cidrsubnet(aws_vpc.vpc.ipv6_cidr_block, 8, sum([count.index, 30]))
   #assign_ipv6_address_on_creation = true
   tags = {
-    "Name"                                       = join("-", ["subnet", "private", var.purpose, var.environment, format("%02d", sum([count.index, 1]))]),
-    "Environment"                                = "${local.environment}"
-    "kubernetes.io/cluster/internal-elb"         = 1,
-    "kubernetes.io/role/elb"                     = "1",
-    "kubernetes.io/cluster/eks-forgerock-lab-01" = "owned"
+    "Name"                                            = join("-", ["subnet", "private", var.purpose, var.environment, format("%02d", sum([count.index, 1]))]),
+    "Environment"                                     = "${local.environment}"
+    "kubernetes.io/cluster/internal-elb"              = 1,
+    "kubernetes.io/role/elb"                          = "1",
+    "kubernetes.io/cluster/eks-forgerock-ipv4-lab-01" = "owned"
   }
 }
 

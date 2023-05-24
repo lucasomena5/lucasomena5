@@ -1,5 +1,5 @@
 resource "aws_iam_role" "loadbalancer_role" {
-  name = "AmazonEKSLoadBalancerControllerRole"
+  name = "AmazonEKSLoadBalancerControllerRoleIPv4"
 
   assume_role_policy = <<EOF
 {
@@ -29,7 +29,7 @@ EOF
 }
 
 resource "aws_iam_policy" "loadbalancer_policy" {
-  name = "AWSLoadBalancerControllerIAMPolicy"
+  name = "AWSLoadBalancerControllerIAMPolicyIPv4"
   path = "/"
 
   policy = jsonencode({
