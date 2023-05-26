@@ -86,3 +86,20 @@ variable "number_of_sequence" {
   description = "(Required) number_of_sequence number of the resource used for Naming. (2 characters)"
   type        = number
 }
+
+variable "vpc_cidr_block" {
+  type        = string
+  description = "(Required) AWS VPC CIDR Block."
+}
+
+variable "allowed_ports" {
+  description = "(Required) Ports allowed to security group."
+  type = list(object({
+    description = string
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
+  default = null
+}

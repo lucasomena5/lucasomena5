@@ -21,8 +21,8 @@ module "networking" {
 
 }
 
-module "security" {
-  source = "./security"
+module "eks" {
+  source = "./eks"
 
   // AWS ACCOUNT VARIABLES
   region = var.region
@@ -30,19 +30,6 @@ module "security" {
 
   allowed_ports = var.allowed_ports
   enable_key_rotation = var.enable_key_rotation
-
-  // TAGGING NAMES
-  purpose            = var.purpose           
-  environment        = var.environment       
-  number_of_sequence = var.number_of_sequence
-}
-
-module "eks" {
-  source = "./eks"
-
-  // AWS ACCOUNT VARIABLES
-  region = var.region
-  profile = var.profile
 
   // NODE GROUP EC2 INSTANCE TYPE 
   instance_type_per_environment = var.instance_type_per_environment

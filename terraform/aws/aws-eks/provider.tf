@@ -12,6 +12,7 @@ provider "aws" {
     tags = {
       "Project"   = "ForgeRock"
       "ManagedBy" = "Terraform"
+      "CreatedBy" = timestamp()
     }
   }
 }
