@@ -1,8 +1,3 @@
-// DATA 
-data "aws_vpc" "vpc" {
-  cidr_block = aws_vpc.vpc.cidr_block
-}
-
 // SECURITY GROUPS
 resource "aws_security_group" "sg" {
   name        = join("-", [lower(var.purpose), "security", "group"])
@@ -25,7 +20,7 @@ resource "aws_security_group" "sg" {
   }
 
   depends_on = [
-    aws_vpc.vpc
+    data.aws_vpc.vpc
   ]
 }
 

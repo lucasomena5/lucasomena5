@@ -1,44 +1,3 @@
-// LOCAL VARIABLES TO CREATE NODE GROUP LABELS, DEFINY NUMBER OF NODES, INTANCE TYPE, AND CONFIGURE ON_DEMAND OR SPOT
-locals {
-  node_pool_labels = {
-    type = "test-forgerock"
-  }
-
-  nodes_number = range(0, var.node_pool_max_size + 1)
-  spot_kubernetes_label = {
-    "intent"              = "apps"
-    "aws.amazon.com/spot" = "true"
-    "lifecycle"           = "Ec2Spot"
-  }
-
-  instance_type_per_environment = {
-    lab    = var.instance_type_per_environment[*]
-    shared = var.instance_type_per_environment[*]
-    dev    = var.instance_type_per_environment[*]
-    pre    = var.instance_type_per_environment[*]
-    pro    = var.instance_type_per_environment[*]
-  }
-
-  types_per_environment = {
-    #lab = "SPOT"
-    lab = "ON_DEMAND"
-  }
-
-  capacity_type = local.types_per_environment[var.environment]
-
-  tags_kubernets_spot_node_group = {
-    "lifecycle"           = "Ec2Spot"
-    "aws.amazon.com/spot" = "true"
-    "intent"              = "apps"
-  }
-
-  tags_spot_node_group = {
-    "k8s.io/cluster-autoscaler/node-template/label/intent"    = "apps"
-    "k8s.io/cluster-autoscaler/${local.naming_eks}"           = "owned"
-    "k8s.io/cluster-autoscaler/node-template/label/lifecycle" = "Ec2Spot"
-  }
-}
-
 // NODE GROUP INSTANCES
 resource "aws_eks_node_group" "test_node_pool" {
   cluster_name    = local.naming_eks
@@ -59,7 +18,7 @@ resource "aws_eks_node_group" "test_node_pool" {
 
   remote_access {
     ec2_ssh_key               = var.ec2_ssh_key
-    source_security_group_ids = aws_security_group.sg[*].id
+    source_security_group_ids = data.aws_security_group.sg[*].id
   }
 
   lifecycle {
@@ -69,9 +28,6 @@ resource "aws_eks_node_group" "test_node_pool" {
   tags = merge(local.tags_spot_node_group)
 
   depends_on = [
-    aws_subnet.private_subnet,
-    aws_iam_role.cluster_role,
-    aws_iam_role.nodegroup_role,
     aws_eks_cluster.eks
   ]
 }

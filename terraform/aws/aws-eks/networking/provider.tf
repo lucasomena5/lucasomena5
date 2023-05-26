@@ -25,3 +25,8 @@ provider "helm" {
     config_path = "~/.kube/config"
   }
 }
+
+locals {
+  range_public_subnet  = range(10, sum([10, var.number_public_subnet]))
+  range_private_subnet = range(20, sum([20, var.number_private_subnet]))
+}
