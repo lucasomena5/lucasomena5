@@ -27,6 +27,12 @@ provider "helm" {
 }
 
 locals {
+  environments = {
+    "lab" = "LAB"
+  }
+
+  environment = local.environments[var.environment]
+
   range_public_subnet  = range(10, sum([10, var.number_public_subnet]))
   range_private_subnet = range(20, sum([20, var.number_private_subnet]))
 }

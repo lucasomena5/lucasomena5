@@ -103,3 +103,9 @@ variable "allowed_ports" {
   }))
   default = null
 }
+
+variable "no_verify_ssl" {
+  description = "Set no_verify_ssl parameter on aws cli."
+  type        = bool
+  default     = false
+}

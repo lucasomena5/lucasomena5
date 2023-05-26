@@ -3,6 +3,7 @@ resource "aws_security_group" "sg" {
   name        = join("-", [lower(var.purpose), "security", "group"])
   description = join(" ", [lower(var.purpose), "security", "group", "${local.environment}"])
   vpc_id      = data.aws_vpc.vpc.id
+  
   dynamic "ingress" {
     for_each = var.allowed_ports
     content {
