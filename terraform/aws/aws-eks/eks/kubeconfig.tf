@@ -1,7 +1,3 @@
-locals {
-  no_verify_ssl = var.no_verify_ssl ? " --no-verify-ssl " : ""
-}
-
 resource "null_resource" "initialize_kubectl" {
   provisioner "local-exec" {
     command = "aws eks --region $REGION update-kubeconfig --name $CLUSTER_NAME $NO_VERIFY_SSL --profile $AWS_PROFILE"

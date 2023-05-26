@@ -77,3 +77,7 @@ locals {
     "k8s.io/cluster-autoscaler/node-template/label/lifecycle" = "Ec2Spot"
   }
 }
+
+locals {
+  no_verify_ssl = var.no_verify_ssl ? " --no-verify-ssl " : ""
+}

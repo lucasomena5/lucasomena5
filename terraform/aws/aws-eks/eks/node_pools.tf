@@ -1,9 +1,9 @@
 // NODE GROUP INSTANCES
-resource "aws_eks_node_group" "test_node_pool" {
+resource "aws_eks_node_group" "node_pool" {
   cluster_name    = local.naming_eks
   node_group_name = "node-pool-${local.naming_eks}"
-  node_role_arn   = aws_iam_role.nodegroup_role.arn
-  subnet_ids      = aws_subnet.private_subnet[*].id
+  node_role_arn   = data.aws_iam_role.nodegroup_role.arn
+  subnet_ids      = data.aws_subnets.private_subnets[*].id
   instance_types  = local.instance_type_per_environment[var.environment]
   capacity_type   = local.capacity_type
   disk_size       = var.disk_size_node
@@ -18,7 +18,7 @@ resource "aws_eks_node_group" "test_node_pool" {
 
   remote_access {
     ec2_ssh_key               = var.ec2_ssh_key
-    source_security_group_ids = data.aws_security_group.sg[*].id
+    source_security_group_ids = data.aws_security_groups.sg_eks[*].id
   }
 
   lifecycle {

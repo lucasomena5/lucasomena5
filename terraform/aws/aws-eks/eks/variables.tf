@@ -9,6 +9,13 @@ variable "region" {
   }
 }
 
+// SECURITY
+variable "enable_key_rotation" {
+  description = "(Required) Enable key rotation for AWS CMK."
+  type        = string
+  default     = false
+}
+
 // AWS PROFILE CONFIGURED USING AWS CLI (aws configure --profile <profile-name>)
 variable "profile" {
   description = "(Required) AWS Profile for Account."

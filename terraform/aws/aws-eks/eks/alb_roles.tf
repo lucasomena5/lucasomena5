@@ -282,10 +282,6 @@ resource "aws_iam_role_policy_attachment" "loadbalancer_role_attachment" {
 
 data "tls_certificate" "thumb" {
   url = aws_eks_cluster.eks.identity.0.oidc.0.issuer
-
-  depends_on = [
-    aws_eks_cluster.eks
-  ]
 }
 
 resource "aws_iam_openid_connect_provider" "identity_provider_eks" {

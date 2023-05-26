@@ -31,13 +31,6 @@ variable "number_of_sequence" {
   type        = number
 }
 
-// SECURITY
-variable "enable_key_rotation" {
-  description = "(Required) Enable key rotation for AWS CMK."
-  type        = string
-  default     = false
-}
-
 variable "vpc_cidr_block" {
   type        = string
   description = "(Required) AWS VPC CIDR Block."

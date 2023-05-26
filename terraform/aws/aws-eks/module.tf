@@ -22,7 +22,7 @@ module "networking" {
 }
 
 module "security" {
-  source = "./networking"
+  source = "./security"
 
   // AWS ACCOUNT VARIABLES
   region = var.region
@@ -30,17 +30,6 @@ module "security" {
 
   allowed_ports = var.allowed_ports
   enable_key_rotation = var.enable_key_rotation
-
-  // NODE GROUP EC2 INSTANCE TYPE 
-  instance_type_per_environment = var.instance_type_per_environment
-
-  // EC2 PARAMETERS AND AUTOSCALING FOR EKS CLUSTER
-  ec2_ssh_key            = var.ec2_ssh_key           
-  ami_type               = var.ami_type              
-  disk_size_node         = var.disk_size_node        
-  node_pool_desired_size = var.node_pool_desired_size
-  node_pool_min_size     = var.node_pool_min_size    
-  node_pool_max_size     = var.node_pool_max_size  
 
   // TAGGING NAMES
   purpose            = var.purpose           
