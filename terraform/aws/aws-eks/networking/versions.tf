@@ -7,6 +7,12 @@
 } */
 
 terraform {
+  /* backend "s3" {
+    profile = ""
+    region  = "us-east-1"
+    bucket  = ""
+    key     = "terraform/aws/lab.tfstate"
+  } */
   required_providers {
     aws = {
       source  = "hashicorp/aws"

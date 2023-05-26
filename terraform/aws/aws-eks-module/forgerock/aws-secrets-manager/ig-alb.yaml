@@ -1,0 +1,39 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    # LOAD BALANCER
+    alb.ingress.kubernetes.io/ip-address-type: dualstack
+    alb.ingress.kubernetes.io/tags: ApplicationIDName=frig-dev,RSMs=X265140,BusinessUnit=gtcto,CostCenter=713104,__Exception-ELBLogging=0123456789
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/ip-address-type: dualstack
+    alb.ingress.kubernetes.io/subnets: subnet-0ba2c2bed55a38c5f, subnet-067ba646a5780e713, subnet-0a8497ba845b2448c, subnet-047156c7d7fcf0ce2
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/group.name: forgerock-ig
+    alb.ingress.kubernetes.io/security-groups: sg-0015cef293b5f76da
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 8080}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:us-east-1:531641725003:certificate/ec682c95-6c2c-4fef-bb69-b6e1d6ac40b9"
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-1-2017-01
+    # HEALTH CHECK
+    alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '8'
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/healthcheck-port: '8080'
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/success-codes: '200'
+  name: ig
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ig
+                port:
+                  number: 80
