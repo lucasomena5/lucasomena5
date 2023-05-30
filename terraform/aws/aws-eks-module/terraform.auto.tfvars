@@ -1,9 +1,9 @@
-// AWS ACCOUNT VARIABLES
+########################################################## PROFILE ##########################################################
 region = "us-east-1"
 #profile = "AWSPowerUserAccess-612302207233"
 profile = "lab-aws"
 
-// NETWORK RESOURCES
+########################################################## VPC ##########################################################
 vpc_cidr_block        = "10.100.0.0/16"
 connectivity_type     = "public"
 assign_public_ip      = true
@@ -34,16 +34,14 @@ allowed_ports = [{
     cidr_blocks = ["0.0.0.0/0"]
 }]
 
-// CLUSTER
+########################################################## EKS ##########################################################
 kubernetes_version  = "1.25"
 enable_key_rotation = true
 
-// NODE GROUP EC2 INSTANCE TYPE 
 instance_type_per_environment = [
   "t3.medium"
 ]
 
-// EC2 PARAMETERS AND AUTOSCALING FOR EKS CLUSTER
 ec2_ssh_key            = "tf-forgerock"
 ami_type               = "AL2_x86_64"
 disk_size_node         = 20
@@ -51,7 +49,7 @@ node_pool_desired_size = 2 // Default value is 2
 node_pool_min_size     = 2
 node_pool_max_size     = 2
 
-// TAGGING NAMES
+########################################################## COMMON VARIABLES ##########################################################
 purpose            = "forgerock"
 environment        = "lab"
 number_of_sequence = 1
