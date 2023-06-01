@@ -44,7 +44,7 @@ resource "aws_eks_node_group" "test_node_pool" {
   cluster_name    = local.naming_eks
   node_group_name = "node-pool-${local.naming_eks}"
   node_role_arn   = aws_iam_role.nodegroup_role.arn
-  subnet_ids      = aws_subnet.private_subnet[*].id
+  subnet_ids      = aws_subnet.public_subnet[*].id
   instance_types  = local.instance_type_per_environment[var.environment]
   capacity_type   = local.capacity_type
   disk_size       = var.disk_size_node
@@ -69,7 +69,7 @@ resource "aws_eks_node_group" "test_node_pool" {
   tags = merge(local.tags_spot_node_group)
 
   depends_on = [
-    aws_subnet.private_subnet,
+    aws_subnet.public_subnet,
     aws_iam_role.cluster_role,
     aws_iam_role.nodegroup_role,
     aws_eks_cluster.eks

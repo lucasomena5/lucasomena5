@@ -4,7 +4,7 @@ helm install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-s
 kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml
 
 # SECRETS
-aws --region us-east-1 secretsmanager  create-secret --name openig-secrets-env  --secret-string '{}' --profile lab-aws
+aws --region us-east-1 secretsmanager  create-secret --name openig-secrets-env  --secret-string '{"user":"password"}' --profile lab-aws
 
 aws iam create-policy --policy-name aws-eks-secrets-manager-policy --policy-document file://secrets-manager-policy.json --profile lab-aws
 
@@ -48,6 +48,8 @@ aws iam create-role --role-name csi-eks-secrets-manager-role --profile lab-aws -
 
 aws iam attach-role-policy --role-name csi-eks-secrets-manager-role --policy-arn=arn:aws:iam::$account_id:policy/aws-eks-secrets-manager-policy --profile lab-aws
 
+##
 aws iam attach-role-policy --role-name csi-eks-secrets-manager-role --policy-arn=arn:aws:iam::$account_id:policy/csi-secrets-store-provider-aws-cluster-policy --profile lab-aws
+##
 
 kubectl annotate serviceaccount -n $namespace $service_account eks.amazonaws.com/role-arn=arn:aws:iam::$account_id:role/csi-eks-secrets-manager-role

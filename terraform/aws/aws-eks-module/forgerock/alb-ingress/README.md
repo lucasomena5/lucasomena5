@@ -62,6 +62,13 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n ku
 
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
+# CERTS
+cd ./jwt
+
+k create configmap ig-certificates --from-file=id.key.for.signing.jwt.pem=./id.key.for.signing.jwt.pem --from-file=id.key.for.verifying.jwt.pem=./id.key.for.verifying.jwt.pem --from-file=key.manager.secret.id.pem=./key.manager.secret.id.pem --from-file=ig.amazonaws.com-certificate.pem=./ig.amazonaws.com-certificate.pem --from-file=ig.amazonaws.com-key.pem=./ig.amazonaws.com-key.pem --dry-run=client -oyaml > certs.yaml
+
+
+
 # Identity Provider 
 Create Identity Provider OpenID
 
