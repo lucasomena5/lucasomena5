@@ -70,7 +70,6 @@ resource "aws_subnet" "public_subnet" {
   tags = {
     "Name"                                       = join("-", ["subnet", "public", var.purpose, var.environment, format("%02d", sum([count.index, 1]))]),
     "Environment"                                = "${local.environment}"
-    "kubernetes.io/cluster/elb"                  = 1,
     "kubernetes.io/role/elb"                     = "1",
     "kubernetes.io/cluster/eks-forgerock-lab-01" = "owned"
   }
@@ -87,8 +86,7 @@ resource "aws_subnet" "private_subnet" {
   tags = {
     "Name"                                       = join("-", ["subnet", "private", var.purpose, var.environment, format("%02d", sum([count.index, 1]))]),
     "Environment"                                = "${local.environment}"
-    "kubernetes.io/cluster/internal-elb"         = 1,
-    "kubernetes.io/role/elb"                     = "1",
+    "kubernetes.io/cluster/internal-elb"         = "1",
     "kubernetes.io/cluster/eks-forgerock-lab-01" = "owned"
   }
 }
