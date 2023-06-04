@@ -42,7 +42,7 @@ resource "aws_eks_cluster" "eks" {
 
   vpc_config {
     security_group_ids      = aws_security_group.sg[*].id
-    subnet_ids              = aws_subnet.private_subnet[*].id
+    subnet_ids              = aws_subnet.public_subnet[*].id
     endpoint_private_access = true
     endpoint_public_access  = true
   }

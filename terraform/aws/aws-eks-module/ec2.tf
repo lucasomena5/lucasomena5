@@ -1,13 +1,3 @@
-locals {
-  //naming_eks = join("-", ["eks", var.purpose, var.environment, format("%02d", var.number_of_sequence)])
-
-  environments = {
-    "lab" = "LAB"
-  }
-
-  environment = local.environments[var.environment]
-}
-
 data "aws_ami" "amazon_linux" {
   most_recent = true
 
@@ -31,7 +21,7 @@ data "aws_ami" "amazon_linux" {
 
 resource "aws_instance" "ec2" {
   ami                  = data.aws_ami.amazon_linux.id
-  instance_type        = "t3.small"
+  instance_type        = "t3.medium"
   subnet_id            = aws_subnet.public_subnet[0].id
   security_groups      = [aws_security_group.sg.id]
   iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
