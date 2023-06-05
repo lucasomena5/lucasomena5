@@ -26,3 +26,5 @@ provider "helm" {
     //config_context = aws_eks_cluster.eks.name
   }
 }
+
+provider "tls" {}

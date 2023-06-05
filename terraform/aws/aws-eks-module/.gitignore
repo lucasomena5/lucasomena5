@@ -40,3 +40,4 @@ terraform.rc
 *.exe 
 #*.sh 
 *.ps1
+*.pem
