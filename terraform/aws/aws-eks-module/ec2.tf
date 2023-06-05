@@ -1,4 +1,4 @@
-data "aws_ami" "amazon_linux" {
+/* data "aws_ami" "amazon_linux" {
   most_recent = true
 
   filter {
@@ -30,4 +30,4 @@ resource "aws_instance" "ec2" {
   tags = {
     "Name" = "bastion"
   }
-}
+} */

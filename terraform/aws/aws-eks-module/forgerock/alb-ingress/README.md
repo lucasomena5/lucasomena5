@@ -40,6 +40,7 @@ aws iam attach-role-policy \
   --policy-arn arn:aws:iam::030584239866:policy/AWSLoadBalancerControllerIAMPolicy \
   --role-name AmazonEKSLoadBalancerControllerRole --profile lab-aws 
 
+# INGRESS CONTROLLER
 cat >aws-load-balancer-controller-service-account.yaml <<EOF
 apiVersion: v1
 kind: ServiceAccount
@@ -55,7 +56,6 @@ EOF
 
 kubectl apply -f aws-load-balancer-controller-service-account.yaml
 
-# INGRESS CONTROLLER
 helm repo add eks https://aws.github.io/eks-charts
 kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller//crds?ref=master"
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=eks-forgerock-lab-01 --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller

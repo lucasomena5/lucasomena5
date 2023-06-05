@@ -170,7 +170,7 @@ metadata:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 8080}, {"HTTP": 80}, {"HTTPS": 443}, {"HTTPS": 8443}]' #'[{"HTTP": 8080}]'
     alb.ingress.kubernetes.io/tags: Purpose=lab,ApplicationIDName=frig-dev,RSMs=X265140,BusinessUnit=gtcto,CostCenter=713104,__Exception-ELBLogging=0123
     alb.ingress.kubernetes.io/group.name: ig-group
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:444187421781:certificate/c814ffff-f549-44c5-b54b-105e7ef48244
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:973946915053:certificate/d541b30e-4a84-436a-973c-223235a67841
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-1-2017-01
     #alb.ingress.kubernetes.io/certificate-arn:
     #alb.ingress.kubernetes.io/target-group-attributes: stickiness.enabled=true,stickiness.lb_cookie.duration_seconds=60
