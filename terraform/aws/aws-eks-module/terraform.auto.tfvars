@@ -32,6 +32,13 @@ allowed_ports = [{
     to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+  },
+  {
+    description = "Allow All ports"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
 }]
 
 ########################################################## EKS ##########################################################

@@ -1,0 +1,113 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.deployment.name }}
+    app.kubernetes.io/component: {{ .Values.deployment.name }}
+    app.kubernetes.io/instance: {{ .Values.deployment.name }}
+    app.kubernetes.io/name: {{ .Values.deployment.name }}
+    app.kubernetes.io/part-of: forgerock
+    tier: middle
+  name: {{ .Values.deployment.name }}
+  namespace: {{ .Values.deployment.namespace }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.name }}
+      app.kubernetes.io/component: {{ .Values.deployment.name }}
+      app.kubernetes.io/instance: {{ .Values.deployment.name }}
+      app.kubernetes.io/name: {{ .Values.deployment.name }}
+      app.kubernetes.io/part-of: forgerock
+      tier: middle
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+      creationTimestamp: null
+      labels:
+        app: {{ .Values.deployment.name }}
+        app.kubernetes.io/component: {{ .Values.deployment.name }}
+        app.kubernetes.io/instance: {{ .Values.deployment.name }}
+        app.kubernetes.io/name: {{ .Values.deployment.name }}
+        app.kubernetes.io/part-of: forgerock
+        tier: middle
+    spec:
+      volumes:
+      - name: {{ .Values.deployment.name }}-certificates-volume
+        secret:
+          secretName: {{ .Values.deployment.name }}-certificates
+      containers:
+      - env:
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIP
+        envFrom:
+        - secretRef:
+            name: open{{ .Values.deployment.name }}-secrets-env
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: {{ .Values.deployment.name }}-certificates-volume
+          mountPath: /var/ig/secrets
+          readOnly: true
+        livenessProbe:
+          httpGet:
+            host:
+            scheme: {{ .Values.deployment.livenessProbe.scheme }}
+            path: {{ .Values.deployment.livenessProbe.path }}
+            port: {{ .Values.deployment.livenessProbe.port }}
+            httpHeaders:
+            - name: Host
+              value: status.podIP
+          initialDelaySeconds: {{ .Values.deployment.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.deployment.livenessProbe.periodSeconds }}
+          successThreshold: {{ .Values.deployment.livenessProbe.successThreshold }}
+          timeoutSeconds: {{ .Values.deployment.livenessProbe.timeoutSeconds }}
+          failureThreshold: {{ .Values.deployment.livenessProbe.failureThreshold }}
+        name: {{ .Values.deployment.name }}
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+        ports:
+        - containerPort: {{ .Values.deployment.ports.containerPort }}
+          protocol: {{ .Values.deployment.ports.protocol }}
+        readinessProbe:
+          httpGet:
+            host:
+            scheme: {{ .Values.deployment.readinessProbe.scheme }}
+            path: {{ .Values.deployment.readinessProbe.path }}
+            port: {{ .Values.deployment.readinessProbe.port }}
+            httpHeaders:
+            - name: Host
+              value: status.podIP
+          failureThreshold: {{ .Values.deployment.readinessProbe.failureThreshold }}
+          initialDelaySeconds: {{ .Values.deployment.readinessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.deployment.readinessProbe.periodSeconds }}
+        resources:
+          requests:
+            cpu: {{ .Values.deployment.resources.requests.cpu }}
+            memory: {{ .Values.deployment.resources.requests.memory }}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        runAsGroup: {{ .Values.deployment.securityContext.runAsGroup }}
+        runAsUser: {{ .Values.deployment.securityContext.runAsUser }}
+      terminationGracePeriodSeconds: 30
+      hostNetwork: true
