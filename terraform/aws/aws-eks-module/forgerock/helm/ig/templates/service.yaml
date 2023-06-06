@@ -1,15 +1,28 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "ig.fullname" . }}
   labels:
-    {{- include "ig.labels" . | nindent 4 }}
+    app: {{ .Values.deployment.name }}
+    app.kubernetes.io/component: {{ .Values.deployment.name }}
+    app.kubernetes.io/instance: {{ .Values.deployment.name }}
+    app.kubernetes.io/name: {{ .Values.deployment.name }}
+    app.kubernetes.io/part-of: forgerock
+    tier: middle
+  name: {{ .Values.deployment.name }}
 spec:
-  type: {{ .Values.service.type }}
+  ipFamilies:
+  - IPv6
+  ipFamilyPolicy: PreferDualStack
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  - name: {{ .Values.service.name }}
+    port: {{ .Values.service.port }}
+    protocol: {{ .Values.service.protocol }}
+    targetPort: {{ .Values.service.targetPort }}
   selector:
-    {{- include "ig.selectorLabels" . | nindent 4 }}
+    app: {{ .Values.deployment.name }}
+    app.kubernetes.io/component: {{ .Values.deployment.name }}
+    app.kubernetes.io/instance: {{ .Values.deployment.name }}
+    app.kubernetes.io/name: {{ .Values.deployment.name }}
+    app.kubernetes.io/part-of: forgerock
+    tier: middle
+  type: ClusterIP
