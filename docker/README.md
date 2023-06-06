@@ -85,10 +85,10 @@ docker pull nginx:latest
 docker pull httpd:latest
 
 docker image tag nginx:latest localhost:5000/nginx:latest
-docker pull localhost:5000/nginx:latest
+docker push localhost:5000/nginx:latest
 
 docker image tag httpd:latest localhost:5000/httpd:latest
-docker pull localhost:5000/httpd:latest
+docker push localhost:5000/httpd:latest
 
 curl -X GET localhost:5000/v2/_catalog
 
