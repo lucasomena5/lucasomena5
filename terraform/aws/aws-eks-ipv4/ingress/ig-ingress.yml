@@ -1,0 +1,185 @@
+apiVersion: v1
+data: {}
+kind: Secret
+metadata:
+  labels:
+    app: ig-original
+    app.kubernetes.io/component: ig-original
+    app.kubernetes.io/instance: ig-original
+    app.kubernetes.io/name: ig-original
+    app.kubernetes.io/part-of: forgerock-original
+    tier: middle-original
+  name: openig-secrets-env-original
+type: Opaque
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ig-original
+    app.kubernetes.io/component: ig-original
+    app.kubernetes.io/instance: ig-original
+    app.kubernetes.io/name: ig-original
+    app.kubernetes.io/part-of: forgerock-original
+    tier: middle-original
+  name: ig-original
+spec:
+  ipFamilies:
+  - IPv6
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: ig
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: ig-original
+    app.kubernetes.io/component: ig-original
+    app.kubernetes.io/instance: ig-original
+    app.kubernetes.io/name: ig-original
+    app.kubernetes.io/part-of: forgerock-original
+    tier: middle-original
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ig-original
+    app.kubernetes.io/component: ig-original
+    app.kubernetes.io/instance: ig-original
+    app.kubernetes.io/name: ig-original
+    app.kubernetes.io/part-of: forgerock-original
+    tier: middle-original
+  name: ig-original
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ig-original
+      app.kubernetes.io/component: ig-original
+      app.kubernetes.io/instance: ig-original
+      app.kubernetes.io/name: ig-original
+      app.kubernetes.io/part-of: forgerock-original
+      tier: middle-original
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+      creationTimestamp: null
+      labels:
+        app: ig-original
+        app.kubernetes.io/component: ig-original
+        app.kubernetes.io/instance: ig-original
+        app.kubernetes.io/name: ig-original
+        app.kubernetes.io/part-of: forgerock-original
+        tier: middle-original
+    spec:
+      containers:
+      - env:
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIP
+        envFrom:
+        - secretRef:
+            name: openig-secrets-env-original
+        image: gcr.io/forgerock-io/ig@sha256:7ed59f287751b41de264794b208e0a747b117c843094eb8112ce74f0901a0045
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            host:
+            scheme: HTTP
+            path: /
+            port: 8080
+            httpHeaders:
+            - name: Host
+              value: status.podIP
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+        name: ig
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          httpGet:      
+            host:
+            scheme: HTTP
+            path: /
+            port: 8080
+            httpHeaders:
+            - name: Host
+              value: status.podIP
+          failureThreshold: 1 
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources:
+          requests:
+            cpu: 200m
+            memory: 512Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        runAsGroup: 0
+        runAsUser: 11111
+      terminationGracePeriodSeconds: 30
+      hostNetwork: true
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/ip-address-type: dualstack
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/load-balancer-name: ig-original-lab
+    alb.ingress.kubernetes.io/tags: Purpose=lab,ApplicationIDName=frig-dev,RSMs=X265140,BusinessUnit=gtcto,CostCenter=713104,__Exception-ELBLogging=0123
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/ip-address-type: dualstack
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/group.name: forgerock-ig
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    alb.ingress.kubernetes.io/subnets: subnet-0e97171a7aeac5854, subnet-0bae0e7e8f40b49b5
+    # HEALTH CHECK
+    alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '8'
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '10'
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/healthcheck-port: '80'
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/success-codes: '200'
+  name: ig
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ig-original
+                port:
+                  number: 80

@@ -1,0 +1,154 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sample
+  name: sample-deployment
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+      labels:
+        app: sample
+    spec:
+      containers:
+      - env:
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIP
+        image: hashicorp/http-echo
+        args:
+          - "-text='EKS - This application is working!'"
+        imagePullPolicy: Always
+        # livenessProbe:
+        #   httpGet:
+        #     host:
+        #     scheme: HTTP
+        #     path: /
+        #     port: 8080
+        #     httpHeaders:
+        #     - name: Host
+        #       value: status.podIP
+        #   initialDelaySeconds: 5
+        #   periodSeconds: 5
+        #   successThreshold: 1
+        #   timeoutSeconds: 1
+        #   failureThreshold: 1
+        name: sample-container
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        # readinessProbe:
+        #   httpGet:      
+        #     host:
+        #     scheme: HTTP
+        #     path: /
+        #     port: 8080
+        #     httpHeaders:
+        #     - name: Host
+        #       value: status.podIP
+        #   failureThreshold: 1 
+        #   initialDelaySeconds: 5
+        #   periodSeconds: 10
+        resources:
+          requests:
+            cpu: 200m
+            memory: 512Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        runAsGroup: 0
+        runAsUser: 11111
+      terminationGracePeriodSeconds: 30
+      hostNetwork: true
+# ---
+# kind: Pod
+# apiVersion: v1
+# metadata:
+#   name: sample-app
+#   labels:
+#     app: sample
+# spec:
+#   containers:
+#     - name: sample-app
+#       image: hashicorp/http-echo
+#       args:
+#         - "-text='EKS - This application is working!'"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sample
+  name: sample-service
+spec:
+  ipFamilies:
+  - IPv6
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: sample-port
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: sample
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/ip-address-type: dualstack
+    alb.ingress.kubernetes.io/load-balancer-name: sample-alb
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    alb.ingress.kubernetes.io/group.name: sample-group
+    alb.ingress.kubernetes.io/subnets: subnet-065f89da4ec548c7d, subnet-0f962f8dbff0c50fb
+    # HEALTH CHECK
+    alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '8'
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '10'
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/healthcheck-port: '80'
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/success-codes: '200'
+  name: sample
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: first-service
+                port:
+                  number: 80

@@ -90,5 +90,10 @@ docker push localhost:5000/nginx:latest
 docker image tag httpd:latest localhost:5000/httpd:latest
 docker push localhost:5000/httpd:latest
 
+
+# push new image to local repository
+docker build . -t blue:v1
+docker image tag blue:v1 localhost:5000/blue:v1
+docker push localhost:5000/blue:v1
 curl -X GET localhost:5000/v2/_catalog
 
