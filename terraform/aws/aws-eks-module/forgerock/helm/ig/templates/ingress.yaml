@@ -23,9 +23,9 @@ metadata:
     alb.ingress.kubernetes.io/success-codes: {{ .Values.ingress.metadata.annotations.success-codes }}
     #alb.ingress.kubernetes.io/target-group-attributes: {{ .Values.ingress.metadata.annotations.target-group-attributes }}
     #alb.ingress.kubernetes.io/load-balancer-attributes: {{ .Values.ingress.metadata.annotations.load-balancer-attributes }}
-  name: {{ .Values.application.name }}
+  name: {{ .Values.deployment.name }}
 spec:
-  ingressClassName: {{ .Values.ingress.path }}
+  ingressClassName: {{ .Values.ingress.ingressClassName }}
   rules:
     - http:
         paths:
@@ -33,6 +33,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ .Values.application.name }}
+                name: {{ .Values.deployment.name }}
                 port:
                   number: {{ .Values.ingress.port }}

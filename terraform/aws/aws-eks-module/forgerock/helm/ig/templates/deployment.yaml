@@ -38,10 +38,6 @@ spec:
         app.kubernetes.io/part-of: forgerock
         tier: middle
     spec:
-      volumes:
-      - name: {{ .Values.deployment.name }}-certificates-volume
-        secret:
-          secretName: {{ .Values.deployment.name }}-certificates
       containers:
       - env:
         - name: NAMESPACE
@@ -59,10 +55,6 @@ spec:
             name: open{{ .Values.deployment.name }}-secrets-env
         image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         imagePullPolicy: Always
-        volumeMounts:
-        - name: {{ .Values.deployment.name }}-certificates-volume
-          mountPath: /var/ig/secrets
-          readOnly: true
         livenessProbe:
           httpGet:
             host:

@@ -64,10 +64,11 @@ ingress:
   path: /
   ingressClassName: alb
   metadata:
-    annotations: 
+    annotations:       
       ip-address-type: dualstack
       target-type: ip
       scheme: internet-facing
+      load-balancer-name: ig-alb
       listen-ports: '[{"HTTP": 8080}, {"HTTP": 80}, {"HTTPS": 443}, {"HTTPS": 8443}]'
       tags: Purpose=lab,ApplicationIDName=frig-dev,RSMs=X265140,BusinessUnit=gtcto,CostCenter=713104,__Exception-ELBLogging=0123
       certificate-arn: arn:aws:acm:us-east-1:895840508849:certificate/15a9bef4-58f6-4392-8616-c69a0f88f7b3
