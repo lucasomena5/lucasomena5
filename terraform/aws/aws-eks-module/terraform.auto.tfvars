@@ -42,7 +42,7 @@ allowed_ports = [{
 }]
 
 ########################################################## EKS ##########################################################
-kubernetes_version  = "1.23"
+kubernetes_version  = "1.24"
 enable_key_rotation = true
 
 instance_type_per_environment = [

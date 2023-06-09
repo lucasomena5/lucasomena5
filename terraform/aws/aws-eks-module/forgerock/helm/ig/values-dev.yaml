@@ -1,8 +1,8 @@
-application:
+deployment:
   name: ig
   namespace: fr-ig
 
-  replicas: 1
+  replicas: 2
   
   securityContext:
     runAsGroup: 0

@@ -2,7 +2,7 @@ application:
   name: ig
   namespace: fr-ig
 
-  replicas: 1
+  replicas: 5
   
   securityContext:
     runAsGroup: 0
