@@ -1,0 +1,5 @@
+awscli
+helm
+jq
+kubernetes
+locust

@@ -52,10 +52,10 @@ metadata:
     alb.ingress.kubernetes.io/ip-address-type: dualstack
     alb.ingress.kubernetes.io/load-balancer-name: game-lab
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
-    #alb.ingress.kubernetes.io/tags: Purpose=lab,ApplicationIDName=frig-dev,RSMs=X265140,BusinessUnit=gtcto,CostCenter=713104,__Exception-ELBLogging=0123
+    alb.ingress.kubernetes.io/tags: Purpose=lab,ApplicationIDName=frig-dev,RSMs=X265140,BusinessUnit=gtcto,CostCenter=713104,__Exception-ELBLogging=0123
     alb.ingress.kubernetes.io/group.name: game-2048
     #alb.ingress.kubernetes.io/security-groups: sg-01bc2c9b3ebf131a3
-    alb.ingress.kubernetes.io/subnets: subnet-0e97171a7aeac5854, subnet-0bae0e7e8f40b49b5
+    alb.ingress.kubernetes.io/subnets: subnet-0ab9efb9457be9bff, subnet-08ea42532d174f925
     # HEALTH CHECK
     alb.ingress.kubernetes.io/healthy-threshold-count: '2'
     alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'

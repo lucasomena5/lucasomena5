@@ -41,3 +41,4 @@ terraform.rc
 #*.sh 
 *.ps1
 *.pem
+ig.yml
