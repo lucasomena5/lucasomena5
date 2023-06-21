@@ -1,2 +1,2 @@
 hardeneks
-aws
+awscli
