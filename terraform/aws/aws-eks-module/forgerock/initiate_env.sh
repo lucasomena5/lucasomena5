@@ -3,11 +3,7 @@
 firstExecution() {
     if [ -e *.tfplan ]
     then
-        rm -rf *terraform.tfstate*
-        rm -rf .terraform*
-        rm -rf *.tfplan
-        rm -rf *.pem
-        rm -rf ig.yml
+        rm -rf *terraform.tfstate* .terraform* *.tfplan *.pem ig.yml
     fi
 
     echo "[INFO] `date "+%Y-%m-%d %H:%M"` Running terraform init"

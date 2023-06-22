@@ -52,9 +52,9 @@ instance_type_per_environment = [
 ec2_ssh_key            = "tf-forgerock"
 ami_type               = "AL2_x86_64"
 disk_size_node         = 20
-node_pool_desired_size = 2 // Default value is 2
+node_pool_desired_size = 5 // Default value is 2
 node_pool_min_size     = 2
-node_pool_max_size     = 2
+node_pool_max_size     = 6
 
 ########################################################## COMMON VARIABLES ##########################################################
 purpose            = "forgerock"

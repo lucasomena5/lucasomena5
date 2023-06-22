@@ -103,3 +103,39 @@ spec:
         runAsUser: 11111
       terminationGracePeriodSeconds: 30
       hostNetwork: true
+--- 
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    # LOAD BALANCER
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/ip-address-type: dualstack
+    alb.ingress.kubernetes.io/load-balancer-name: opensource-alb
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 8080}, {"HTTP": 80}, {"HTTPS": 443}, {"HTTPS": 8443}]' #'[{"HTTP": 8080}]'
+    alb.ingress.kubernetes.io/tags: Purpose=lab
+    alb.ingress.kubernetes.io/group.name: opensource-group
+    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:us-east-1:697538654983:certificate/d6b56190-df17-4a01-a96c-bdef3dc4aea5"
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-1-2017-01
+    alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '8'
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/healthcheck-port: '8089'
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/success-codes: '200'
+  name: opensource
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: opensource
+                port:
+                  number: 80

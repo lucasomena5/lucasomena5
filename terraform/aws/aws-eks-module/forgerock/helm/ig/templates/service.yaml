@@ -9,6 +9,7 @@ metadata:
     app.kubernetes.io/part-of: forgerock
     tier: middle
   name: {{ .Values.deployment.name }}
+  namespace: {{ .Values.deployment.namespace }}
 spec:
   ipFamilies:
   - IPv6

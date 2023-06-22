@@ -1,8 +1,8 @@
-deployment:
+application:
   name: ig
   namespace: fr-ig
 
-  replicas: 2
+  replicas: 1
   
   securityContext:
     runAsGroup: 0
@@ -43,12 +43,7 @@ deployment:
 
 image: 
   name: gcr.io/forgerock-io/ig
-  tag: latest
-
-autoscaling:
-  maxReplicas: 2
-  minReplicas: 1
-  targetCPU: 60
+  tag: sha256:7ed59f287751b41de264794b208e0a747b117c843094eb8112ce74f0901a0045
 
 service:
   port: 8080
@@ -69,17 +64,16 @@ ingress:
       target_type: ip
       scheme: internet-facing
       load_balancer_name: ig-alb
-      group_name: ig
-      listen_ports: "'[{'HTTP': 8080}, {'HTTP': 80}, {'HTTPS': 443}, {'HTTPS': 8443}]'"
+      group_name: ig-group
       tags: Purpose=lab,ApplicationIDName=frig-dev,RSMs=X265140,BusinessUnit=gtcto,CostCenter=713104,__Exception-ELBLogging=0123
       certificate_arn: arn:aws:acm:us-east-1:735842398159:certificate/f47e65d3-8f84-408a-8561-50fe3a21201a
       ssl_policy: ELBSecurityPolicy-TLS-1-1-2017-01
-      healthy_threshold_count: '2'
-      unhealthy_threshold_count: '2'
-      healthcheck_timeout_seconds: '8'
-      healthcheck_interval_seconds: '30'
+      healthy_threshold_count: 2
+      unhealthy_threshold_count: 2
+      healthcheck_timeout_seconds: 8
+      healthcheck_interval_seconds: 30
       healthcheck_path: /
-      healthcheck_port: '8080'
+      healthcheck_port: 8080
       healthcheck_protocol: HTTP
       success_codes: '200'
       #subnets: 

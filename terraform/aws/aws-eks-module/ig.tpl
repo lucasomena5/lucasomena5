@@ -164,16 +164,14 @@ metadata:
     alb.ingress.kubernetes.io/ip-address-type: dualstack
     alb.ingress.kubernetes.io/load-balancer-name: ig-alb
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 8080}, {"HTTP": 80}, {"HTTPS": 443}, {"HTTPS": 8443}]' #'[{"HTTP": 8080}]'
-    alb.ingress.kubernetes.io/tags: Purpose=lab,ApplicationIDName=frig-dev,RSMs=X265140,BusinessUnit=gtcto,CostCenter=713104,__Exception-ELBLogging=0123
+    alb.ingress.kubernetes.io/tags: Purpose=lab
     alb.ingress.kubernetes.io/group.name: ig-group
     alb.ingress.kubernetes.io/certificate-arn: "${ACM_CERTIFICATE_ARN}"
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-1-2017-01
-    #alb.ingress.kubernetes.io/target-group-attributes: stickiness.enabled=true,stickiness.lb_cookie.duration_seconds=60
+    alb.ingress.kubernetes.io/target-group-attributes: stickiness.enabled=true,stickiness.lb_cookie.duration_seconds=60
     #alb.ingress.kubernetes.io/security-groups:
-    #alb.ingress.kubernetes.io/subnets: subnet-0c68d80e0fc1987d0, subnet-0a684a23337ce494f
-    # NEW CONFIG
+    #alb.ingress.kubernetes.io/subnets: subnet-12345, subnet-54321
     #alb.ingress.kubernetes.io/load-balancer-attributes: routing.http2.enabled=true
-    # NEW CONFIG
     # HEALTH CHECK
     alb.ingress.kubernetes.io/healthy-threshold-count: '2'
     alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
@@ -203,7 +201,7 @@ metadata:
   name: ig
 spec:
   maxReplicas: 4
-  minReplicas: 1
+  minReplicas: 2
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
