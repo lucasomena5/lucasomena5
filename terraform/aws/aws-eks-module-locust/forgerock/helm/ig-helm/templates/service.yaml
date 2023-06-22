@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Values.application.name }}
+    app.kubernetes.io/component: {{ .Values.application.name }}
+    app.kubernetes.io/instance: {{ .Values.application.name }}
+    app.kubernetes.io/name: {{ .Values.application.name }}
+    app.kubernetes.io/part-of: forgerock
+    tier: middle
+  name: {{ .Values.application.name }}
+  namespace: {{ .Values.application.namespace }}
+spec:
+  ipFamilies:
+  - IPv6
+  ipFamilyPolicy: PreferDualStack
+  ports:
+  - name: {{ .Values.service.name }}
+    port: {{ .Values.service.port }}
+    protocol: {{ .Values.service.protocol }}
+    targetPort: {{ .Values.service.targetPort }}
+  selector:
+    app: {{ .Values.application.name }}
+    app.kubernetes.io/component: {{ .Values.application.name }}
+    app.kubernetes.io/instance: {{ .Values.application.name }}
+    app.kubernetes.io/name: {{ .Values.application.name }}
+    app.kubernetes.io/part-of: forgerock
+    tier: middle
+  type: ClusterIP

@@ -1,0 +1,22 @@
+appName: myhelmapp
+
+configmap:
+  name: helmappconfigmapv1.1
+  data:
+    CUSTOM_HEADER: 'This app was deployed with Helm - Lucas Omena!'
+
+image: 
+  name: devopsjourney1/mywebapp
+  tag: latest
+
+spec:
+  containerPort: 80
+  replicas: 4
+  resources:
+    requests:
+      memory: "16Mi"
+      cpu: "50m" # 500milliCPUs (1/2 CPU)
+    limits:
+      memory: "128Mi"
+      cpu: "100m"
+  serviceType: NodePort

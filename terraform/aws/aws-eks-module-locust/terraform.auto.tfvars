@@ -4,7 +4,7 @@ region = "us-east-1"
 profile = "lab-aws"
 
 ########################################################## VPC ##########################################################
-vpc_cidr_block        = "10.100.0.0/16"
+vpc_cidr_block        = "10.101.0.0/16"
 connectivity_type     = "public"
 assign_public_ip      = true
 enable_dns_support    = true
@@ -57,7 +57,7 @@ node_pool_min_size     = 2
 node_pool_max_size     = 2
 
 ########################################################## COMMON VARIABLES ##########################################################
-purpose            = "forgerock"
+purpose            = "locust"
 environment        = "lab"
 number_of_sequence = 1
 

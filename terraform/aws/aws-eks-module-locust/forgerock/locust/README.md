@@ -1,0 +1,1 @@
+kubectl create cm kubeconfig --from-file=config="./config"

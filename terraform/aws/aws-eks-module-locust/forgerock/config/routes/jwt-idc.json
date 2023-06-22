@@ -1,0 +1,113 @@
+{
+    "name": "jwt-idc",
+    "condition": "${find(request.uri.path, '/jwt')}",
+    "baseURI": "http://e6a11e6aa81c.mylabserver.com:8081",
+    "properties": {
+      "secretsDir": "/var/ig/secrets",
+      "amInstanceUrl": "https://openam-acnemea20220519a.forgeblocks.com/am"
+    },
+    "heap": [
+      {
+        "name": "SystemAndEnvSecretStore-1",
+        "type": "SystemAndEnvSecretStore"
+      },
+      {
+        "name": "AmService-1",
+        "type": "AmService",
+        "config": {
+          "url": "&{amInstanceUrl}",
+          "realm": "/alpha",
+          "agent": {
+            "username": "ig_agent_jwt",
+            "passwordSecretId": "agent.secret.id"
+          },
+          "secretsProvider": "SystemAndEnvSecretStore-1",
+          "sessionCache": {
+            "enabled": false
+          }
+        }
+      },
+      {
+        "name": "pemPropertyFormat",
+        "type": "PemPropertyFormat"
+      },
+      {
+        "name": "FileSystemSecretStore-1",
+        "type": "FileSystemSecretStore",
+        "config": {
+          "format": "PLAIN",
+          "directory": "&{secretsDir}",
+          "suffix": ".pem",
+          "mappings": [{
+            "secretId": "id.key.for.signing.jwt",
+            "format": "pemPropertyFormat"
+          }]
+        }
+      }
+    ],
+    "handler": {
+      "type": "Chain",
+      "config": {
+        "filters": [
+          {
+            "name": "CrossDomainSingleSignOnFilter-1",
+            "type": "CrossDomainSingleSignOnFilter",
+            "config": {
+              "redirectEndpoint": "/jwt/redirect",
+              "authCookie": {
+                "path": "/jwt",
+                "name": "ig-token-cookie"
+              },
+              "amService": "AmService-1",
+              "verificationSecretId": "verify",
+              "secretsProvider": {
+                "type": "JwkSetSecretStore",
+                "config": {
+                  "jwkUrl": "&{amInstanceUrl}/oauth2/realms/alpha/connect/jwk_uri"
+                }
+              }
+            }
+          },
+          {
+            "name": "UserProfileFilter",
+            "type": "UserProfileFilter",
+            "config": {
+              "username": "${contexts.ssoToken.info.uid}",
+              "userProfileService": {
+                "type": "UserProfileService",
+                "config": {
+                  "amService": "AmService-1"
+                }
+              }
+            }
+          },
+          {
+            "name": "JwtBuilderFilter-1",
+            "type": "JwtBuilderFilter",
+            "config": {
+              "template": {
+                "name": "${contexts.userProfile.commonName}",
+                "email": "${contexts.userProfile.rawInfo.mail[0]}"
+              },
+              "secretsProvider": "FileSystemSecretStore-1",
+              "signature": {
+                "secretId": "id.key.for.signing.jwt",
+                "algorithm": "RS512"
+              }
+            }
+          },
+          {
+            "name": "HeaderFilter-1",
+            "type": "HeaderFilter",
+            "config": {
+              "messageType": "REQUEST",
+              "add": {
+                "x-openig-user": ["${contexts.jwtBuilder.value}"]
+              }
+            }
+          }
+        ],
+        "handler": "ReverseProxyHandler"
+      }
+    }
+  }
