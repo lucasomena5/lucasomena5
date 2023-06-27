@@ -70,7 +70,6 @@ spec:
         envFrom:
         - secretRef:
             name: openig-secrets-env
-        #image: devforge1/ig:v2023-v5-sample
         image: ${IMAGE_ID}
         volumeMounts:
         - name: ig-storage
@@ -168,7 +167,7 @@ metadata:
     alb.ingress.kubernetes.io/group.name: ig-group
     alb.ingress.kubernetes.io/certificate-arn: "${ACM_CERTIFICATE_ARN}"
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-1-2017-01
-    alb.ingress.kubernetes.io/target-group-attributes: stickiness.enabled=true,stickiness.lb_cookie.duration_seconds=60
+    #alb.ingress.kubernetes.io/target-group-attributes: stickiness.enabled=true,stickiness.lb_cookie.duration_seconds=60
     #alb.ingress.kubernetes.io/security-groups:
     #alb.ingress.kubernetes.io/subnets: subnet-12345, subnet-54321
     #alb.ingress.kubernetes.io/load-balancer-attributes: routing.http2.enabled=true
@@ -201,7 +200,7 @@ metadata:
   name: ig
 spec:
   maxReplicas: 4
-  minReplicas: 2
+  minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment

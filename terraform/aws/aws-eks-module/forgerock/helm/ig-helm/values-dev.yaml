@@ -43,7 +43,7 @@ application:
 
 image: 
   name: gcr.io/forgerock-io/ig
-  tag: sha256:7ed59f287751b41de264794b208e0a747b117c843094eb8112ce74f0901a0045
+  tag: sha256:992473f362533b0e9abd43f812a657839d081ea8ce50af6ac7835bbdda5ffa7d
 
 service:
   port: 8080

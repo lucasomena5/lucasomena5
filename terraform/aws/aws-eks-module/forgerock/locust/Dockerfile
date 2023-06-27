@@ -12,8 +12,3 @@ COPY script.sh script.sh
 
 RUN pip install --upgrade pip
 RUN pip3 install -r "${LOCUST_DIR}"/requirements.txt
-
-
-
-
-
