@@ -1,4 +1,9 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: fr-ig
+---
+apiVersion: v1
 data: {}
 kind: Secret
 metadata:
@@ -10,6 +15,7 @@ metadata:
     app.kubernetes.io/part-of: forgerock
     tier: middle
   name: openig-secrets-env
+  namespace: fr-ig
 type: Opaque
 ---
 apiVersion: apps/v1
@@ -23,7 +29,7 @@ metadata:
     app.kubernetes.io/part-of: forgerock
     tier: middle
   name: ig
-  namespace: default
+  namespace: fr-ig
 spec:
   replicas: 1
   selector:
@@ -135,6 +141,7 @@ metadata:
     app.kubernetes.io/part-of: forgerock
     tier: middle
   name: ig
+  namespace: fr-ig
 spec:
   ipFamilies:
   - IPv6
@@ -181,6 +188,7 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
     alb.ingress.kubernetes.io/success-codes: '200'
   name: ig
+  namespace: fr-ig
 spec:
   ingressClassName: alb
   rules:
@@ -198,9 +206,10 @@ apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: ig
+  namespace: fr-ig
 spec:
   maxReplicas: 4
-  minReplicas: 1
+  minReplicas: 2
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
