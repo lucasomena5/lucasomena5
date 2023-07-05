@@ -7,7 +7,6 @@ class WebsiteUser(HttpUser):
 
     @task(1)
     def get_index(self):
-        #self.client.get("/load-gen/loop?count=50&range=1000", headers=default_headers)
         self.client.get(
             "/", 
             headers=default_headers,

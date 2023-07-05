@@ -4,4 +4,3 @@ helm
 jq
 kubernetes
 locust
-hardeneks
