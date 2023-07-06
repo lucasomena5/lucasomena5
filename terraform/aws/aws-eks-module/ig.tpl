@@ -148,7 +148,7 @@ spec:
   ipFamilyPolicy: PreferDualStack
   ports:
   - name: ig
-    port: 8080
+    port: 80
     protocol: TCP
     targetPort: 8080
   selector:
@@ -169,7 +169,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/ip-address-type: dualstack
     alb.ingress.kubernetes.io/load-balancer-name: ig-alb
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 8080}, {"HTTP": 80}, {"HTTPS": 443}, {"HTTPS": 8443}]' #'[{"HTTP": 8080}]'
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 8080}, {"HTTP": 80}, {"HTTPS": 443}, {"HTTPS": 8443}]' 
     alb.ingress.kubernetes.io/tags: Purpose=lab
     alb.ingress.kubernetes.io/group.name: ig-group
     alb.ingress.kubernetes.io/certificate-arn: "${ACM_CERTIFICATE_ARN}"
@@ -200,7 +200,7 @@ spec:
               service:
                 name: ig
                 port:
-                  number: 8080
+                  number: 80
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -209,7 +209,7 @@ metadata:
   namespace: fr-ig
 spec:
   maxReplicas: 4
-  minReplicas: 2
+  minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
