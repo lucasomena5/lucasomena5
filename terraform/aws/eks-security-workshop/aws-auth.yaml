@@ -1,0 +1,26 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::022333046937:role/eks-bootstrap-template-ws-EKSNodegroupRole-3OYOF1FM4J4I
+      username: system:node:{{EC2PrivateDNSName}}
+    - rolearn: arn:aws:iam::022333046937:role/k8sDev
+      username: dev-user
+    - rolearn: arn:aws:iam::022333046937:role/k8sInteg
+      username: integ-user
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::022333046937:role/k8sAdmin
+      username: admin
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::022333046937:role/WSParticipantRole
+      username: admin
+  mapUsers: |
+    []
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
