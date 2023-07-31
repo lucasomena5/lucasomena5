@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "poc-senhasegura",
+  "private_key_id": "5d6009cbd190d06041b16646da8eea17800fcf71",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCjCpfk94u4YuOp\n2q1Q2mPzY2gKh1rbeEPQpG5/cZ9Km0g9lcb//mwPOPnZ4pAg5ekcnr2w2ICjg9Of\nwW4Qn8Bq+sb1HjZM43gvSSHqNEyLdRe+E6ZbktC1Qf4B/mrcjMxQtRQQI5Ss6rqD\nRUdZ8kWvDxYkSs/KNl2dnr4RpAfJLzd9ijTz7ydmbUBn/rALruAAznHwCIM9q/Uu\nLQ6cRdcHST7lowwWeNKIMY71rwLLJMN3VfmVreSlVKINylpTyXhSE4UlCAKjNzTo\nc2p/xdpTJLgBkT/hmpilMvegqNXhLaTnnnr/RzJHayZIansBm0g6Yl8MhAGkGsnl\nb1+v2CVhAgMBAAECggEAF2qLkz58ajCFuxzlnIGpLkkeJbj38yJsNviOyC4E7z2r\nG/E5ggXD9lG8DK+N/LOYjdw8qTwHCbUCvWSWDrwq8hJvZb//k35uAfiSbuUxAyx/\nivSehXNqF0ZRmW61YVS1eXfwWDsL/OO/gt/91ezGVlSn3PGDs2qoel1UtgrldV7g\nfYfrg0gio0BOObtr6pkhA9PYcnsAVx8NbTBklKKv34gvTyDo4mzKVLp4O7+ENX9K\n+pQNmE21TKiOyVrg7aBJK6cGXxGKQ+saQ2HiXFEm3g6i+TzA0+SQjT1pgRkQ04gc\nIsND/PJJHZsuGQ4FQiuUAZrS/wGV+oT5xsvUDChnEwKBgQDNAJKsYzboJst0R6/1\n5uI0UTXa0/xE8wHpK8ehJT5I+FMK3/zGmfsThjaAYW345FkM5+GDKSVHuyB0Bg3f\nAbtdhjfuBeHVDMwrQ4dqMbpP78XUPBrIDWkPOSAD7GEGTck1HgJrI8zDeQW906wR\nWIy+nxTMyhEznkyj+hL906xn1wKBgQDLmcWcTjQKVpMxV5HR+24nqyqmJCCCt9pg\nUPLV6umRq3hnXPZa77JXAKdGYhukjFzebB/ABnqd6UT2X0Sj4tLVGntEtaam2bWR\nifAFFhJOzjen7QQSceBI35IfYjx4rQcvJ76AUJW5ZjvblAgfwjErUftuVfXwkyBt\nX9i1P8VVhwKBgQCoPQgiIWo2K2BdFVf63nhVpzAjXkVx8FxpF1zFiuMKz4CXNCsm\nccfzxfmEcnDmCcBrLwGLuoC11YRUs4M+uRUjM7tCw+EKD26fMtQ2+oiEgapA+vKf\nqyHFNIRps9wMaFnwFai2dLLe2Ls1hjl4IsuexL81Mb/cNNWA3QIo/UZIEQKBgQC3\nz7EfR18mQjkLH/MPLz6o45hSfGU5foDR2eMSi82o7LR8JOpo+OP6NiXOnj40lWA2\nkkkr1O2YaQQQpbvTdbFAIXNOeezlz8FjjrO58849hWGr4oh9mn+Rav6CBO9xR00o\nHmqXb6lsw0ahG4kmGuzHHnGvkD3Enx90f0ang9ZFOwKBgQDCMoSQMqQ/p4UFAa24\nhJ699nLkJA7obpylcRnUEohgJX3TtDX4qG3Y9Oi3QfTxPu/6ucRQV1OGEBNufWXH\n8x6CQAEK6rIUzMMRa+7em4RZwDtraRle0BMCAdnM8pdQWzG9/cZhDHmfmXh5Roa9\nvyMya1PL6Z1TPeIbtxyB1aKSXg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "sa-senhasegura@poc-senhasegura.iam.gserviceaccount.com",
+  "client_id": "102571307575254506272",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sa-senhasegura%40poc-senhasegura.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

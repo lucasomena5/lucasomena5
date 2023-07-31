@@ -1,0 +1,6 @@
+{
+    "name" : "sampleapp-resources",
+    "baseURI" : "http://e6a11e6aa81c.mylabserver.com:8081",
+    "condition": "${find(request.uri.path,'^/css')}",
+    "handler": "ReverseProxyHandler"
+  }

@@ -422,3 +422,144 @@ spec:
 EOF
 
 kubectl apply -f eks-iam-test3.yaml
+
+# PSS and PSA
+kubectl get pod -A -o jsonpath='{range .items[?(@.metadata.annotations.kubernetes\.io/psp)]}{.metadata.name}{"\t"}{.metadata.annotations.kubernetes\.io/psp}{"\t"}{.metadata.namespace}{"\n"}'
+
+git clone https://github.com/aws-samples/k8s-psa-pss-testing.git
+
+cd k8s-psa-pss-testing/tests
+
+./tests.sh
+
+
+# Enable Amazon GuardDuty Protection for Amazon EKS
+cd ~/environment
+cat > guardduty-eks-protection-config.json <<EOF
+[
+  {
+    "Name": "EKS_AUDIT_LOGS",
+    "Status": "ENABLED",      
+    "Name": "EKS_RUNTIME_MONITORING",
+    "Status": "ENABLED",
+    "AdditionalConfiguration": [
+      {
+        "Name": "EKS_ADDON_MANAGEMENT",
+        "Status": "ENABLED"
+      }
+    ]
+  }
+]
+EOF
+
+GUARDDUTY_DETECTOR_ID=$(aws guardduty create-detector --enable --features file://guardduty-eks-protection-config.json | jq -r '.DetectorId')
+echo $GUARDDUTY_DETECTOR_ID
+
+GUARDDUTY_DETECTOR_ID=$(aws guardduty list-detectors | jq -r '.DetectorIds[]')
+
+aws guardduty create-sample-findings --detector-id $GUARDDUTY_DETECTOR_ID --finding-types CredentialAccess:Kubernetes/MaliciousIPCaller
+
+cd ~/environment
+cat << EoF > anonymous.yaml
+### Finding type: Policy:Kubernetes/AnonymousAccessGranted
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: anonymous-admin
+subjects:
+  - kind: User
+    name: system:anonymous
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: view
+  apiGroup: rbac.authorization.k8s.io
+EoF
+
+kubectl apply -f anonymous.yaml
+
+cd ~/environment
+cat << EoF > elevate.yaml
+### Finding type: Policy:Kubernetes/AdminAccessToDefaultServiceAccount
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: default-service-acct-admin
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+EoF
+
+kubectl apply -f elevate.yaml
+
+cd ~/environment
+cat << EoF > pod_with_sensitive_mount.yaml
+###  Finding type: PrivilegeEscalation:Kubernetes/PrivilegedContainer
+###  Finding type: Kubernetes/ContainerWithSensitiveMount Incident
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-privileged-with-mount
+spec:
+  selector:
+    matchLabels:
+      app: ubuntu-privileged-with-mount
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ubuntu-privileged-with-mount
+    spec:
+      containers:
+      - name: ubuntu-privileged-with-mount
+        image: nginx
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /test-pd
+          name: test-volume
+      volumes:
+      - name: test-volume
+        hostPath:
+          path: /etc
+          type: Directory
+EoF
+
+kubectl apply -f pod_with_sensitive_mount.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+
+kubectl patch svc kubernetes-dashboard -n kubernetes-dashboard -p='{"spec": {"type": "LoadBalancer"}}'
+
+cat > guardduty-vpce-policy.json <<EOF
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Action": "*",
+			"Resource": "*",
+			"Effect": "Allow",
+			"Principal": "*"
+		},
+		{
+			"Condition": {
+				"StringNotEquals": {
+					"aws:PrincipalAccount": "$ACCOUNT_ID"
+				}
+			},
+			"Action": "*",
+			"Resource": "*",
+			"Effect": "Deny",
+			"Principal": "*"
+		}
+	]
+}
+EOF

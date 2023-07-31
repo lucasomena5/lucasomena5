@@ -1,0 +1,51 @@
+{
+  "mode": "DEVELOPMENT",
+  "properties": {
+    "secretsDir": "/var/ig/secrets"
+  },
+  "connectors": [
+    {
+      "port": 8080
+    },
+    {
+      "port": 8443,
+      "tls": "ServerTlsOptions-1"
+    }
+  ],
+  "session": {
+    "cookie": {
+      "sameSite": "none",
+      "secure": true
+    }
+  },
+  "heap": [
+    {
+      "name": "ServerTlsOptions-1",
+      "type": "ServerTlsOptions",
+      "config": {
+        "keyManager": {
+          "type": "SecretsKeyManager",
+          "config": {
+            "signingSecretId": "key.manager.secret.id",
+            "secretsProvider": "ServerIdentityStore"
+          }
+        }
+      }
+    },
+    {
+      "name": "ServerIdentityStore",
+      "type": "FileSystemSecretStore",
+      "config": {
+        "format": "PLAIN",
+        "directory": "&{secretsDir}",
+        "suffix": ".pem",
+        "mappings": [{
+          "secretId": "key.manager.secret.id",
+          "format": {
+            "type": "PemPropertyFormat"
+          }
+        }]
+      }
+    }
+  ]
+}

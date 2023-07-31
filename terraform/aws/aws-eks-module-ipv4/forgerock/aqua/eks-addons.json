@@ -1,0 +1,43 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "IAM role for serviceaccount 'kube-system/ebs-csi-controller-sa' [created and managed by eksctl]",
+  "Resources":
+    {
+      "Role1":
+        {
+          "Type": "AWS::IAM::Role",
+          "Properties":
+            {
+              "RoleName": "aqua-AmazonEKS_EBS_CSI_DriverRole",
+              "AssumeRolePolicyDocument":
+                {
+                  "Statement":
+                    [
+                      {
+                        "Action": ["sts:AssumeRoleWithWebIdentity"],
+                        "Condition":
+                          {
+                            "StringEquals":
+                              {
+                                "oidc.eks.us-east-1.amazonaws.com/id/2EEC403F68642925D146AC09ED58305E:aud": "sts.amazonaws.com",
+                                "oidc.eks.us-east-1.amazonaws.com/id/2EEC403F68642925D146AC09ED58305E:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
+                              }
+                          },
+                        "Effect": "Allow",
+                        "Principal":
+                          {
+                            "Federated": "arn:aws:iam::263439869305:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/2EEC403F68642925D146AC09ED58305E"
+                          }
+                      }
+                    ],
+                  "Version": "2012-10-17"
+                },
+              "ManagedPolicyArns":
+                [
+                  "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
+                ]
+            }
+        }
+    },
+  "Outputs": { "Role1": { "Value": { "Fn::GetAtt": "Role1.Arn" } } }
+}
