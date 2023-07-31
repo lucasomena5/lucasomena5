@@ -62,7 +62,7 @@ resource "null_resource" "metrics_server" {
   ]
 }
 
-/* resource "local_file" "ig_file" {
+resource "local_file" "ig_file" {
   content = templatefile("${path.module}/ig.tpl", {
     ACM_CERTIFICATE_ARN = aws_acm_certificate.cert.arn
     IMAGE_ID            = "gcr.io/forgerock-io/ig@sha256:f98027c534652a9356e796b541e9c460f47db9a96c5733fcae6cdabb40ca9b7d"
@@ -73,9 +73,9 @@ resource "null_resource" "metrics_server" {
     aws_acm_certificate.cert,
     null_resource.metrics_server
   ]
-} */
+}
 
-/* resource "null_resource" "ig" {
+resource "null_resource" "ig" {
   triggers = {
     always_run = "${timestamp()}"
   }
@@ -86,4 +86,4 @@ resource "null_resource" "metrics_server" {
     local_file.ig_file,
     null_resource.metrics_server
   ]
-} */
+}
