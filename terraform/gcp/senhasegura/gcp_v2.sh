@@ -62,6 +62,25 @@ else
 fi
 
 #
-# DOWNLOAD KEY THROUGH GCLOUD COMMAND
+# ENABLE API
 #
-#gcloud cloud-shell scp cloudshell:~/$FILE_NAME localhost:~$FILE_NAME
+ENABLED_APIS=$(gcloud services list --enabled --format="value(NAME)")
+
+if [ -z "$ENABLED_APIS" ]; then
+  echo "No APIs enabled in project: $PROJECT_ID"
+else
+  echo "Enabling APIs in project: $PROJECT_ID"
+
+  _APIS="cloudasset.googleapis.com cloudresourcemanager.googleapis.com iam.googleapis.com"
+  read -ra apis <<< "$_APIS"
+  
+  for api in "${apis[@]}"; do
+    if [[ "$ENABLED_APIS" == *"$api"* ]]; then
+      echo "[INFO] `date "+%Y-%m-%d %H:%M"` $api is already enabled."
+    else
+      gcloud services enable $_API  
+      echo "[WARNING] `date "+%Y-%m-%d %H:%M"` $api has been enabled successfully."
+    fi
+  done
+
+fi

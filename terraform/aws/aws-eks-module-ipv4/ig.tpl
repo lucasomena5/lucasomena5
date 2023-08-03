@@ -144,7 +144,7 @@ metadata:
   namespace: fr-ig
 spec:
   ipFamilies:
-  - IPv6
+  - IPv4
   ipFamilyPolicy: PreferDualStack
   ports:
   - name: ig
