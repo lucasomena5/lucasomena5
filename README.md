@@ -39,6 +39,7 @@
   <br /><br>
   <img align="center" alt="gcp-cloud-engineer-associate" width="12%" src="./badges/gcp-cloud-engineer-associate.png">
   <img align="center" alt="gcp-professional-cloud-architect" width="12%" src="./badges/gcp-professional-cloud-architect.png">
+  <img align="center" alt="microsoft-certified-azure-security-engineer-associate" width="12%" src="./badges/microsoft-certified-azure-security-engineer-associate.png">
   <br /><br>
   <img align="center" alt="microsoft-certified-azure-fundamentals" width="12%" src="./badges/microsoft-certified-azure-fundamentals.png">
   <img align="center" alt="microsoft-certified-azure-administrator-associate.2" width="12%" src="./badges/microsoft-certified-azure-administrator-associate.2.png">
@@ -52,6 +53,7 @@
   <img align="center" alt="ckad-certified-kubernetes-application-developer" width="12%" src="./badges/ckad-certified-kubernetes-application-developer.png">
   <br /><br>
   <img align="center" alt="hashicorp-certified-terraform-associate-002" width="12%" src="./badges/hashicorp-certified-terraform-associate-002.png">
+  <img align="center" alt="hashicorp-certified-terraform-associate-003" width="12%" src="./badges/hashicorp-certified-terraform-associate-003.png">
   <br /><br>
   <img align="center" alt="oracle-cloud-infrastructure-foundations-2020-certified-associate" width="12%" src="./badges/oracle-cloud-infrastructure-foundations-2020-certified-associate.png">
 </div>
