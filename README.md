@@ -39,7 +39,7 @@
   <br /><br>
   <img align="center" alt="gcp-cloud-engineer-associate" width="12%" src="./badges/gcp-cloud-engineer-associate.png">
   <img align="center" alt="gcp-professional-cloud-architect" width="12%" src="./badges/gcp-professional-cloud-architect.png">
-  <img align="center" alt="microsoft-certified-azure-security-engineer-associate" width="12%" src="./badges/microsoft-certified-azure-security-engineer-associate.png">
+  <img align="center" alt="gcp-professional-security-engineer" width="12%" src="./badges/gcp-professional-security-engineer.png">
   <br /><br>
   <img align="center" alt="microsoft-certified-azure-fundamentals" width="12%" src="./badges/microsoft-certified-azure-fundamentals.png">
   <img align="center" alt="microsoft-certified-azure-administrator-associate.2" width="12%" src="./badges/microsoft-certified-azure-administrator-associate.2.png">
