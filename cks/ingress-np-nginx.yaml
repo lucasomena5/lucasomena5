@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: client-ingress
+  namespace: nptest
+spec: 
+  podSelector:
+    matchLabels:
+      app: nginx
+  policyTypes:
+  - Ingress 
+  ingress:
+  - from:
+    # Namespace with label "project: test" also pods with label "app: client"
+    - namespaceSelector: 
+        matchLabels:
+          project: test 
+      podSelector:
+        matchLabels:
+          app: client
+    ports:
+    - protocol: TCP 
+      port: 80
