@@ -75,7 +75,7 @@ resource "local_file" "ig_file" {
   ]
 }
 
-resource "null_resource" "ig" {
+/* resource "null_resource" "ig" {
   triggers = {
     always_run = "${timestamp()}"
   }
@@ -86,4 +86,4 @@ resource "null_resource" "ig" {
     local_file.ig_file,
     null_resource.metrics_server
   ]
-}
+} */
