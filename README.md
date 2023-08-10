@@ -61,11 +61,12 @@
 <div>
   <br /><br>
   <p align="center">
-    <a target="_blank"href="https://www.linkedin.com/in/lucas-omena/"><img src="https://img.shields.io/badge/  linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a target="_blank"href="https://twitter.com/lucasomena_"><img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="mailto:lucasomena5@gmail.com?subject=Hello%20Lucas,%20From%20Github"><img src="https://img.shields.io/badge/ gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://wa.me/16725585376"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp; 
-    <a href="https://t.me/lucasomena5"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a target="_blank"href="https://www.linkedin.com/in/lucas-omena/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+    <a target="_blank"href="https://twitter.com/lucasomena_"><img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" /></a>
+    <a href="mailto:lucasomena5@gmail.com?subject=Hello%20Lucas,%20From%20Github"><img src="https://img.shields.io/badge/gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white" /></a>
+    <a href="https://wa.me/16725585376"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a> 
+    <a href="https://t.me/lucasomena5"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" /></a> 
+    <a href="https://profile.codersrank.io/user/lucasomena5/"><img src="https://img.shields.io/badge/CodersRank-35A29F?style=for-the-badge&logo=codersrank&logoColor=white" /></a> 
   </p>
 
   ![Snake animation](https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg)
