@@ -74,8 +74,12 @@ kubectl version --short --client
 ```
 curl -LO "https://dl.k8s.io/<kubectl client version>/bin/linux/amd64/kubectl.sha256"
 ```
-* Delete the placeholder and replace it from kubectl version output
+# Delete the placeholder and replace it from kubectl version output
 
 ```
 echo "$(<kubectl.sha256) /usr/bin/kubectl" | sha256sum --check
 ```
+
+###
+### SERVICE ACCOUNTS
+###
