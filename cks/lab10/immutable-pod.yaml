@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: immutable-pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    # Use readOnlyRootFilesystem: true to enforce this. A container without this setting might not be considered immutable
+    securityContext:
+      readOnlyRootFilesystem: true 
+    volumeMounts:
+    - name: cache 
+      mountPath: /var/cache/nginx
+    - name: run 
+      mountPath: /var/run 
+  # If the application does need to write data, use volume mounts to support this
+  volumes:
+  - name: cache 
+    emptyDir: {} 
+  - name: run 
+    emptyDir: {} 

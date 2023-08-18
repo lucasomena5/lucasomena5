@@ -1,0 +1,12 @@
+apiVersion: audit.k8s.io/v1 
+kind: Policy 
+rules:
+# NONE = log nothing
+# METADATA = log only high-level data
+# REQUEST = log the metadata and the request body 
+# REQUESTRESPONSE = log metadata, request body, and response body
+- level: None
+  resources: 
+  - group: "" 
+    resources: ["pods", "services"]
+  namespaces: ["test"]
