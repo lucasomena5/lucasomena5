@@ -1,0 +1,86 @@
+---
+- name: Apply Kubernetes Security Best Practices
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Set kubectl context
+      command: kubectl config use-context {{ kubectl_context_name }}
+      
+    - name: Apply RBAC best practices
+      k8s:
+        api_version: rbac.authorization.k8s.io/v1
+        kind: ClusterRole
+        name: restrict-pod-namespace
+        rules:
+          - apiGroups: [""]
+            resources: ["pods"]
+            verbs: ["get", "list", "watch"]
+          - apiGroups: [""]
+            resources: ["namespaces"]
+            verbs: ["get"]
+        state: present
+      register: rbac_result
+
+    - name: Apply Network Policies
+      k8s:
+        api_version: networking.k8s.io/v1
+        kind: NetworkPolicy
+        metadata:
+          name: deny-ingress
+        spec:
+          podSelector: {}
+        policyTypes:
+          - Ingress
+      register: network_policy_result
+
+    - name: Enable Pod Security Policies
+      k8s:
+        api_version: policy/v1beta1
+        kind: PodSecurityPolicy
+        metadata:
+          name: default-psp
+        spec:
+          privileged: false
+          seLinux:
+            rule: RunAsAny
+          runAsUser:
+            rule: MustRunAsNonRoot
+          fsGroup:
+            rule: RunAsAny
+      register: psp_result
+
+    - name: Apply PodDisruptionBudgets
+      k8s:
+        api_version: policy/v1
+        kind: PodDisruptionBudget
+        metadata:
+          name: important-service-pdb
+        spec:
+          minAvailable: 2
+          selector:
+            matchLabels:
+              app: important-service
+      register: pdb_result
+
+    - name: Apply PodSecurity admission control
+      k8s:
+        api_version: admissionregistration.k8s.io/v1
+        kind: MutatingWebhookConfiguration
+        metadata:
+          name: pod-security.mutating.admission.example.com
+        webhooks:
+          - name: pod-security.mutating.admission.example.com
+            clientConfig:
+              service:
+                name: pod-security-admission
+                namespace: default
+                path: "/"
+            rules:
+              - operations: ["CREATE"]
+                apiGroups: [""]
+                apiVersions: ["v1"]
+                resources: ["pods"]
+        namespaceSelector:
+          matchLabels:
+            pod-security: enabled
+      register: admission_control_result
