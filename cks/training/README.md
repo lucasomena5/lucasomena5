@@ -83,3 +83,5 @@ echo "$(<kubectl.sha256) /usr/bin/kubectl" | sha256sum --check
 ###
 ### SERVICE ACCOUNTS
 ###
+kubectl -n sunnydale auth can-i create pods --as system:serviceaccount:sunnydale:buffy-sa
+kubectl -n sunnydale auth can-i list pods --as system:serviceaccount:sunnydale:buffy-sa
