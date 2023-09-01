@@ -85,3 +85,23 @@ echo "$(<kubectl.sha256) /usr/bin/kubectl" | sha256sum --check
 ###
 kubectl -n sunnydale auth can-i create pods --as system:serviceaccount:sunnydale:buffy-sa
 kubectl -n sunnydale auth can-i list pods --as system:serviceaccount:sunnydale:buffy-sa
+
+
+# Best practices and recommendations (https://www.wiz.io/academy/kubernetes-security-best-practices#best-practices-and-recommendations-23)
+Enable RBAC
+
+Use namespaces properly
+
+Use proper, verified container images
+
+Implement runtime container forensics
+
+Continuously upgrade
+
+Perform proper logging
+
+Practice isolation
+
+Turn on auditing
+
+Apply CIS benchmarks
