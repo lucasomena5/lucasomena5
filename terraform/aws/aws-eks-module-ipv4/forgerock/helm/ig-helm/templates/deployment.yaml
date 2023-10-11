@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.application.name }}
+    app.kubernetes.io/component: {{ .Values.application.name }}
+    app.kubernetes.io/instance: {{ .Values.application.name }}
+    app.kubernetes.io/name: {{ .Values.application.name }}
+    app.kubernetes.io/part-of: forgerock
+    tier: middle
+  name: {{ .Values.application.name }}
+  namespace: {{ .Values.application.namespace }}
+spec:
+  replicas: {{ .Values.application.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.application.name }}
+      app.kubernetes.io/component: {{ .Values.application.name }}
+      app.kubernetes.io/instance: {{ .Values.application.name }}
+      app.kubernetes.io/name: {{ .Values.application.name }}
+      app.kubernetes.io/part-of: forgerock
+      tier: middle
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+      creationTimestamp: null
+      labels:
+        app: {{ .Values.application.name }}
+        app.kubernetes.io/component: {{ .Values.application.name }}
+        app.kubernetes.io/instance: {{ .Values.application.name }}
+        app.kubernetes.io/name: {{ .Values.application.name }}
+        app.kubernetes.io/part-of: forgerock
+        tier: middle
+    spec:
+      containers:
+      - env:
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIP
+        envFrom:
+        - secretRef:
+            name: open{{ .Values.application.name }}-secrets-env
+        image: "{{ .Values.image.name }}@{{ .Values.image.tag }}"
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            host:
+            scheme: {{ .Values.application.livenessProbe.scheme }}
+            path: {{ .Values.application.livenessProbe.path }}
+            port: {{ .Values.application.livenessProbe.port }}
+            httpHeaders:
+            - name: Host
+              value: status.podIP
+          initialDelaySeconds: {{ .Values.application.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.application.livenessProbe.periodSeconds }}
+          successThreshold: {{ .Values.application.livenessProbe.successThreshold }}
+          timeoutSeconds: {{ .Values.application.livenessProbe.timeoutSeconds }}
+          failureThreshold: {{ .Values.application.livenessProbe.failureThreshold }}
+        name: {{ .Values.application.name }}
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+        ports:
+        - containerPort: {{ .Values.application.ports.containerPort }}
+          protocol: {{ .Values.application.ports.protocol }}
+        readinessProbe:
+          httpGet:
+            host:
+            scheme: {{ .Values.application.readinessProbe.scheme }}
+            path: {{ .Values.application.readinessProbe.path }}
+            port: {{ .Values.application.readinessProbe.port }}
+            httpHeaders:
+            - name: Host
+              value: status.podIP
+          failureThreshold: {{ .Values.application.readinessProbe.failureThreshold }}
+          initialDelaySeconds: {{ .Values.application.readinessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.application.readinessProbe.periodSeconds }}
+        resources:
+          limits:
+            cpu: {{ .Values.application.resources.limits.cpu }}
+            memory: {{ .Values.application.resources.limits.memory }}
+          requests:
+            cpu: {{ .Values.application.resources.requests.cpu }}
+            memory: {{ .Values.application.resources.requests.memory }}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        runAsGroup: {{ .Values.application.securityContext.runAsGroup }}
+        runAsUser: {{ .Values.application.securityContext.runAsUser }}
+      terminationGracePeriodSeconds: 30
+      hostNetwork: true

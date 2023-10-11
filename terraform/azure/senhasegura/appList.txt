@@ -1,0 +1,328 @@
+Name                                                            Id
+--------------------------------------------------------------  ------------------------------------
+Azure AD Identity Governance Insights                           58c746b0-a0b0-4647-a8f6-12dde5981638
+Microsoft Discovery Service                                     6f82282e-0070-4e78-bc23-e6320c5fa7de
+ACR-Tasks-Prod                                                  d2fa1650-4805-4a83-bcb9-cf41fe63539c
+Bot Framework Dev Portal                                        f3723d34-6ff5-4ceb-a148-d99dcd2511fc
+Microsoft Mobile Application Management Backend                 354b5b6d-abd6-4736-9f51-1be80049b91f
+Microsoft.MileIQ                                                a25dbca8-4e60-48e5-80a2-0664fdb5c9b6
+Azure API for DICOM                                             75e725bf-66ce-4cea-9b9a-5c4caae57f33
+Azure Graph                                                     dbcbd02a-d7c4-42fb-8c27-b07e5118b848
+ACR-Tasks-Network                                               62c559cd-db0c-4da0-bab2-972528c65d42
+Microsoft Office 365 Portal                                     00000006-0000-0ff1-ce00-000000000000
+Microsoft Cloud App Security                                    05a65629-4c1b-48c1-a78b-804c4abdd4af
+Databricks Resource Provider                                    d9327919-6775-4843-9037-3fb0fb0473cb
+Dynamics 365 Business Central                                   996def3d-b36c-4153-8607-a6fd3c01b89f
+Managed Disks Resource Provider                                 60e6cd67-9c8c-4951-9b3c-23c25a2169af
+Diagnostic Services Trusted Storage Access                      562db366-1b96-45d2-aa4a-f2148cef2240
+Azure Data Lake                                                 e9f49c6b-5ce5-44c8-925d-015017e9f7ad
+Azure Cognitive Search                                          880da380-985e-4198-81b9-e05b1cc53158
+Device Registration Service                                     01cb2876-7ebd-4aa4-9cc9-d28bd4d359a9
+Storage Resource Provider                                       a6aa9161-5291-40bb-8c5c-923b567bee3b
+Azure Cost Management Scheduled Actions                         6b3368c6-61d2-4a72-854c-42d1c4e71fed
+AAD Terms Of Use                                                d52792f4-ba38-424d-8140-ada5b883f293
+Yggdrasil                                                       78e7bc61-0fab-4d35-8387-09a8d2f5a59d
+Azure Lab Services                                              1a14be2a-e903-4cec-99cf-b2e209259a0f
+Azure Notification Service                                      b503eb83-1222-4dcc-b116-b98ed5216e05
+aciapi                                                          c5b17a4f-cc6f-4649-9480-684280a2af3a
+Azure SQL Database Backup To Azure Backup Vault                 e4ab13ed-33cb-41b4-9140-6e264582cf85
+Request Approvals Read Platform                                 d8c767ef-3e9a-48c4-aef9-562696539b39
+One Outlook Web                                                 9199bf20-a13f-4107-85dc-02114787ef48
+Azure Portal                                                    c44b4083-3bb0-49c1-b47d-974e53cbdf3c
+Azure Spring Apps Domain-Management Dogfood                     584a29b4-7876-4445-921e-71e427d4f4b3
+Azure VMware Solution RP                                        608f9929-9737-432e-860f-4e1c1821052f
+Dynamic Alerts                                                  707be275-6b9d-4ee7-88f9-c0c2bd646e0f
+Azure SQL Managed Instance to Microsoft.Network                 76c7f279-7959-468f-8943-3954880e0d8c
+Marketplace Caps API                                            184909ca-69f1-4368-a6a7-c558ee6eb0bd
+Azure Smart Alerts                                              3af5a1e8-2459-45cb-8683-bcd6cccbcc13
+Azure Maps Resource Provider                                    608f6f31-fed0-4f7b-809f-90f6c9b3de78
+AzureSupportCenter                                              37182072-3c9c-4f6a-a4b3-b3f91cacffce
+Azure Compute                                                   579d9c9d-4c83-4efc-8124-7eba65ed3356
+IAMTenantCrawler                                                66244124-575c-4284-92bc-fdd00e669cea
+Azure Key Vault Managed HSM Key Governance Service              a1b76039-a76c-499f-a2dd-846b4cc32627
+CPIM Service                                                    bb2a2e3a-c5e7-4f0a-88e0-8e01fd3fc1f4
+Microsoft Policy Insights Provider Data Plane                   8cae6e77-e04e-42ce-b5cb-50d82bce26b1
+Managed Service                                                 66c6d0d1-f2e7-4a18-97a9-ed10f3347016
+Billing RP                                                      80dbdb39-4f33-4799-8b6f-711b5e3e61b6
+Deprecated - CAS API Security RP Staging                        19b21e10-1304-498b-92d4-4290e94999fa
+Microsoft People Cards Service                                  394866fc-eedb-4f01-8536-3ff84b16be2a
+Hyper-V Recovery Manager                                        b8340c3b-9267-498f-b21a-15d5547fd85e
+CCM TAGS                                                        997dc448-eeab-4c93-8811-6b2c80196a16
+Bing                                                            9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7
+Azure Spring Cloud Service Runtime Auth                         366cbfa5-46b3-47fb-9d70-55fb923b4833
+Azure Cosmos DB                                                 a232010e-820c-4083-83bb-3ace5fc29d0b
+Azure Regional Service Manager                                  5e5e43d4-54da-4211-86a4-c6e7f3715801
+Azure Virtual Desktop ARM Provider                              50e95039-b200-4007-bc97-8d5790743a63
+asmcontainerimagescanner                                        918d0db8-4a38-4938-93c1-9313bdfe0272
+GatewayRP                                                       486c78bf-a0f7-45f1-92fd-37215929e116
+Intune CMDeviceService                                          14452459-6fa6-4ec0-bc50-1528a1a06bf0
+Azure Data Warehouse Polybase                                   0130cc9f-7ac5-4026-bd5f-80a08a54e6d9
+WindowsDefenderATP                                              fc780465-2017-40d4-a0c5-307022471b92
+Meru19 MySQL First Party App                                    e6f9f783-1fdb-4755-acaf-abed6c642885
+Office365DirectorySynchronizationService                        18af356b-c4fd-4f52-9899-d09d21397ab7
+AML Registries                                                  44b7b882-eb46-485c-9c78-686f6b67b176
+Azure OSSRDBMS Database                                         123cd850-d9df-40bd-94d5-c9f07b7fa203
+Azure SQL Managed Instance to Azure AD Resource Provider        9c8b80bc-6887-42d0-b1af-d0c40f9bf1fa
+Power BI Premium                                                cb4dc29f-0bf4-402a-8b30-7511498ed654
+Azure Analysis Services                                         4ac7d521-0382-477b-b0f8-7e1d95f85ca2
+Microsoft Invitation Acceptance Portal                          4660504c-45b3-4674-a709-71951a6b0763
+Windows Azure Service Management API                            797f4846-ba00-4fd7-ba43-dac1f8f63013
+Microsoft Device Management Checkin                             ca0a114d-6fbc-46b3-90fa-2ec954794ddb
+Microsoft Windows AutoPilot Service API                         cbfda01c-c883-45aa-aedc-e7a484615620
+MAPG                                                            cc46c2aa-d508-409b-aeb7-df7cd1e07aaa
+OneProfile Service                                              b2cc270f-563e-4d8a-af47-f00963a71dcd
+Demeter.WorkerRole                                              3c31d730-a768-4286-a972-43e9b83601cd
+Azure AD Identity Governance - Dynamics 365 Management          c495cfdc-814f-46a1-89f0-657921c9fbe0
+Policy Administration Service                                   0469d4cd-df37-4d93-8a61-f8c75b809164
+Jarvis Transaction Service                                      bf9fc203-c1ff-4fd4-878b-323642e462ec
+O365SBRM Service                                                9d06afd9-66c9-49a6-b385-ea7509332b0b
+Azure Key Vault                                                 cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+Azure Blueprints                                                f71766dc-90d9-4b7d-bd9d-4499c4331c3f
+Azure OSSRDBMS PostgreSQL Flexible Server AAD Authentication    5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
+Azure SQL Database                                              022907d3-0f1b-48f7-badc-1ba6abab6d66
+AzNS EventHub Action                                            58ef1dbd-684c-47d6-8ffc-61ea7a197b95
+Azure Cost Management XCloud                                    3184af01-7a88-49e0-8b55-8ecdce0aa950
+Azure Backup NRP Application                                    9bdab391-7bbe-42e8-8132-e4491dc29cc0
+Microsoft Cognitive Services                                    7d312290-28c8-473c-a0ed-8e53749b6d6d
+Azure HDInsight on AKS Client                                   a6943a7f-5ba0-4a34-bf91-ab439efdda3f
+Azure HDInsight Service                                         9191c4da-09fe-49d9-a5f1-d41cbe92ad95
+Microsoft Azure AD Identity Protection                          a3dfc3c6-2c7d-4f42-aeec-b2877f9bce97
+O365 Secure Score                                               8b3391f4-af01-4ee8-b4ea-9871b2499735
+Azure Monitor Control Service                                   e933bd07-d2ee-4f1d-933c-3752b819567b
+IPSubstrate                                                     4c8f074c-e32b-4ba7-b072-0f39d71daf51
+Azure Spring Cloud DiagSettings App                             b61cc489-e138-4a69-8bf3-c2c5855c8784
+Azure Container Registry - Dataplane                            a3747411-ce7c-4888-9ddc-3a230786ca19
+AAD App Management                                              f0ae4899-d877-4d3c-ae25-679e38eea492
+Microsoft Intune Enrollment                                     d4ebce55-015a-49b5-a083-c84d1797ae8c
+Microsoft Container Registry                                    a4c95b9e-3994-40cc-8953-5dc66d48348d
+Office 365 Exchange Online                                      00000002-0000-0ff1-ce00-000000000000
+Azure Multi-Factor Auth Connector                               1f5530b3-261a-47a9-b357-ded261e17918
+Microsoft Mixed Reality                                         c7ddd9b4-5172-4e28-bd29-1e0792947d18
+Azure Machine Learning Authorization App 2                      bf283ae6-5efd-44a8-b56a-2a7939982d60
+Azure Windows VM Sign-In                                        372140e0-b3b7-4226-8ef9-d57986796201
+Microsoft Intune SCCM Connector                                 63e61dc2-f593-4a6f-92b9-92e4d2c03d4f
+Microsoft.EventGrid                                             4962773b-9cdb-44cf-a8bf-237846a00ab7
+Microsoft Graph Connectors Core                                 f8f7a2aa-e116-4ba6-8aea-ca162cfa310d
+Microsoft Intune Advanced Threat Protection Integration         794ded15-70c6-4bcd-a0bb-9b7ad530a01a
+Verifiable Credentials Service Admin                            6a8b4b39-c021-437c-b060-5a14a3fd65f3
+Azure Monitor Restricted                                        035f9e1d-4f00-4419-bf50-bf2d87eb4878
+Access IoT Hub Device Provisioning Service                      0cd79364-7a90-4354-9984-6e36c841418d
+Azure Machine Learning Authorization App 1                      fb9de05a-fecc-4642-b3ca-66b9d4434d4d
+DWEngineV2                                                      441509e5-a165-4363-8ee7-bcf0b7d26739
+ComplianceAuthServer                                            9e5d84af-8971-422f-968a-354cd675ae5b
+Microsoft Intune Checkin                                        26a4ae64-5862-427f-a9b0-044e62572a4f
+console-m365d                                                   f18b59c9-5926-4a65-8605-c23ec8c7e074
+Azure Bastion                                                   79d7fb34-4bef-4417-8184-ff713af7a679
+Cortana at Work Service                                         2a486b53-dbd2-49c0-a2bc-278bdfc30833
+MS-PIM                                                          01fc33a7-78ba-4d2f-a4b7-768e336e890e
+Azure Key Vault Managed HSM                                     589d5083-6f11-4d30-a62a-a4b316a14abf
+Afdx Resource Provider                                          92b61450-2139-4e4a-a0cc-898eced7a779
+Microsoft Intune Service Discovery                              9cb77803-d937-493e-9a3b-4b49de3f5a74
+Microsoft Azure Signup Portal                                   8e0e8db5-b713-4e91-98e6-470fed0aa4c2
+Azure Resource Graph                                            509e4652-da8d-478d-a730-e9d4a1996ca4
+Centralized Deployment                                          257601fd-462f-4a21-b623-7f719f0f90f4
+NetworkVerifier                                                 6e02f8e9-db9b-4eb5-aa5a-7c8968375f68
+Office Online Service LEGACY                                    67e3df25-268a-4324-a550-0de1c7f97287
+AzureAutomation                                                 fc75330b-179d-49af-87dd-3b1acf6827fa
+Groupies Web Service                                            925eb0d0-da50-4604-a19f-bd8de9147958
+Microsoft Substrate Management                                  98db8bd6-0cc0-4e67-9de5-f187f1cd1b41
+Exchange Office Graph Client for AAD - Interactive              6da466b6-1d13-4a2c-97bd-51a99e8d4d74
+Deprecated - CAS API Security RP Dev                            cb250467-fc8f-4c42-8349-9ff9e9a17b02
+Azure DNS                                                       19947cfd-0303-466c-ac3c-fcc19a7a1570
+Microsoft Exchange Online Protection                            00000007-0000-0ff1-ce00-000000000000
+Azure Logic Apps                                                7cd684f4-8a78-49b0-91ec-6a35d38739ba
+Azure Spring Cloud Resource Provider                            e8de9221-a19c-4c81-b814-fd37c6caf9d2
+Bot Service Token Store                                         5b404cf4-a79d-4cfe-b866-24bf8e1a4921
+Microsoft Intune IW Service                                     b8066b99-6e67-41be-abfa-75db1a2c8809
+Microsoft.Azure.ActiveDirectoryIUX                              bb8f18b0-9c38-48c9-a847-e1ef3af0602d
+Azure DNS Managed Resolver                                      b4ca0290-4e73-4e31-ade0-c82ecfaabf6a
+IAM Supportability                                              a57aca87-cbc0-4f3c-8b9e-dc095fdc8978
+Office 365 SharePoint Online                                    00000003-0000-0ff1-ce00-000000000000
+Intune DiagnosticService                                        7f0d9978-eb2a-4974-88bd-f22a3006fe17
+Outlook Lite                                                    e9b154d0-7658-433b-bb25-6b8e0a8a7c59
+Azure Machine Learning OpenAI                                   61c50b89-703d-431d-8d80-1e8618748775
+Azure Edge Zones storage backend                                05d97c70-cb7c-4e66-8138-d5ca7c59d206
+Microsoft Azure Container Apps - Data Plane                     3734c1a4-2bed-4998-a37a-ff1a9e7bf019
+AML Inferencing Frontdoor                                       6608bce8-e060-4e82-bfd2-67ed4f60262f
+AzureContainerService                                           7319c514-987d-4e9b-ac3d-d38c4f427f4c
+Microsoft Azure Policy Insights                                 1d78a85d-813d-46f0-b496-dd72f50a3ec0
+Microsoft Intune                                                0000000a-0000-0000-c000-000000000000
+CosmosDBMongoClusterPrivateEndpoint                             e95a6071-4f90-4971-84e2-492d9323345b
+Microsoft App Access Panel                                      0000000c-0000-0000-c000-000000000000
+Azure AD Identity Governance - Entitlement Management           810dcf14-1858-4bf2-8134-4c369fa3235b
+Azure Iot Hub                                                   89d10474-74af-4874-99a7-c23c2f643083
+Azure Machine Learning Singularity                              607ece82-f922-494f-88b8-30effaf12214
+Azure Healthcare APIs Resource Provider                         894b1496-c6e0-4001-b69c-81b327564ca4
+Microsoft.CustomProviders RP                                    bf8eb16c-7ba7-4b47-86be-ac5e4b2007a5
+M365 License Manager                                            aeb86249-8ea3-49e2-900b-54cc8e308f85
+senhasegura-app                                                 f242cc90-ab41-4bbe-8fe4-6c5de3d2566c
+Common Job Provider                                             a99783bc-5466-4cef-82eb-ebf285d77131
+Azure HDInsight Surrogate Service                               5a543d7c-9c4a-4f90-8cc7-6ae082a5b65b
+ASA Curation Web Tool                                           a15bc1de-f777-408f-9d2b-a27ed19c72ba
+AzureBackupReporting                                            3b2fa68d-a091-48c9-95be-88d572e08fb7
+AzureBackup_Fabric_Service                                      e81c7467-0fc3-4866-b814-c973488361cd
+Microsoft Intune API                                            c161e42e-d4df-4a3d-9b42-e7a3c31f59d4
+Audit GraphAPI Application                                      4bfd5d66-9285-44a1-bb14-14953e8cdf5e
+Branch Connect Web Service                                      57084ef3-d413-4087-a28f-f6f3b1ad7786
+Office 365 Configure                                            aa9ecb1e-fd53-4aaa-a8fe-7a54de2c1334
+PROD Microsoft Defender For Cloud XDR                           3f6aecb4-6dbf-4e45-9141-440abdced562
+Cloud Infrastructure Entitlement Management                     b46c3ac5-9da6-418f-a849-0a07a10b3c6c
+Office365 Zoom                                                  0d38933a-0bbd-41ca-9ebd-28c4b5ba7cb7
+Meru19 First Party App                                          93efed00-6552-4119-833a-422b297199f9
+Application Insights API                                        f5c26e74-f226-4ae8-85f0-b4af0080ac9e
+Azure HDInsight Cluster API                                     7865c1d2-f040-46cc-875f-831a1ef6a28a
+App Protection                                                  c6e44401-4d0a-4542-ab22-ecd4c90d28d7
+Azure OSSRDBMS MySQL Flexible Server BYOK                       cb43afba-eb6b-4cef-bf00-758b6c233beb
+Azure Iot Hub Publisher App                                     29f411f1-b2cf-4043-8ac8-2185d7316811
+Microsoft Azure Container Apps - Control Plane                  7e3bc4fd-85a3-4192-b177-5b8bfc87f42c
+Azure Spring Cloud Marketplace Integration                      86adf623-eea3-4453-9f4a-18134ac1410d
+AzureDatabricks                                                 2ff814a6-3304-4ab8-85cb-cd0e6f879c1d
+Bot Service CMEK Prod                                           27a762be-14e7-4f92-899c-151877d6d497
+Azure Database for PostgreSQL Marlin                            5ed8fe41-c1bc-4c06-a531-d91e1f1c2fac
+Microsoft Modern Contact Master                                 224a7b82-46c9-4d6b-8db0-7360fb444681
+M365DataAtRestEncryption                                        c066d759-24ae-40e7-a56f-027002b5d3e4
+Marketplace Reviews                                             a4c1cdb3-88ab-4d13-bc99-1c46106f0727
+Microsoft Rights Management Services                            00000012-0000-0000-c000-000000000000
+Bot Framework Composer                                          ce48853e-0605-4f77-8746-d70ac63cc6bc
+Microsoft.MileIQ.RESTService                                    b692184e-b47f-4706-b352-84b288d2d9ee
+Azure Managed HSM RP                                            1341df96-0b28-43da-ba24-7a6ce39be816
+Microsoft Intune AAD BitLocker Recovery Key Integration         ccf4d8df-75ce-4107-8ea5-7afd618d4d8a
+Network Watcher                                                 7c33bfcb-8d33-48d6-8e60-dc6404003489
+Azure Multi-Factor Auth Client                                  981f26a1-7f43-403b-a875-f8b09b8cd720
+Azure Machine Learning                                          0736f41a-0425-4b46-bdb5-1563eff02385
+Networking-MNC                                                  6d057c82-a784-47ae-8d12-ca7b38cf06b4
+AzureLockbox                                                    a0551534-cfc9-4e1f-9a7a-65093b32bb38
+Data Classification Service                                     7c99d979-3b9c-4342-97dd-3239678fb300
+Azure Credential Configuration Endpoint Service                 ea890292-c8c8-4433-b5ea-b09d0668e1a6
+Microsoft.SMIT                                                  8fca0a66-c008-4564-a876-ab3ae0fd5cff
+MCAPI Authorization Prod                                        d73f4b35-55c9-48c7-8b10-651f6f2acb2e
+IDML Graph Resolver Service and CAD                             d88a361a-d488-4271-a13f-a83df7dd99c2
+O365 Demeter                                                    982bda36-4632-4165-a46a-9863b1bbcf7d
+Microsoft Graph Command Line Tools                              14d82eec-204b-4c2f-b7e8-296a70dab67e
+Bot Service Resource Provider                                   e6650347-047f-4e51-9386-839384472ea5
+Azure Monitor System                                            11c174dc-1945-4a9a-a36b-c79a0f246b9b
+AAD Request Verification Service - PROD                         c728155f-7b2a-4502-a08b-b8af9b269319
+AzNet Security Guard                                            38808189-fa7a-4d8a-807f-eba01edacca6
+Substrate Instant Revocation Pipeline                           eace8149-b661-472f-b40d-939f89085bd4
+NFV Resource Provider                                           328fd23b-de6e-462c-9433-e207470a5727
+Azure Media Services                                            374b2a64-3b6b-436b-934c-b820eacca870
+Azure Healthcare APIs                                           4f6778d8-5aef-43dc-a1ff-b073724b9495
+Azure Machine Learning Services Asset Notification              b8cf62f3-7cc7-4e32-ab3a-41370ef0cfcf
+Azure Time Series Insights                                      120d688d-1518-4cf7-bd38-182f158850b6
+Microsoft password reset service                                93625bc8-bfe2-437a-97e0-3d0060024faa
+Compute Recommendation Service                                  b9a92e36-2cf8-4f4e-bcb3-9d99e00e14ab
+Azure RBAC Data Plane                                           5861f7fb-5582-4c1a-83c0-fc5ffdb531a6
+Skype for Business Online                                       00000004-0000-0ff1-ce00-000000000000
+EventGrid Data API                                              823c0a78-5de0-4445-a7f5-c2f42d7dc89b
+Microsoft Threat Protection                                     8ee8fdad-f234-4243-8f3b-15c294843740
+Azure Advisor                                                   c39c9bac-9d1f-4dfb-aa29-27f6365e5cb7
+Graph Explorer                                                  de8bc8b5-d9f9-48b1-a8ad-b748da725064
+PowerApps Service                                               475226c6-020e-4fb2-8a90-7a972cbfc1d4
+Azure Container Registry                                        6a0ec4d3-30cb-4a83-91c0-ae56bc0e3d26
+Azure MFA StrongAuthenticationService                           b5a60e17-278b-4c92-a4e2-b9262e66bb28
+Azure Virtual Desktop Client                                    a85cf173-4192-42f8-81fa-777a763e6e2c
+Azure Healthcare APIs RBAC                                      3274406e-4e0a-4852-ba4f-d7226630abb7
+Event Hub MSI App                                               6201d19e-14fb-4472-a2d6-5634a5c97568
+Azure Storage                                                   e406a681-f3d4-42a8-90b6-c2b029497af1
+Microsoft Defender for Cloud Scanner Resource Provider          e0ccf59d-5a20-4a87-a122-f42842cdb86a
+Azure Security Insights                                         98785600-1bb7-4fb9-b9fa-19afe2c8a360
+MicrosoftGuestConfiguration                                     e935b4a5-8968-416d-8414-caed51c782a9
+Azure Information Protection                                    5b20c633-9a48-4a5f-95f6-dae91879051f
+Azure DevOps                                                    499b84ac-1321-427f-aa17-267ca6975798
+Microsoft Defender for Cloud Pricing Resource Provider          cbff9545-769a-4b41-b76e-fbb069e8727e
+Office 365 Import Service                                       3eb95cef-b10f-46fe-94e0-969a3d4c9292
+Microsoft.EventHubs                                             80369ed6-5f11-4dd9-bef3-692475845e77
+Microsoft Device Directory Service                              8f41dc7c-542c-4bdd-8eb3-e60543f607ca
+Azure Kubernetes Service AAD Server                             6dae42f8-4368-4678-94ff-3960e28e3630
+Office 365 Management APIs                                      c5393580-f805-4401-95e8-94b7a6ef2fc2
+Azure Management Groups                                         f2c304cf-8e7e-4c3f-8164-16299ad9d272
+Azure Marketplace Container Management API                      737d58c1-397a-46e7-9d12-7d8c830883c2
+Azure AD Identity Governance - Directory Management             ec245c98-4a90-40c2-955a-88b727d97151
+Azure SQL Virtual Network to Network Resource Provider          76cd24bf-a9fc-4344-b1dc-908275de6d6d
+AzureDnsFrontendApp                                             a0be0c72-870e-46f0-9c49-c98333a996f7
+Microsoft Graph Change Tracking                                 0bf30f3b-4a52-48df-9a82-234910c4a086
+Microsoft Graph                                                 00000003-0000-0000-c000-000000000000
+Metrics Monitor API                                             12743ff8-d3de-49d0-a4ce-6c91a4245ea0
+Office365 Shell SS-Server                                       e8bdeda8-b4a3-4eed-b307-5e2456238a77
+Azure Virtual Desktop                                           9cdead84-a844-4324-93f2-b2e6bb768d07
+Azure Linux VM Sign-In                                          ce6ff14a-7fdc-4685-bbe0-f6afdfcfa8e0
+Application Insights Configuration Service                      6a0a243c-0886-468a-a4c2-eff52c7445da
+Cortana Runtime Service                                         81473081-50b9-469a-b9d8-303109583ecb
+Microsoft Service Trust                                         d6fdaa33-e821-4211-83d0-cf74736489e1
+Microsoft Azure Log Search Alerts                               f6b60513-f290-450e-a2f3-9930de61c5e7
+Windows Store for Business                                      45a330b1-b1ec-4cc1-9161-9f03992aa49f
+Data Migration Service                                          a4bad4aa-bf02-4631-9f78-a64ffdba8150
+Azure Container Scale Sets - CS2                                63ea3c01-7483-456e-8073-d3fed34fbdda
+MicrosoftAzureRedisCache                                        96231a05-34ce-4eb4-aa6a-70759cbb5e83
+OfficeClientService                                             0f698dd4-f011-4d23-a33e-b36416dcb1e6
+Microsoft Device Management EMM API                             8ae6a0b1-a07f-4ec9-927a-afb8d39da81c
+Lifecycle Workflows                                             ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7
+Microsoft Intune AndroidSync                                    d8877f27-09c0-43aa-8113-40151dae8b14
+Microsoft.NotificationHubs                                      3caf7e80-c1dc-4cbc-811c-d281c9d5e45c
+Azure Spring Cloud Domain-Management                            03b39d0f-4213-4864-a245-b1476ec03169
+Backup Management Service                                       262044b1-e2ce-469f-a196-69ab7ada62d3
+PTSS                                                            9f6c88b7-0272-4581-a75a-ec0340824ed1
+Azure AD Notification                                           fc03f97a-9db0-4627-a216-ec98ce54e018
+Azure AD Identity Governance - SPO Management                   396e7f4b-41ea-4851-b04d-65de6cf1b4a3
+AADReporting                                                    1b912ec3-a9dd-4c4d-a53e-76aa7adb28d7
+MDC Data Sensitivity                                            bd6d9218-235b-4abd-b3be-9ff157dcf36c
+Geneva Alert RP                                                 6bccf540-eb86-4037-af03-7fa058c2db75
+Verifiable Credentials Issuer Service                           603b8c59-ba28-40ff-83d1-408eee9a93e5
+Microsoft Azure Stream Analytics                                66f1e791-7bfb-4e18-aed8-1720056421c7
+My Staff                                                        ba9ff945-a723-4ab5-a977-bd8c9044fe61
+Configuration Manager Microservice                              557c67cf-c916-4293-8373-d584996f60ae
+Azure Container Instance Service                                6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
+Azure Machine Learning Services                                 18a66f5f-dbdf-4c17-9dd7-1634712a9cbe
+Microsoft Azure App Service                                     abfa0a7c-a6b6-4736-8310-5855508787cd
+Compute Usage Provider                                          a303894e-f1d8-4a37-bf10-67aa654a0596
+My Profile                                                      8c59ead7-d703-4a27-9e55-c96a0054c8d2
+Windows Azure Security Resource Provider                        8edd93e1-2103-40b4-bd70-6e34e586362d
+Azure Advanced Threat Protection                                7b7531ad-5926-4f2d-8a1d-38495ad33e17
+M365 Pillar Diagnostics Service                                 58ea322b-940c-4d98-affb-345ec4cccb92
+Avs Fleet Rp                                                    1a5e141d-70dd-4594-8442-9fc46fa48686
+Group Configuration Processor                                   1690c5aa-925a-4d0e-836b-722c795bd0d0
+Azure ESTS Service                                              00000001-0000-0000-c000-000000000000
+Microsoft.Azure.SyncFabric                                      00000014-0000-0000-c000-000000000000
+Azure API Management                                            8602e328-9b72-4f2d-a4ae-1387d013a2b3
+Microsoft Remote Desktop                                        a4a365df-50f1-4397-bc59-1a1564b8bb9c
+Microsoft Information Protection Sync Service                   870c4f2e-85b6-4d43-bdda-6ed9a579b725
+DirectoryLookupService                                          9cd0f7df-8b1a-4e54-8c0c-0ef3a51116f6
+Microsoft B2B Admin Worker                                      1e2ca66a-c176-45ea-a877-e87f7231e0ee
+Azure Maps                                                      ba1ea022-5807-41d5-bbeb-292c7e1cf5f6
+Microsoft Information Protection API                            40775b29-2688-46b6-a3b5-b256bd04df9f
+CosmosDB Dedicated Instance                                     36e2398c-9dd3-4f29-9a72-d9f2cfc47ad9
+WindowsUpdate-Service                                           6f0478d5-61a3-4897-a2f2-de09a5a90c7f
+MaintenanceResourceProvider                                     f18474f2-a66a-4bb0-a3c9-9b8d892092fa
+CAS API Security RP                                             56823b05-67d8-413a-b6ab-ad19d7710cf2
+Azns AAD Webhook                                                461e8683-5575-4561-ac7f-899cc907d62a
+Azure Traffic Manager and DNS                                   2cf9eb86-36b5-49dc-86ae-9a63135dfa8c
+Azure Data Explorer                                             2746ea77-4702-4b45-80ca-3c97e680e8b7
+Microsoft Approval Management                                   65d91a3d-ab74-42e6-8a2f-0add61688c74
+Graph Connector Service                                         56c1da01-2129-48f7-9355-af6d59d42766
+Connectors                                                      48af08dc-f6d2-435f-b2a7-069abd99c086
+Azure Service Fabric Resource Provider                          74cb6831-0dbb-4be1-8206-fd4df301cdc2
+Service Bus MSI App                                             eb070ea5-bd17-41f1-ad68-5851f6e71774
+Office 365 Information Protection                               2f3f02c9-5679-4a5c-a605-0de55b07d135
+Office 365 Client Admin                                         3cf6df92-2745-4f6f-bbcf-19b59bcdb62a
+Compute Artifacts Publishing Service                            a8b6bf88-1d1a-4626-b040-9a729ea93c65
+Signup                                                          b4bddae8-ab25-483e-8670-df09b9f1d0ea
+Microsoft Operations Management Suite                           d2a0a418-0aac-4541-82b2-b3142c89da77
+AzureBackup_WBCM_Service                                        c505e273-0ba0-47e7-a0bd-f48042b4524d
+Azure Edge Zones storage                                        1609d3a1-0db2-4818-b854-fe1614f0718a
+Microsoft.Relay                                                 91bb937c-29c2-4275-982f-9465f0caf03d
+Azure Container Registry Application                            76c92352-c057-4cc2-9b1e-f34c32bc58bd
+Microsoft Defender for Cloud Servers Scanner Resource Provider  0c7668b5-3260-4ad0-9f53-34ed54fa19b2
+Azure Search Management                                         408992c7-2af6-4ff1-92e3-65b73d2b5092
+Microsoft.MileIQ.Dashboard                                      f7069a8d-9edc-4300-b365-ae53c9627fc4
+My Apps                                                         2793995e-0a7d-40d7-bd35-6968ba142197
+Microsoft.ServiceBus                                            80a10ef9-8168-493d-abf9-3297c4ef6e3c
+Log Analytics API                                               ca7f3f0b-7d91-482c-8e09-c5d840d0eac5
+Azure Cosmos DB Virtual Network To Network Resource Provider    57c0fc58-a83a-41d0-8ae9-08952659bdfd
+DeploymentScheduler                                             8bbf8725-b3ca-4468-a217-7c8da873186e
+NetworkTrafficAnalyticsService                                  1e3e4475-288f-4018-a376-df66fd7fac5f
+Verifiable Credentials Service Request                          3db474b9-6a0c-4840-96ac-1fceb342124f
+Azure Support - Network Watcher                                 341b7f3d-69b3-47f9-9ce7-5b7f4945fdbd
+Verifiable Credentials Service                                  bb2a64ee-5d29-4b07-a491-25806dc854d3
+MDATPNetworkScanAgent                                           04687a56-4fc2-4e36-b274-b862fb649733
+Windows Azure Active Directory                                  00000002-0000-0000-c000-000000000000
+M365 Admin Services                                             6b91db1b-f05b-405a-a0b2-e3f60b28d645

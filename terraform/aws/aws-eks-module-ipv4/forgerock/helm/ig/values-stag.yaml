@@ -1,0 +1,87 @@
+application:
+  name: ig
+  namespace: fr-ig
+
+  replicas: 5
+  
+  securityContext:
+    runAsGroup: 0
+    runAsUser: 11111
+
+  ports:
+    containerPort: 8080
+    protocol: TCP
+  
+  readinessProbe:
+    scheme: HTTP
+    path: /
+    port: 8080
+    httpHeaders:
+    - name: Host
+      value: status.podIP
+    failureThreshold: 1
+    initialDelaySeconds: 5
+    periodSeconds: 10
+  
+  livenessProbe:
+    scheme: HTTP
+    path: /
+    port: 8080
+    httpHeaders:
+    - name: Host
+      value: status.podIP
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
+    timeoutSeconds: 1
+    failureThreshold: 1
+
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+
+image: 
+  name: devforge1/ig
+  tag: v2023-v4-sample
+
+autoscaling:
+  maxReplicas: 2
+  minReplicas: 1
+  targetCPU: 60
+
+service:
+  port: 8080
+  protocol: TCP
+  targetPort: 8080
+  type: ClusterIP
+
+secret:
+  data: 
+
+ingress:
+  port: 8080
+  path: /
+  ingressClassName: alb
+  metadata:
+    annotations:       
+      ip-address-type: dualstack
+      target-type: ip
+      scheme: internet-facing
+      load-balancer-name: ig-alb
+      listen-ports: '[{"HTTP": 8080}, {"HTTP": 80}, {"HTTPS": 443}, {"HTTPS": 8443}]'
+      tags: Purpose=lab,ApplicationIDName=frig-dev,RSMs=X265140,BusinessUnit=gtcto,CostCenter=713104,__Exception-ELBLogging=0123
+      certificate-arn: arn:aws:acm:us-east-1:895840508849:certificate/15a9bef4-58f6-4392-8616-c69a0f88f7b3
+      ssl-policy: ELBSecurityPolicy-TLS-1-1-2017-01
+      healthy-threshold-count: '2'
+      unhealthy-threshold-count: '2'
+      healthcheck-timeout-seconds: '8'
+      healthcheck-interval-seconds: '30'
+      healthcheck-path: /
+      healthcheck-port: '8080'
+      healthcheck-protocol: HTTP
+      success-codes: '200'
+      #subnets: 
+      #security-groups: 
+      #target-group-attributes: stickiness.enabled=true,stickiness.lb_cookie.duration_seconds=60
+      #load-balancer-attributes: routing.http2.enabled=true

@@ -1,0 +1,4 @@
+configmap:
+  name: helmappconfigmapv1.1
+  data:
+    CUSTOM_HEADER: 'This is DEV!'

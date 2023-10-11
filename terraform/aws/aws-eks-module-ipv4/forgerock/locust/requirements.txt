@@ -1,0 +1,6 @@
+awscli
+nano
+helm
+jq
+kubernetes
+locust
