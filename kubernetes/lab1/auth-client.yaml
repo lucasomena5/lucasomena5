@@ -1,0 +1,73 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    cni.projectcalico.org/containerID: 987d4257cf0b39e2748ef4c2c320b9aa2e061e204c2027a74ec1361a915ef3b4
+    cni.projectcalico.org/podIP: 192.168.194.67/32
+    cni.projectcalico.org/podIPs: 192.168.194.67/32
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{},"labels":{"app":"auth-client"},"name":"auth-client","namespace":"web-auth"},"spec":{"containers":[{"command":["sh","-c","while true; do if curl -s -o /dev/null -m 3 web-auth-server-svc; then echo \"[SUCCESS] Successfully reached auth server!\"; else echo \"[FAIL] Failed to reach auth server!\"; fi; sleep 5; done"],"image":"radial/busyboxplus:curl","name":"busybox"}]}}
+  creationTimestamp: "2023-12-03T00:13:48Z"
+  labels:
+    app: auth-client
+  name: auth-client
+  namespace: web-auth
+  resourceVersion: "1018"
+  uid: 4c0ef5da-2d34-4922-a388-5447686823cd
+spec:
+  containers:
+  - command:
+    - sh
+    - -c
+    - while true; do if curl -s -o /dev/null -m 3 web-auth-server-svc; then echo "[SUCCESS]
+      Successfully reached auth server!"; else echo "[FAIL] Failed to reach auth server!";
+      fi; sleep 5; done
+    image: radial/busyboxplus:curl
+    imagePullPolicy: IfNotPresent
+    name: busybox
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-h9pcp
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: k8s-worker1
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-h9pcp
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace

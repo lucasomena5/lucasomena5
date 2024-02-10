@@ -14,10 +14,6 @@ data:
       - system:masters
       rolearn: arn:aws:iam::022333046937:role/k8sAdmin
       username: admin
-    - groups:
-      - system:masters
-      rolearn: arn:aws:iam::022333046937:role/WSParticipantRole
-      username: admin
   mapUsers: |
     []
 kind: ConfigMap

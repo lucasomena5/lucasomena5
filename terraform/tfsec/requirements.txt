@@ -5,3 +5,4 @@ terragrunt 0.35.13
 python 3.9.6
 aws-vault 6.5.0
 tfsec 1.19.0
+tfsec 1.19.0
