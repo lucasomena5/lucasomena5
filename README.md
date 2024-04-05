@@ -48,7 +48,7 @@
   <img align="center" alt="microsoft-certified-security-compliance-and-identity-fundamentals" width="12%" src="./badges/microsoft-certified-security-compliance-and-identity-fundamentals.png">
   <img align="center" alt="microsoft-certified-azure-security-engineer-associate" width="12%" src="./badges/microsoft-certified-azure-security-engineer-associate.png">
   <br /><br>
-  <img align="center" alt="kcna-kubernetes-and-cloud-native-associate" width="12%" src="./badges/kcna-kubernetes-and-cloud-native-associate-certification.png">
+  <img align="center" alt="kcna-kubernetes-and-cloud-native-associate" width="12%" src="./badges/kcna-kubernetes-and-cloud-native-associate.png">
   <img align="center" alt="cka-certified-kubernetes-administrator" width="12%" src="./badges/cka-certified-kubernetes-administrator.png">
   <img align="center" alt="ckad-certified-kubernetes-application-developer" width="12%" src="./badges/ckad-certified-kubernetes-application-developer.png">
   <img align="center" alt="cks-certified-kubernetes-security-specialist" width="12%" src="./badges/cks-certified-kubernetes-security-specialist.png">
