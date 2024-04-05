@@ -51,6 +51,7 @@
   <img align="center" alt="kcna-kubernetes-and-cloud-native-associate" width="12%" src="./badges/kcna-kubernetes-and-cloud-native-associate-certification.png">
   <img align="center" alt="cka-certified-kubernetes-administrator" width="12%" src="./badges/cka-certified-kubernetes-administrator.png">
   <img align="center" alt="ckad-certified-kubernetes-application-developer" width="12%" src="./badges/ckad-certified-kubernetes-application-developer.png">
+  <img align="center" alt="cks-certified-kubernetes-security-specialist" width="12%" src="./badges/cks-certified-kubernetes-security-specialist.png">
   <br /><br>
   <img align="center" alt="hashicorp-certified-terraform-associate-002" width="12%" src="./badges/hashicorp-certified-terraform-associate-002.png">
   <img align="center" alt="hashicorp-certified-terraform-associate-003" width="12%" src="./badges/hashicorp-certified-terraform-associate-003.png">
