@@ -4,9 +4,9 @@
 provider "aws" {
   region  = var.region
   profile = var.profile
-  /* assume_role {
+  assume_role {
     role_arn = "arn:aws:iam::600908795746:role/tf-acn-role"
-  } */
+  }
 
   default_tags {
     tags = {
