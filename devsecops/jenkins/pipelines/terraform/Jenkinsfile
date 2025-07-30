@@ -15,27 +15,29 @@ pipeline {
         }
         stage("Terraform Init") {
             steps {
-                
-                    sh "ls -la ${env.TF_DIR}"
+                dir("${env.TF_DIR}") {
                     sh "terraform init"
                 }
             }
+        }
         stage("Terraform Validate") {
             steps {
-                    sh "ls -la ${env.TF_DIR}"
+                dir("${env.TF_DIR}") {
                     sh "terraform validate"
                 }
+            }
         }
         stage("Terraform Format") {
             steps {
-                
-                    sh "ls -la ${env.TF_DIR}"
+                dir("${env.TF_DIR}") {
                     sh "terraform fmt -check"
+                }
             }
         }
+        
         stage("Terraform Plan") {
             steps {
-                    sh "ls -la ${env.TF_DIR}"
+                dir("${env.TF_DIR}") {
                     withCredentials([[ $class: "AmazonWebServicesCredentialsBinding", credentialsId: "aws-playground" ]]) {
                         sh """
                             terraform plan \
@@ -44,14 +46,16 @@ pipeline {
                             -out=tfplan
                         """
                     }
+                }
             }
         }
         stage("Terraform Apply") {
             steps {
-                sh "ls -la ${env.TF_DIR}"
-                input message: "Approve Terraform Apply?"
+                dir("${env.TF_DIR}") {
+                    input message: "Approve Terraform Apply?"
                     sh "terraform apply -auto-approve tfplan"
                 }
+            }
         }
     }
 
