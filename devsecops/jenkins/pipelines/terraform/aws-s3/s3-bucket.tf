@@ -1,6 +1,6 @@
 resource "random_id" "bucket_suffix" {
-  byte_length = 6
+  byte_length = 20
 }
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "my-unique-bucket-name-${random_id.bucket_suffix.hex}"
+  bucket = "bucket-${random_id.bucket_suffix.hex}"
 }
