@@ -29,8 +29,8 @@ pipeline {
         }
         stage('Terraform Plan') {
             environment {
-                AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
-                AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
+                AWS_ACCESS_KEY_ID = credentials('aws-playground').accessKey
+                AWS_SECRET_ACCESS_KEY = credentials('aws-playground').secretKey
             }
             steps {
                 sh """terraform plan -var "access-key=${AWS_ACCESS_KEY_ID}" -var "secret-key=${AWS_SECRET_ACCESS_KEY}" -out=tfplan"""
