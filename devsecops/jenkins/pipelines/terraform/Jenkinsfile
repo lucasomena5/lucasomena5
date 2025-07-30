@@ -16,7 +16,7 @@ pipeline {
         stage("Terraform Init") {
             steps {
                 
-                    sh "ls -la ${WORKSPACE}"
+                    sh "ls -la ${WORKSPACE}/devsecops"
                     sh "terraform init"
                 }
             }
