@@ -3,10 +3,10 @@ variable "region" {
   type        = string
   description = "(Required) AWS Region"
   default     = "us-east-1"
-  validation {
-    condition     = contains(["us-east-1"], var.region)
-    error_message = "The current support value is us-east-1."
-  }
+  # validation {
+  #   condition     = contains(["us-east-1"], var.region)
+  #   error_message = "The current support value is us-east-1."
+  # }
 }
 
 variable "access_key" {
