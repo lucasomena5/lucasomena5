@@ -4,7 +4,7 @@ pipeline {
     environment {
         TF_VERSION = "1.5.7"
         TF_WORKSPACE = "default"
-        TF_DIR = "${WORKSPACE}/devsecops/pipelines/terraform/aws-s3/"
+        TF_DIR = "${WORKSPACE}/devsecops/jenkins/pipelines/terraform/aws-s3/"
     }
 
     stages {
@@ -16,7 +16,7 @@ pipeline {
         stage("Terraform Init") {
             steps {
                 
-                    sh "ls -la ${WORKSPACE}/devsecops"
+                    sh "ls -la ${env.TF_DIR}"
                     sh "terraform init"
                 }
             }
