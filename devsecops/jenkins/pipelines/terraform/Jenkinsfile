@@ -16,7 +16,7 @@ pipeline {
         stage("Terraform Init") {
             steps {
                 
-                    sh "ls -la ${env.TF_DIR}"
+                    sh "ls -la ${WORKSPACE}"
                     sh "terraform init"
                 }
             }
