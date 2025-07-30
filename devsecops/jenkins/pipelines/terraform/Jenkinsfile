@@ -41,8 +41,8 @@ pipeline {
                     withCredentials([[ $class: "AmazonWebServicesCredentialsBinding", credentialsId: "aws-playground" ]]) {
                         sh """
                             terraform plan \
-                            -var "access-key=${AWS_ACCESS_KEY_ID}" \
-                            -var "secret-key=${AWS_SECRET_ACCESS_KEY}" \
+                            -var "access_key=${AWS_ACCESS_KEY_ID}" \
+                            -var "secret_key=${AWS_SECRET_ACCESS_KEY}" \
                             -out=tfplan
                         """
                     }
