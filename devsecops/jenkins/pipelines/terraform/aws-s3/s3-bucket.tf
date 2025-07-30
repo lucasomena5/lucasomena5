@@ -1,4 +1,6 @@
-data "aws_account_primary_contact" "cloud_user" {}
+resource "random_id" "bucket_suffix" {
+  byte_length = 6
+}
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "my-unique-bucket-name-${data.aws_account_primary_contact.cloud_user.account_id}"
+  bucket = "my-unique-bucket-name-${random_id.bucket_suffix.hex}"
 }
