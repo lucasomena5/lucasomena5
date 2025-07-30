@@ -20,13 +20,11 @@ pipeline {
                     sh "terraform init"
                 }
             }
-        }
         stage("Terraform Validate") {
             steps {
                     sh "ls -la ${env.TF_DIR}"
                     sh "terraform validate"
                 }
-            }
         }
         stage("Terraform Format") {
             steps {
@@ -61,3 +59,4 @@ pipeline {
             cleanWs()
         }
     }
+}
